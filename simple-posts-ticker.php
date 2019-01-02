@@ -87,10 +87,10 @@ function spt_load_admin_assets() {
     // get current screen
     $current_screen = get_current_screen();
     if ( strpos( $current_screen->base, 'simple-posts-ticker') !== false ) {
-        wp_enqueue_style( 'spt-styles', plugins_url( 'admin/css/admin.min.css', __FILE__ ), array(), SPT_PLUGIN_VERSION.time() );
+        wp_enqueue_style( 'spt-styles', plugins_url( 'admin/css/admin.min.css', __FILE__ ), array(), SPT_PLUGIN_VERSION );
         wp_enqueue_style( 'spt-selectize-css', plugins_url( 'admin/css/selectize.min.css', __FILE__ ), array(), '0.12.6' );
         
-        wp_enqueue_script( 'spt-admin-js', plugins_url( 'admin/js/admin.min.js', __FILE__ ), array(), SPT_PLUGIN_VERSION.time() );
+        wp_enqueue_script( 'spt-admin-js', plugins_url( 'admin/js/admin.min.js', __FILE__ ), array(), SPT_PLUGIN_VERSION );
         wp_enqueue_script( 'spt-selectize-js', plugins_url( 'admin/js/selectize.min.js', __FILE__ ), array(), '0.12.6' );
         
         wp_enqueue_style( 'wp-color-picker' );

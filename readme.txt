@@ -3,7 +3,7 @@ Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
 Requires at least: 3.5
 Tested up to: 5.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires PHP: 5.4
 Donate link: http://bit.ly/2I0Gj60
 License: GPLv3
@@ -103,6 +103,10 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 
 == Changelog ==
 
+= 1.0.2 =
+
+* Fixed: Untranslated Strings.
+
 = 1.0.1 =
 
 * Added: Label Margin.
@@ -112,7 +116,7 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 * Added: Ticker margin.
 * Added: Ticker Padding.
 * Added: Post Info after ticker.
-- Improved: Admin UI.
+* Improved: Admin UI.
 
 = 1.0.0 =
 

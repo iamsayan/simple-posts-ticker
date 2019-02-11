@@ -11,8 +11,6 @@
 
 add_shortcode( 'spt-posts-ticker', 'spt_render_posts_ticker' );
 add_action( 'wp_head', 'spt_custom_style_to_wp_head', 10 );
-add_filter( 'widget_text', 'do_shortcode' );
-add_filter( 'widget_text', 'shortcode_unautop' );
 
 function spt_render_posts_ticker( $atts ) {
 
@@ -29,20 +27,20 @@ function spt_render_posts_ticker( $atts ) {
     $label = isset($spt_settings['spt_show_label']) ? $spt_settings['spt_show_label'] : 'yes';
     $label_text = !empty($spt_settings['spt_label_text']) ? $spt_settings['spt_label_text'] : 'Latest Posts';
     $label_size = !empty($spt_settings['spt_label_font_size']) ? $spt_settings['spt_label_font_size'] : '100%';
-    $label_colour = !empty($spt_settings['spt_label_text_colour']) ? validateHtmlColour($spt_settings['spt_label_text_colour']) : 'inherit';
-    $label_bg_colour = !empty($spt_settings['spt_label_bg_colour']) ? validateHtmlColour($spt_settings['spt_label_bg_colour']) : 'inherit';
+    $label_colour = !empty($spt_settings['spt_label_text_colour']) ? spt_validateHtmlColour($spt_settings['spt_label_text_colour']) : 'inherit';
+    $label_bg_colour = !empty($spt_settings['spt_label_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_label_bg_colour']) : 'inherit';
     $label_margin = !empty($spt_settings['spt_margin']) ? $spt_settings['spt_margin'] : '2px 10px';
     $label_border = isset($spt_settings['spt_border']) ? $spt_settings['spt_border'] : 'solid';
     $label_border_width = !empty($spt_settings['spt_border_width']) ? $spt_settings['spt_border_width'] : '3px';
     $label_border_radius = !empty($spt_settings['spt_border_radius']) ? $spt_settings['spt_border_radius'] : '0px';
-    $label_border_colour = !empty($spt_settings['spt_border_colour']) ? validateHtmlColour($spt_settings['spt_border_colour']) : $label_bg_colour;
+    $label_border_colour = !empty($spt_settings['spt_border_colour']) ? spt_validateHtmlColour($spt_settings['spt_border_colour']) : $label_bg_colour;
     $size = !empty($spt_settings['spt_size']) ? $spt_settings['spt_size'] : '100%';
     $speed = !empty($spt_settings['spt_speed']) ? $spt_settings['spt_speed'] : '50';
     $target = isset($spt_settings['spt_target']) ? $spt_settings['spt_target'] : '_self';
     $nofollow = isset($spt_settings['spt_no_follow']) ? $spt_settings['spt_no_follow'] : 'no';
-    $colour = !empty($spt_settings['spt_ticker_colour']) ? validateHtmlColour($spt_settings['spt_ticker_colour']) : '#333333';
-    $bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? validateHtmlColour($spt_settings['spt_ticker_bg_colour']) : 'inherit';
-    $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? validateHtmlColour($spt_settings['spt_post_info_colour']) : $colour;
+    $colour = !empty($spt_settings['spt_ticker_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_colour']) : '#333333';
+    $bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_bg_colour']) : 'inherit';
+    $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validateHtmlColour($spt_settings['spt_post_info_colour']) : $colour;
     $post_info_sep = !empty($spt_settings['spt_post_info_sep']) ? $spt_settings['spt_post_info_sep'] : ' - ';
     $margin = !empty($spt_settings['spt_ticker_margin']) ? $spt_settings['spt_ticker_margin'] : '2px 0';
     $padding = !empty($spt_settings['spt_ticker_padding']) ? $spt_settings['spt_ticker_padding'] : '0 10px';
@@ -154,7 +152,7 @@ function spt_render_posts_ticker( $atts ) {
     return $content;
 }
 
-function validateHtmlColour( $input ) {
+function spt_validateHtmlColour( $input ) {
 	if ( preg_match( '/^#[a-f0-9]{6}$/i', $input ) ) {
 		return $input;
 	} else {

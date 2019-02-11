@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-01-02 10:43+0530\n"
-"PO-Revision-Date: 2019-01-02 10:43+0530\n"
+"POT-Creation-Date: 2019-02-11 23:04+0530\n"
+"PO-Revision-Date: 2019-02-11 23:04+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid ""
 "Hey, I noticed you've been using Simple Posts Ticker for more than 1 week – "
 "that’s awesome! Could you please do me a BIG favor and give it a <strong>5-"
-"star</strong> rating on WordPress? Just to help us spread the word and boost "
+"star</strong> rating on WordPress? Just to help me spread the word and boost "
 "my motivation."
 msgstr ""
 
@@ -152,6 +152,18 @@ msgid ""
 "marquee style."
 msgstr ""
 
+#: admin/settings-page.php:18
+msgid "Please rate 5 stars if you like Simple Posts Ticker"
+msgstr ""
+
+#: admin/settings-page.php:18
+msgid "Rate 5 stars"
+msgstr ""
+
+#: admin/settings-page.php:19
+msgid "Tweet about Simple Posts Ticker"
+msgstr ""
+
 #: admin/settings-page.php:23
 msgid "Post"
 msgstr ""
@@ -178,7 +190,7 @@ msgstr ""
 
 #: admin/settings-page.php:53 admin/settings-page.php:65
 #: admin/settings-page.php:77 admin/settings-page.php:89
-#: admin/settings-page.php:174
+#: admin/settings-page.php:172
 msgid "Save Settings"
 msgstr ""
 
@@ -198,16 +210,70 @@ msgstr ""
 msgid "Shortcode Info"
 msgstr ""
 
-#: admin/settings-page.php:155
+#: admin/settings-page.php:144
+msgid "Custom"
+msgstr ""
+
+#: admin/settings-page.php:146 admin/settings-page.php:148
+msgid "Buy me a coffee!"
+msgstr ""
+
+#: admin/settings-page.php:149
+#, php-format
+msgid ""
+"Thank you for using %s. If you found the plugin useful buy me a coffee! Your "
+"donation will motivate and make me happy for all the efforts. You can donate "
+"via PayPal."
+msgstr ""
+
+#: admin/settings-page.php:153
 msgid "Please wait..."
 msgstr ""
 
-#: admin/settings-page.php:159
+#: admin/settings-page.php:157
 msgid "Settings Saved Successfully!"
 msgstr ""
 
-#: admin/settings-page.php:168
+#: admin/settings-page.php:166
 msgid "Saving..."
+msgstr ""
+
+#: admin/settings-page.php:182
+msgid "My Other Plugins!"
+msgstr ""
+
+#: admin/settings-page.php:188
+msgid ""
+"Display last update date and time on frontend with 'dateModified' Schema "
+"Markup."
+msgstr ""
+
+#: admin/settings-page.php:196
+msgid ""
+"Ultimate Facebook Comment Solution with instant email notification for any "
+"WordPress Website."
+msgstr ""
+
+#: admin/settings-page.php:204
+msgid ""
+"Add any page extension like .html, .php, .aspx, .htm, .asp, .shtml only to "
+"pages."
+msgstr ""
+
+#: admin/settings-page.php:212
+msgid ""
+"This plugin helps to easily login or register to wordpress by using SMS on "
+"Phone or WhatsApp or Email Verification without any password."
+msgstr ""
+
+#: admin/settings-page.php:220
+msgid ""
+"Add custom code and remove the unwanted meta tags, links from the source "
+"code and many more."
+msgstr ""
+
+#: admin/settings-page.php:228
+msgid "Automatically republish you old evergreen content to grab better SEO."
 msgstr ""
 
 #: simple-posts-ticker.php:78
@@ -342,15 +408,15 @@ msgstr ""
 msgid "Simple Posts Ticker"
 msgstr ""
 
-#: simple-posts-ticker.php:189
+#: simple-posts-ticker.php:188
 msgid "Settings"
 msgstr ""
 
-#: simple-posts-ticker.php:198
+#: simple-posts-ticker.php:197
 msgid "Support"
 msgstr ""
 
-#: simple-posts-ticker.php:199
+#: simple-posts-ticker.php:198
 msgid "Donate"
 msgstr ""
 

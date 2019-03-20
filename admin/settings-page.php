@@ -50,7 +50,7 @@
 				        <div class="inside spt-inside">
                             <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_main_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-main' ); ?>
                         </div>
                     </div>
                     <div id="spt-label" class="postbox" style="display: none;">
@@ -62,7 +62,7 @@
 				        <div class="inside spt-inside">
                             <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_label_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-label' ); ?>
                         </div>
                     </div>
                     <div id="spt-display" class="postbox" style="display: none;">
@@ -74,7 +74,7 @@
 				        <div class="inside spt-inside">
                             <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_settings_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-settings' ); ?>
                         </div>
                     </div>
                     <div id="spt-misc" class="postbox" style="display: none;">
@@ -86,7 +86,7 @@
 				        <div class="inside spt-inside">
                             <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_misc_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-misc' ); ?>
                         </div>
                     </div>
                     <div id="spt-shortcode" class="postbox" style="display: none;">

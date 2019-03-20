@@ -13,10 +13,9 @@ add_shortcode( 'spt-posts-ticker', 'spt_render_posts_ticker' );
 add_action( 'wp_head', 'spt_custom_style_to_wp_head', 10 );
 
 function spt_render_posts_ticker( $atts ) {
+    $spt_settings = get_option('spt_plugin_settings');
 
     global $post;
-    
-    $spt_settings = get_option('spt_plugin_settings');
 
     $num_posts = !empty($spt_settings['spt_num_posts']) ? $spt_settings['spt_num_posts'] : '5';
     $post_type = isset($spt_settings['spt_post_type']) ? $spt_settings['spt_post_type'] : 'post';
@@ -93,7 +92,11 @@ function spt_render_posts_ticker( $atts ) {
     if ( !empty( $atts['category_name'] ) ) {
         $args['category'] = '0';
         $args['category_name'] = $atts['category_name'];
-	}
+    }
+
+    $args = apply_filters( 'spt_ticker_custom_query', $args );
+
+    //error_log( print_r( $args, TRUE ) );
             
     $posts = get_posts( $args );
 

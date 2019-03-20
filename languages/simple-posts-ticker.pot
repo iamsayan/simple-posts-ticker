@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-02-11 23:04+0530\n"
-"PO-Revision-Date: 2019-02-11 23:04+0530\n"
+"POT-Creation-Date: 2019-03-20 23:30+0530\n"
+"PO-Revision-Date: 2019-03-20 23:30+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: simple-posts-ticker.php\n"
@@ -20,6 +20,27 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/donate.php:28
+msgid ""
+"Hey, I noticed you've been using Simple Posts Ticker for more than 2 week – "
+"that’s awesome! If you like Simple Posts Ticker and you are satisfied with "
+"the plugin, isn’t that worth a coffee or two? Please consider donating. "
+"Donations help me to continue support and development of this free plugin! "
+"Thank you very much!"
+msgstr ""
+
+#: admin/donate.php:29
+msgid "Donate Now"
+msgstr ""
+
+#: admin/donate.php:30
+msgid "I already donated"
+msgstr ""
+
+#: admin/donate.php:31 admin/notice.php:31
+msgid "Nope&#44; maybe later"
+msgstr ""
 
 #: admin/notice.php:28
 msgid ""
@@ -35,10 +56,6 @@ msgstr ""
 
 #: admin/notice.php:30
 msgid "I already did"
-msgstr ""
-
-#: admin/notice.php:31
-msgid "Nope&#44; maybe later"
 msgstr ""
 
 #: admin/settings-fields.php:17
@@ -144,6 +161,126 @@ msgstr ""
 
 #: admin/settings-fields.php:389
 msgid "Yes, I want to delete all plugin data at the time of uninstallation."
+msgstr ""
+
+#: admin/settings-loader.php:15
+msgid "Number of Posts to Show:"
+msgstr ""
+
+#: admin/settings-loader.php:16
+msgid "Select Post Type:"
+msgstr ""
+
+#: admin/settings-loader.php:17
+msgid "Orderby Query Method:"
+msgstr ""
+
+#: admin/settings-loader.php:18
+msgid "Post Display Order:"
+msgstr ""
+
+#: admin/settings-loader.php:19
+msgid "Select Post Categories:"
+msgstr ""
+
+#: admin/settings-loader.php:22
+msgid "Show Ticker Label:"
+msgstr ""
+
+#: admin/settings-loader.php:23
+msgid "Ticker Label Text:"
+msgstr ""
+
+#: admin/settings-loader.php:24
+msgid "Ticker Label Font Size:"
+msgstr ""
+
+#: admin/settings-loader.php:25
+msgid "Ticker Label Margin:"
+msgstr ""
+
+#: admin/settings-loader.php:26
+msgid "Label Text Colour:"
+msgstr ""
+
+#: admin/settings-loader.php:27
+msgid "Label Background Colour:"
+msgstr ""
+
+#: admin/settings-loader.php:28
+msgid "Label Border Style:"
+msgstr ""
+
+#: admin/settings-loader.php:29
+msgid "Label Border Width:"
+msgstr ""
+
+#: admin/settings-loader.php:30
+msgid "Label Border Radius:"
+msgstr ""
+
+#: admin/settings-loader.php:31
+msgid "Label Border Colour:"
+msgstr ""
+
+#: admin/settings-loader.php:34
+msgid "Ticker Font Size:"
+msgstr ""
+
+#: admin/settings-loader.php:35
+msgid "Ticker Speed (1-100):"
+msgstr ""
+
+#: admin/settings-loader.php:36
+msgid "Ticker Link Target:"
+msgstr ""
+
+#: admin/settings-loader.php:37
+msgid "Add \"nofollow\" to Link:"
+msgstr ""
+
+#: admin/settings-loader.php:38
+msgid "Ticker Link Colour:"
+msgstr ""
+
+#: admin/settings-loader.php:39
+msgid "Ticker Background Colour:"
+msgstr ""
+
+#: admin/settings-loader.php:40
+msgid "Ticker Margin:"
+msgstr ""
+
+#: admin/settings-loader.php:41
+msgid "Ticker Padding:"
+msgstr ""
+
+#: admin/settings-loader.php:42
+msgid "Ticker Infinite Scrolling:"
+msgstr ""
+
+#: admin/settings-loader.php:43
+msgid "Post Info After Ticker:"
+msgstr ""
+
+#: admin/settings-loader.php:44
+msgid "Post Info Separator:"
+msgstr ""
+
+#: admin/settings-loader.php:45
+msgid "Ticker Post Info Colour:"
+msgstr ""
+
+#: admin/settings-loader.php:46
+msgid "Ticker No Content Text:"
+msgstr ""
+
+#: admin/settings-loader.php:49
+msgid "Custom CSS Code:"
+msgstr ""
+
+#: admin/settings-loader.php:50
+msgid "Delete Plugin Data?"
 msgstr ""
 
 #: admin/settings-page.php:16
@@ -276,147 +413,27 @@ msgstr ""
 msgid "Automatically republish you old evergreen content to grab better SEO."
 msgstr ""
 
-#: simple-posts-ticker.php:78
+#: simple-posts-ticker.php:81
 #, php-format
 msgid ""
 "Thanks for installing %1$s v%2$s plugin. Click <a href=\"%3$s\">here</a> to "
 "configure plugin settings."
 msgstr ""
 
-#: simple-posts-ticker.php:127
-msgid "Number of Posts to Show:"
-msgstr ""
-
-#: simple-posts-ticker.php:128
-msgid "Select Post Type:"
-msgstr ""
-
-#: simple-posts-ticker.php:129
-msgid "Orderby Query Method:"
-msgstr ""
-
-#: simple-posts-ticker.php:130
-msgid "Post Display Order:"
-msgstr ""
-
-#: simple-posts-ticker.php:131
-msgid "Select Post Categories:"
-msgstr ""
-
-#: simple-posts-ticker.php:134
-msgid "Show Ticker Label:"
-msgstr ""
-
-#: simple-posts-ticker.php:135
-msgid "Ticker Label Text:"
-msgstr ""
-
-#: simple-posts-ticker.php:136
-msgid "Ticker Label Font Size:"
-msgstr ""
-
-#: simple-posts-ticker.php:137
-msgid "Ticker Label Margin:"
-msgstr ""
-
-#: simple-posts-ticker.php:138
-msgid "Label Text Colour:"
-msgstr ""
-
-#: simple-posts-ticker.php:139
-msgid "Label Background Colour:"
-msgstr ""
-
-#: simple-posts-ticker.php:140
-msgid "Label Border Style:"
-msgstr ""
-
-#: simple-posts-ticker.php:141
-msgid "Label Border Width:"
-msgstr ""
-
-#: simple-posts-ticker.php:142
-msgid "Label Border Radius:"
-msgstr ""
-
-#: simple-posts-ticker.php:143
-msgid "Label Border Colour:"
-msgstr ""
-
-#: simple-posts-ticker.php:146
-msgid "Ticker Font Size:"
-msgstr ""
-
-#: simple-posts-ticker.php:147
-msgid "Ticker Speed (1-100):"
-msgstr ""
-
-#: simple-posts-ticker.php:148
-msgid "Ticker Link Target:"
-msgstr ""
-
-#: simple-posts-ticker.php:149
-msgid "Add \"nofollow\" to Link:"
-msgstr ""
-
-#: simple-posts-ticker.php:150
-msgid "Ticker Link Colour:"
-msgstr ""
-
-#: simple-posts-ticker.php:151
-msgid "Ticker Background Colour:"
-msgstr ""
-
-#: simple-posts-ticker.php:152
-msgid "Ticker Margin:"
-msgstr ""
-
-#: simple-posts-ticker.php:153
-msgid "Ticker Padding:"
-msgstr ""
-
-#: simple-posts-ticker.php:154
-msgid "Ticker Infinite Scrolling:"
-msgstr ""
-
-#: simple-posts-ticker.php:155
-msgid "Post Info After Ticker:"
-msgstr ""
-
-#: simple-posts-ticker.php:156
-msgid "Post Info Separator:"
-msgstr ""
-
-#: simple-posts-ticker.php:157
-msgid "Ticker Post Info Colour:"
-msgstr ""
-
-#: simple-posts-ticker.php:158
-msgid "Ticker No Content Text:"
-msgstr ""
-
-#: simple-posts-ticker.php:161
-msgid "Custom CSS Code:"
-msgstr ""
-
-#: simple-posts-ticker.php:162
-msgid "Delete Plugin Data?"
-msgstr ""
-
 #. Plugin Name of the plugin/theme
-#: simple-posts-ticker.php:175
+#: simple-posts-ticker.php:141
 msgid "Simple Posts Ticker"
 msgstr ""
 
-#: simple-posts-ticker.php:188
+#: simple-posts-ticker.php:156
 msgid "Settings"
 msgstr ""
 
-#: simple-posts-ticker.php:197
+#: simple-posts-ticker.php:165
 msgid "Support"
 msgstr ""
 
-#: simple-posts-ticker.php:198
+#: simple-posts-ticker.php:166
 msgid "Donate"
 msgstr ""
 

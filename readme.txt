@@ -1,10 +1,10 @@
 === Simple Posts Ticker ===
 Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
-Requires at least: 3.5
-Tested up to: 5.0
-Stable tag: 1.0.2
-Requires PHP: 5.4
+Requires at least: 4.0
+Tested up to: 5.1
+Stable tag: 1.0.3
+Requires PHP: 5.6
 Donate link: http://bit.ly/2I0Gj60
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -64,7 +64,7 @@ Use the options/attributes below to override the original settings.
 
 #### Compatibility
 
-* This plugin is fully compatible with WordPress Version 3.5 and beyond and also compatible with any WordPress theme.
+* This plugin is fully compatible with WordPress Version 4.0 and beyond and also compatible with any WordPress theme.
 
 #### Support
 
@@ -102,6 +102,12 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 5. Others
 
 == Changelog ==
+
+= 1.0.3 =
+
+* Added: A filter to run custom query.
+* Fixed: Duplicate HTML Element warning in browser console on Admin Settings Page.
+* Removed: Some unwanted code from plugin codebase.
 
 = 1.0.2 =
 

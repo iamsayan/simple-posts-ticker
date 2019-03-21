@@ -23,7 +23,7 @@ Like Simple Posts Ticker plugin? Consider leaving a [5 star review](https://word
 
 ### Shortcode instructions
 
-Using default settings: `[spt-posts-ticker]`
+Using default settings: **[spt-posts-ticker]**
 
 Use the options/attributes below to override the original settings.
 
@@ -53,7 +53,8 @@ Use the options/attributes below to override the original settings.
 * **post_info** - choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt"
 * **post_info_colour** - if the post info is shown, choose the colour of the post info
 * **post_info_sep** - if the post info is shown, choose the seperator between link and info
-* **no_content_text** - set the text to display if no matching posts are found 
+* **no_content** - set the text display status if no matching posts are found
+* **no_content_text** - set the text to display if no matching posts are found
 
 #### Compatibility
 

@@ -50,6 +50,16 @@ jQuery(document).ready(function($) {
 
     $('.spt-color-picker').wpColorPicker();
 
+    $("#spt-post-type").change(function() {
+        if ($('#spt-post-type').val() == 'post') {
+            $('.spt-cat').show();
+        }
+        if ($('#spt-post-type').val() != 'post') {
+            $('.spt-cat').hide();
+        }
+    });
+    $("#spt-post-type").trigger('change');
+
     $("#spt-info").change(function() {
         if ($('#spt-info').val() == 'none') {
             $('.spt-info-sep').hide();
@@ -73,6 +83,18 @@ jQuery(document).ready(function($) {
         }
     });
     $("#spt-border").trigger('change');
+
+    $("#spt-nocontent-type").change(function() {
+        if ($('#spt-nocontent-type').val() == 'none') {
+            $('.spt-nocontent').hide();
+            $('#spt-nocontent').removeAttr('required');
+        }
+        if ($('#spt-nocontent-type').val() != 'none') {
+            $('.spt-nocontent').show();
+            $('#spt-nocontent').attr('required', 'required');
+        }
+    });
+    $("#spt-nocontent-type").trigger('change');
 
     $(".coffee-amt").change(function() {
         var btn = $('.buy-coffee-btn');

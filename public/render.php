@@ -44,7 +44,8 @@ function spt_render_posts_ticker( $atts ) {
     $margin = !empty($spt_settings['spt_ticker_margin']) ? $spt_settings['spt_ticker_margin'] : '2px 0';
     $padding = !empty($spt_settings['spt_ticker_padding']) ? $spt_settings['spt_ticker_padding'] : '0 10px';
     $gap = isset($spt_settings['spt_gap']) ? $spt_settings['spt_gap'] : 'false';
-    $no_content = !empty($spt_settings['spt_no_content_text']) ? $spt_settings['spt_no_content_text'] : 'There are no matching posts to show';
+    $no_content = isset($spt_settings['spt_no_content_type']) ? $spt_settings['spt_no_content_type'] : 'none';
+    $no_content_text = !empty($spt_settings['spt_no_content_text']) ? $spt_settings['spt_no_content_text'] : 'There are no matching posts to show';
 
     $atts = shortcode_atts(
 		array(
@@ -75,7 +76,8 @@ function spt_render_posts_ticker( $atts ) {
             'post_info'                 => $post_info,
             'post_info_colour'          => $post_info_colour,
             'post_info_sep'             => $post_info_sep,
-            'no_content_text'           => $no_content,
+            'no_content'                => $no_content,
+            'no_content_text'           => $no_content_text,
             'category_name'             => '',
 		), $atts, 'spt-posts-ticker' );
 
@@ -152,6 +154,13 @@ function spt_render_posts_ticker( $atts ) {
     if ( $atts['show_label'] == 'yes' ) {
         $content .= '</div>'; // end border container
     }
+
+    if ( $atts['no_content'] == 'none' ) {
+        if ( count( $posts ) == 0 ) {
+            $content = '';
+        }
+    }
+
     return $content;
 }
 
@@ -176,3 +185,18 @@ function spt_custom_style_to_wp_head() {
     $style .= '</style>'."\n";
     echo $style;
 }
+
+
+function spt_post_ticker_todays_post( $args ) { 
+    $today = getdate();
+    $args['date_query'] = array(
+		array(
+			'year'  => $today['year'],
+			'month' => $today['mon'],
+			'day'   => $today['mday'],
+        ),
+    );
+    return $args;
+}
+// debug
+//add_filter( 'spt_ticker_custom_query', 'spt_post_ticker_todays_post', 10, 1 );

@@ -48,9 +48,9 @@ function spt_show_orderby_display() {
         $spt_settings['spt_show_orderby'] = 'date';
     }
     $items = array(
-        'date'      => 'Published Date',
-        'modified'  => 'Modified Date',
-        'rand'      => 'Random',
+        'date'      => __( 'Published Date', 'simple-posts-ticker' ),
+        'modified'  => __( 'Modified Date', 'simple-posts-ticker' ),
+        'rand'      => __( 'Random', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-orderby" name="spt_plugin_settings[spt_show_orderby]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -70,8 +70,8 @@ function spt_show_order_display() {
         $spt_settings['spt_show_order'] = 'DESC';
     }
     $items = array(
-        'DESC'   => 'Decending',
-        'ASC'    => 'Ascending'
+        'DESC'   => __( 'Decending', 'simple-posts-ticker' ),
+        'ASC'    => __( 'Ascending', 'simple-posts-ticker' )
     );
     echo '<select id="spt-order" name="spt_plugin_settings[spt_show_order]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -114,8 +114,8 @@ function spt_show_label_display() {
         $spt_settings['spt_show_label'] = 'yes';
     }
     $items = array(
-        'yes'  => 'Yes',
-        'no'   => 'No',
+        'yes'  => __( 'Yes', 'simple-posts-ticker' ),
+        'no'   => __( 'No', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-ticker-label" name="spt_plugin_settings[spt_show_label]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -174,11 +174,11 @@ function spt_border_display() {
         $spt_settings['spt_border'] = 'solid';
     }
     $items = array(
-        'none'     => 'None',
-        'solid'    => 'Solid',
-        'dotted'   => 'Dotted',
-        'dashed'   => 'Dashed',
-        'double'   => 'Double',
+        'none'     => __( 'None', 'simple-posts-ticker' ),
+        'solid'    => __( 'Solid', 'simple-posts-ticker' ),
+        'dotted'   => __( 'Dotted', 'simple-posts-ticker' ),
+        'dashed'   => __( 'Dashed', 'simple-posts-ticker' ),
+        'double'   => __( 'Double', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-border" name="spt_plugin_settings[spt_border]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -240,8 +240,8 @@ function spt_target_display() {
         $spt_settings['spt_target'] = '_self';
     }
     $items = array(
-        '_self'    => 'Same Window (_self)',
-        '_blank'   => 'New Window (_blank)',
+        '_self'    => __( 'Same Window (_self)', 'simple-posts-ticker' ),
+        '_blank'   => __( 'New Window (_blank)', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-window" name="spt_plugin_settings[spt_target]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -261,8 +261,8 @@ function spt_no_follow_display() {
         $spt_settings['spt_no_follow'] = 'no';
     }
     $items = array(
-        'yes'  => 'Yes',
-        'no'   => 'No',
+        'yes'  => __( 'Yes', 'simple-posts-ticker' ),
+        'no'   => __( 'No', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-no-follow" name="spt_plugin_settings[spt_no_follow]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -312,8 +312,8 @@ function spt_gap_display() {
         $spt_settings['spt_gap'] = 'false';
     }
     $items = array(
-        'true'  => 'Yes',
-        'false' => 'No',
+        'true'  => __( 'Yes', 'simple-posts-ticker' ),
+        'false' => __( 'No', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-gap" name="spt_plugin_settings[spt_gap]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -333,12 +333,12 @@ function spt_show_info_display() {
         $spt_settings['spt_show_info'] = 'none';
     }
     $items = array(
-        'none'        => 'None',
-        'pub_date'    => 'Post Published Date',
-        'mod_date'    => 'Post Modified Date',
-        'pub_author'  => 'Post Original Author',
-        'mod_author'  => 'Post Modified Author',
-        'excerpt'     => 'Post Excerpt',
+        'none'        => __( 'None', 'simple-posts-ticker' ),
+        'pub_date'    => __( 'Post Published Date', 'simple-posts-ticker' ),
+        'mod_date'    => __( 'Post Modified Date', 'simple-posts-ticker' ),
+        'pub_author'  => __( 'Post Original Author', 'simple-posts-ticker' ),
+        'mod_author'  => __( 'Post Modified Author', 'simple-posts-ticker' ),
+        'excerpt'     => __( 'Post Excerpt', 'simple-posts-ticker' ),
     );
     echo '<select id="spt-info" name="spt_plugin_settings[spt_show_info]" style="width:30%;">';
     foreach( $items as $item => $label ) {
@@ -366,10 +366,31 @@ function spt_post_info_colour_display() {
     <?php
 }
 
+function spt_no_content_type_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_no_content_type']) ) {
+        $spt_settings['spt_no_content_type'] = 'none';
+    }
+    $items = array(
+        'none'  => __( 'Show Nothing', 'simple-posts-ticker' ),
+        'text'  => __( 'Show a Message', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-nocontent-type" name="spt_plugin_settings[spt_no_content_type]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_no_content_type'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set what you want to do when there are no posts available to show.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
 function spt_no_content_text_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_no_content_text']) ) {
-        $spt_settings['spt_no_content_text'] = 'There are no matching posts to show';
+        $spt_settings['spt_no_content_text'] = __( 'There are no matching posts to show', 'simple-posts-ticker' );
     }
     ?>  <input id="spt-nocontent" name="spt_plugin_settings[spt_no_content_text]" type="text" size="55" style="width:55%;" required value="<?php if (isset($spt_settings['spt_no_content_text'])) { echo $spt_settings['spt_no_content_text']; } ?>" />
         &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the text to display if no matching posts are found.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>

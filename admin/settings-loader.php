@@ -16,7 +16,7 @@ function spt_register_plugin_settings() {
         add_settings_field('spt_post_type', __( 'Select Post Type:', 'simple-posts-ticker' ), 'spt_post_type_display', 'spt_plugin_main_option', 'spt_plugin_main_section', array( 'label_for' => 'spt-post-type' ));
         add_settings_field('spt_show_orderby', __( 'Orderby Query Method:', 'simple-posts-ticker' ), 'spt_show_orderby_display', 'spt_plugin_main_option', 'spt_plugin_main_section', array( 'label_for' => 'spt-orderby' ));
         add_settings_field('spt_show_order', __( 'Post Display Order:', 'simple-posts-ticker' ), 'spt_show_order_display', 'spt_plugin_main_option', 'spt_plugin_main_section', array( 'label_for' => 'spt-order' ));
-        add_settings_field('spt_post_cat', __( 'Select Post Categories:', 'simple-posts-ticker' ), 'spt_post_cat_display', 'spt_plugin_main_option', 'spt_plugin_main_section', array( 'label_for' => 'spt-cat' ));
+        add_settings_field('spt_post_cat', __( 'Select Post Categories:', 'simple-posts-ticker' ), 'spt_post_cat_display', 'spt_plugin_main_option', 'spt_plugin_main_section', array( 'label_for' => 'spt-cat', 'class' => 'spt-cat' ));
         
     add_settings_section('spt_plugin_label_section', '', null, 'spt_plugin_label_option');
         add_settings_field('spt_show_label', __( 'Show Ticker Label:', 'simple-posts-ticker' ), 'spt_show_label_display', 'spt_plugin_label_option', 'spt_plugin_label_section', array( 'label_for' => 'spt-ticker-label' ));
@@ -43,7 +43,8 @@ function spt_register_plugin_settings() {
         add_settings_field('spt_show_info', __( 'Post Info After Ticker:', 'simple-posts-ticker' ), 'spt_show_info_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-info' ));
         add_settings_field('spt_post_info_sep', __( 'Post Info Separator:', 'simple-posts-ticker' ), 'spt_post_info_sep_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-info-sep', 'class' => 'spt-info-sep' ));
         add_settings_field('spt_post_info_colour', __( 'Ticker Post Info Colour:', 'simple-posts-ticker' ), 'spt_post_info_colour_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-info-colour', 'class' => 'spt-info-colour' ));
-        add_settings_field('spt_no_content_text', __( 'Ticker No Content Text:', 'simple-posts-ticker' ), 'spt_no_content_text_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-nocontent' ));
+        add_settings_field('spt_no_content_type', __( 'Ticker No Content Action:', 'simple-posts-ticker' ), 'spt_no_content_type_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-nocontent-type' ));
+        add_settings_field('spt_no_content_text', __( 'Ticker No Content Text:', 'simple-posts-ticker' ), 'spt_no_content_text_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-nocontent', 'class' => 'spt-nocontent' ));
         
     add_settings_section('spt_plugin_misc_section', '', null, 'spt_plugin_misc_option');
         add_settings_field('spt_custom_css', __( 'Custom CSS Code:', 'simple-posts-ticker' ), 'spt_custom_css_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-css' ));

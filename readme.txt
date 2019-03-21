@@ -3,7 +3,7 @@ Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
 Requires at least: 4.0
 Tested up to: 5.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 5.6
 Donate link: http://bit.ly/2I0Gj60
 License: GPLv3
@@ -30,7 +30,7 @@ Like Simple Posts Ticker plugin? Consider leaving a [5 star review](https://word
 
 ### Shortcode instructions
 
-Using default settings: `[spt-posts-ticker]`
+Using default settings: **[spt-posts-ticker]**
 
 Use the options/attributes below to override the original settings.
 
@@ -60,6 +60,7 @@ Use the options/attributes below to override the original settings.
 * **post_info** - choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt"
 * **post_info_colour** - if the post info is shown, choose the colour of the post info
 * **post_info_sep** - if the post info is shown, choose the seperator between link and info
+* **no_content** - set the text display status if no matching posts are found
 * **no_content_text** - set the text to display if no matching posts are found
 
 #### Compatibility
@@ -102,6 +103,12 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 5. Others
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Added: Option to hide posts ticker if there are no posts available to show.
+* Fixed: A error notice.
+* Fixed: Some untranslated strings.
 
 = 1.0.3 =
 

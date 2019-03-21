@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-03-20 23:30+0530\n"
-"PO-Revision-Date: 2019-03-20 23:30+0530\n"
+"POT-Creation-Date: 2019-03-21 09:20+0530\n"
+"PO-Revision-Date: 2019-03-21 09:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -66,8 +66,28 @@ msgstr ""
 msgid "Select the type of post you want to show in ticker."
 msgstr ""
 
+#: admin/settings-fields.php:51
+msgid "Published Date"
+msgstr ""
+
+#: admin/settings-fields.php:52
+msgid "Modified Date"
+msgstr ""
+
+#: admin/settings-fields.php:53
+msgid "Random"
+msgstr ""
+
 #: admin/settings-fields.php:62
 msgid "Select the query method of getting posts from database."
+msgstr ""
+
+#: admin/settings-fields.php:73
+msgid "Decending"
+msgstr ""
+
+#: admin/settings-fields.php:74
+msgid "Ascending"
 msgstr ""
 
 #: admin/settings-fields.php:83
@@ -78,6 +98,16 @@ msgstr ""
 msgid ""
 "Select the category you want to get posts from that to show on Posts Ticker. "
 "Leave blank if you want to include all category."
+msgstr ""
+
+#: admin/settings-fields.php:117 admin/settings-fields.php:264
+#: admin/settings-fields.php:315
+msgid "Yes"
+msgstr ""
+
+#: admin/settings-fields.php:118 admin/settings-fields.php:265
+#: admin/settings-fields.php:316
+msgid "No"
 msgstr ""
 
 #: admin/settings-fields.php:127
@@ -95,6 +125,26 @@ msgstr ""
 #: admin/settings-fields.php:154
 msgid ""
 "Set the margin of the ticker label from here. Click on the icon for more."
+msgstr ""
+
+#: admin/settings-fields.php:177 admin/settings-fields.php:336
+msgid "None"
+msgstr ""
+
+#: admin/settings-fields.php:178
+msgid "Solid"
+msgstr ""
+
+#: admin/settings-fields.php:179
+msgid "Dotted"
+msgstr ""
+
+#: admin/settings-fields.php:180
+msgid "Dashed"
+msgstr ""
+
+#: admin/settings-fields.php:181
+msgid "Double"
 msgstr ""
 
 #: admin/settings-fields.php:190
@@ -117,6 +167,14 @@ msgstr ""
 msgid ""
 "Select the the speed to scroll by, in pixels per second. Higher number "
 "indicates high speed and lower number indicates low speed."
+msgstr ""
+
+#: admin/settings-fields.php:243
+msgid "Same Window (_self)"
+msgstr ""
+
+#: admin/settings-fields.php:244
+msgid "New Window (_blank)"
 msgstr ""
 
 #: admin/settings-fields.php:253
@@ -144,22 +202,58 @@ msgid ""
 "style marquee."
 msgstr ""
 
+#: admin/settings-fields.php:337
+msgid "Post Published Date"
+msgstr ""
+
+#: admin/settings-fields.php:338
+msgid "Post Modified Date"
+msgstr ""
+
+#: admin/settings-fields.php:339
+msgid "Post Original Author"
+msgstr ""
+
+#: admin/settings-fields.php:340
+msgid "Post Modified Author"
+msgstr ""
+
+#: admin/settings-fields.php:341
+msgid "Post Excerpt"
+msgstr ""
+
 #: admin/settings-fields.php:350
 msgid ""
 "Set the visibility of post excerpt to show the excerpt for each post in "
 "Posts Ticker."
 msgstr ""
 
-#: admin/settings-fields.php:375
+#: admin/settings-fields.php:376
+msgid "Show Nothing"
+msgstr ""
+
+#: admin/settings-fields.php:377
+msgid "Show a Message"
+msgstr ""
+
+#: admin/settings-fields.php:386
+msgid "Set what you want to do when there are no posts available to show."
+msgstr ""
+
+#: admin/settings-fields.php:393
+msgid "There are no matching posts to show"
+msgstr ""
+
+#: admin/settings-fields.php:396
 msgid "Set the text to display if no matching posts are found."
 msgstr ""
 
-#: admin/settings-fields.php:382
+#: admin/settings-fields.php:403
 #, php-format
 msgid "Do not add %s tag. This tag is not required, as it is already added."
 msgstr ""
 
-#: admin/settings-fields.php:389
+#: admin/settings-fields.php:410
 msgid "Yes, I want to delete all plugin data at the time of uninstallation."
 msgstr ""
 
@@ -272,14 +366,18 @@ msgid "Ticker Post Info Colour:"
 msgstr ""
 
 #: admin/settings-loader.php:46
+msgid "Ticker No Content Action:"
+msgstr ""
+
+#: admin/settings-loader.php:47
 msgid "Ticker No Content Text:"
 msgstr ""
 
-#: admin/settings-loader.php:49
+#: admin/settings-loader.php:50
 msgid "Custom CSS Code:"
 msgstr ""
 
-#: admin/settings-loader.php:50
+#: admin/settings-loader.php:51
 msgid "Delete Plugin Data?"
 msgstr ""
 
@@ -327,7 +425,7 @@ msgstr ""
 
 #: admin/settings-page.php:53 admin/settings-page.php:65
 #: admin/settings-page.php:77 admin/settings-page.php:89
-#: admin/settings-page.php:172
+#: admin/settings-page.php:173
 msgid "Save Settings"
 msgstr ""
 
@@ -347,15 +445,15 @@ msgstr ""
 msgid "Shortcode Info"
 msgstr ""
 
-#: admin/settings-page.php:144
+#: admin/settings-page.php:145
 msgid "Custom"
 msgstr ""
 
-#: admin/settings-page.php:146 admin/settings-page.php:148
+#: admin/settings-page.php:147 admin/settings-page.php:149
 msgid "Buy me a coffee!"
 msgstr ""
 
-#: admin/settings-page.php:149
+#: admin/settings-page.php:150
 #, php-format
 msgid ""
 "Thank you for using %s. If you found the plugin useful buy me a coffee! Your "
@@ -363,53 +461,53 @@ msgid ""
 "via PayPal."
 msgstr ""
 
-#: admin/settings-page.php:153
+#: admin/settings-page.php:154
 msgid "Please wait..."
 msgstr ""
 
-#: admin/settings-page.php:157
+#: admin/settings-page.php:158
 msgid "Settings Saved Successfully!"
 msgstr ""
 
-#: admin/settings-page.php:166
+#: admin/settings-page.php:167
 msgid "Saving..."
 msgstr ""
 
-#: admin/settings-page.php:182
+#: admin/settings-page.php:183
 msgid "My Other Plugins!"
 msgstr ""
 
-#: admin/settings-page.php:188
+#: admin/settings-page.php:189
 msgid ""
 "Display last update date and time on frontend with 'dateModified' Schema "
 "Markup."
 msgstr ""
 
-#: admin/settings-page.php:196
+#: admin/settings-page.php:197
 msgid ""
 "Ultimate Facebook Comment Solution with instant email notification for any "
 "WordPress Website."
 msgstr ""
 
-#: admin/settings-page.php:204
+#: admin/settings-page.php:205
 msgid ""
 "Add any page extension like .html, .php, .aspx, .htm, .asp, .shtml only to "
 "pages."
 msgstr ""
 
-#: admin/settings-page.php:212
+#: admin/settings-page.php:213
 msgid ""
 "This plugin helps to easily login or register to wordpress by using SMS on "
 "Phone or WhatsApp or Email Verification without any password."
 msgstr ""
 
-#: admin/settings-page.php:220
+#: admin/settings-page.php:221
 msgid ""
 "Add custom code and remove the unwanted meta tags, links from the source "
 "code and many more."
 msgstr ""
 
-#: admin/settings-page.php:228
+#: admin/settings-page.php:229
 msgid "Automatically republish you old evergreen content to grab better SEO."
 msgstr ""
 
@@ -421,19 +519,19 @@ msgid ""
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: simple-posts-ticker.php:141
+#: simple-posts-ticker.php:145
 msgid "Simple Posts Ticker"
 msgstr ""
 
-#: simple-posts-ticker.php:156
+#: simple-posts-ticker.php:160
 msgid "Settings"
 msgstr ""
 
-#: simple-posts-ticker.php:165
+#: simple-posts-ticker.php:169
 msgid "Support"
 msgstr ""
 
-#: simple-posts-ticker.php:166
+#: simple-posts-ticker.php:170
 msgid "Donate"
 msgstr ""
 

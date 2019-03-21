@@ -3,7 +3,7 @@
  * Plugin Name: Simple Posts Ticker
  * Plugin URI: https://wordpress.org/plugins/simple-posts-ticker/
  * Description: The Simple Posts Ticker plugin is a small tool that shows your most recent posts in a marquee style.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Sayan Datta
  * Author URI: https://profiles.wordpress.org/infosatech/
  * License: GPLv3
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define ( 'SPT_PLUGIN_VERSION', '1.0.3' );
+define ( 'SPT_PLUGIN_VERSION', '1.0.4' );
 
 // debug scripts
 //define ( 'SPT_PLUGIN_ENABLE_DEBUG', 'true' );
@@ -110,6 +110,10 @@ function spt_load_admin_assets() {
 add_action( 'admin_enqueue_scripts', 'spt_load_admin_assets' );
 
 function spt_enqueue_frontend_files() {
+    $ver = SPT_PLUGIN_VERSION;
+    if( defined( 'SPT_PLUGIN_ENABLE_DEBUG' ) ) {
+        $ver = time();
+    }
     wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/posts-ticker.min.js', __FILE__ ), array( 'jquery' ), $ver );
 }
 

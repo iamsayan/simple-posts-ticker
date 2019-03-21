@@ -124,6 +124,7 @@
                             <li><strong>post_info</strong> - choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt"</li>
                             <li><strong>post_info_colour</strong> - if the post info is shown, choose the colour of the post info</li>
                             <li><strong>post_info_sep</strong> - if the post info is shown, choose the seperator between link and info</li>
+                            <li><strong>no_content</strong> - set the text display action if no matching posts are found</li>
                             <li><strong>no_content_text</strong> - set the text to display if no matching posts are found</li>
                         </div>
                     </div>

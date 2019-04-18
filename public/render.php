@@ -182,7 +182,7 @@ function spt_custom_style_to_wp_head() {
     $style .= '<style type="text/css">'."\n";
     $style .= '.spt-content { white-space: nowrap; display: inline-block; position: relative; left: 0px; }'."\n";
     if( !empty( $spt_settings['spt_custom_css'] ) ) {
-        $style .= esc_html( $spt_settings['spt_custom_css'] )."\n";
+        $style .= $spt_settings['spt_custom_css']."\n";
     }
     $style .= '</style>'."\n";
 

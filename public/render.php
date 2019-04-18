@@ -14,7 +14,6 @@ add_action( 'wp_head', 'spt_custom_style_to_wp_head', 10 );
 
 function spt_render_posts_ticker( $atts ) {
     $spt_settings = get_option('spt_plugin_settings');
-
     global $post;
 
     $num_posts = !empty($spt_settings['spt_num_posts']) ? $spt_settings['spt_num_posts'] : '5';
@@ -40,7 +39,7 @@ function spt_render_posts_ticker( $atts ) {
     $colour = !empty($spt_settings['spt_ticker_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_colour']) : '#333333';
     $bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_bg_colour']) : 'inherit';
     $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validateHtmlColour($spt_settings['spt_post_info_colour']) : $colour;
-    $post_info_sep = !empty($spt_settings['spt_post_info_sep']) ? $spt_settings['spt_post_info_sep'] : ' - ';
+    $post_info_sep = !empty($spt_settings['spt_post_info_sep']) ? $spt_settings['spt_post_info_sep'] : '';
     $margin = !empty($spt_settings['spt_ticker_margin']) ? $spt_settings['spt_ticker_margin'] : '2px 0';
     $padding = !empty($spt_settings['spt_ticker_padding']) ? $spt_settings['spt_ticker_padding'] : '0 10px';
     $gap = isset($spt_settings['spt_gap']) ? $spt_settings['spt_gap'] : 'false';
@@ -79,6 +78,8 @@ function spt_render_posts_ticker( $atts ) {
             'no_content'                => $no_content,
             'no_content_text'           => $no_content_text,
             'category_name'             => '',
+            'post_info_start'           => '',
+            'post_info_end'             => '',
 		), $atts, 'spt-posts-ticker' );
 
     $args = array(
@@ -131,18 +132,19 @@ function spt_render_posts_ticker( $atts ) {
             $content .= '<span class="spt-item" style="padding: '.$atts['padding'].';">';
             $content .= '<a class="spt-link"'.$no_follow.' style="color: '.$atts['colour'].';" target="'.$atts['target'].'" href="'.get_permalink().'">'.apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '150' ) );
             if ( $atts['post_info'] != 'none' ) {
+                $info = '';
                 if ( $atts['post_info'] == 'pub_date' ) {
-                    $info = get_the_date();
+                    $info .= get_the_date();
                 } elseif ( $atts['post_info'] == 'mod_date' ) {
-                    $info = get_the_modified_date();
+                    $info .= get_the_modified_date();
                 } elseif ( $atts['post_info'] == 'pub_author' ) {
-                    $info = get_the_author();
+                    $info .= get_the_author();
                 } elseif ( $atts['post_info'] == 'mod_author' ) {
-                    $info = get_the_modified_author();
+                    $info .= get_the_modified_author();
                 } elseif ( $atts['post_info'] == 'excerpt' ) {
-                    $info = substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '200' ) );
+                    $info .= substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '200' ) );
                 }
-                $content .= '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$info.'</span>';
+                $content .= '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
             }
             $content .= '</a>';
             $content .= '</span>';
@@ -183,20 +185,6 @@ function spt_custom_style_to_wp_head() {
         $style .= esc_html( $spt_settings['spt_custom_css'] )."\n";
     }
     $style .= '</style>'."\n";
+
     echo $style;
 }
-
-
-function spt_post_ticker_todays_post( $args ) { 
-    $today = getdate();
-    $args['date_query'] = array(
-		array(
-			'year'  => $today['year'],
-			'month' => $today['mon'],
-			'day'   => $today['mday'],
-        ),
-    );
-    return $args;
-}
-// debug
-//add_filter( 'spt_ticker_custom_query', 'spt_post_ticker_todays_post', 10, 1 );

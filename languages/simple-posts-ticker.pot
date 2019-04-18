@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-03-21 09:20+0530\n"
+"POT-Creation-Date: 2019-04-18 22:51+0530\n"
 "PO-Revision-Date: 2019-03-21 09:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -425,7 +425,7 @@ msgstr ""
 
 #: admin/settings-page.php:53 admin/settings-page.php:65
 #: admin/settings-page.php:77 admin/settings-page.php:89
-#: admin/settings-page.php:173
+#: admin/settings-page.php:176
 msgid "Save Settings"
 msgstr ""
 
@@ -445,15 +445,15 @@ msgstr ""
 msgid "Shortcode Info"
 msgstr ""
 
-#: admin/settings-page.php:145
+#: admin/settings-page.php:148
 msgid "Custom"
 msgstr ""
 
-#: admin/settings-page.php:147 admin/settings-page.php:149
+#: admin/settings-page.php:150 admin/settings-page.php:152
 msgid "Buy me a coffee!"
 msgstr ""
 
-#: admin/settings-page.php:150
+#: admin/settings-page.php:153
 #, php-format
 msgid ""
 "Thank you for using %s. If you found the plugin useful buy me a coffee! Your "
@@ -461,57 +461,57 @@ msgid ""
 "via PayPal."
 msgstr ""
 
-#: admin/settings-page.php:154
+#: admin/settings-page.php:157
 msgid "Please wait..."
 msgstr ""
 
-#: admin/settings-page.php:158
+#: admin/settings-page.php:161
 msgid "Settings Saved Successfully!"
 msgstr ""
 
-#: admin/settings-page.php:167
+#: admin/settings-page.php:170
 msgid "Saving..."
 msgstr ""
 
-#: admin/settings-page.php:183
+#: admin/settings-page.php:186
 msgid "My Other Plugins!"
 msgstr ""
 
-#: admin/settings-page.php:189
+#: admin/settings-page.php:192
 msgid ""
 "Display last update date and time on frontend with 'dateModified' Schema "
 "Markup."
 msgstr ""
 
-#: admin/settings-page.php:197
+#: admin/settings-page.php:200
 msgid ""
 "Ultimate Facebook Comment Solution with instant email notification for any "
 "WordPress Website."
 msgstr ""
 
-#: admin/settings-page.php:205
+#: admin/settings-page.php:208
 msgid ""
 "Add any page extension like .html, .php, .aspx, .htm, .asp, .shtml only to "
 "pages."
 msgstr ""
 
-#: admin/settings-page.php:213
+#: admin/settings-page.php:216
 msgid ""
 "This plugin helps to easily login or register to wordpress by using SMS on "
 "Phone or WhatsApp or Email Verification without any password."
 msgstr ""
 
-#: admin/settings-page.php:221
+#: admin/settings-page.php:224
 msgid ""
 "Add custom code and remove the unwanted meta tags, links from the source "
 "code and many more."
 msgstr ""
 
-#: admin/settings-page.php:229
+#: admin/settings-page.php:232
 msgid "Automatically republish you old evergreen content to grab better SEO."
 msgstr ""
 
-#: simple-posts-ticker.php:81
+#: simple-posts-ticker.php:78
 #, php-format
 msgid ""
 "Thanks for installing %1$s v%2$s plugin. Click <a href=\"%3$s\">here</a> to "
@@ -519,19 +519,19 @@ msgid ""
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: simple-posts-ticker.php:145
+#: simple-posts-ticker.php:141
 msgid "Simple Posts Ticker"
 msgstr ""
 
-#: simple-posts-ticker.php:160
+#: simple-posts-ticker.php:156
 msgid "Settings"
 msgstr ""
 
-#: simple-posts-ticker.php:169
+#: simple-posts-ticker.php:165
 msgid "Support"
 msgstr ""
 
-#: simple-posts-ticker.php:170
+#: simple-posts-ticker.php:166
 msgid "Donate"
 msgstr ""
 
@@ -550,5 +550,5 @@ msgid "Sayan Datta"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://profiles.wordpress.org/infosatech/"
+msgid "https://sayandatta.com"
 msgstr ""

@@ -103,6 +103,7 @@
                             <li><strong>order_by</strong> - choose the orderby method to display, default to "date" or set "modified" or "random"</li>
                             <li><strong>order</strong> - set the post display order, default to "DESC" or set "ASC"</li>
                             <li><strong>category</strong> - choose the id of a category to limit the posts, use a comma to separate multiple categories, use "0" for all categories (default)</li>
+                            <li><strong>category_name</strong> - choose the name of a category to limit the posts, use a comma to separate multiple categories, defaults to none</li>
                             <li><strong>show_label</strong> - choose yes ot no to show/hide a label for the posts ticker</li>
                             <li><strong>label_text</strong> - if a label is shown, set what text to use</li>
                             <li><strong>label_text_size</strong> - if a label is shown, choose the font size of the text</li>
@@ -124,6 +125,8 @@
                             <li><strong>post_info</strong> - choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt"</li>
                             <li><strong>post_info_colour</strong> - if the post info is shown, choose the colour of the post info</li>
                             <li><strong>post_info_sep</strong> - if the post info is shown, choose the seperator between link and info</li>
+                            <li><strong>post_info_start</strong> - if the post info is shown, choose the before content of post info</li>
+                            <li><strong>post_info_end</strong> - if the post info is shown, choose the after content of post info</li>
                             <li><strong>no_content</strong> - set the text display action if no matching posts are found</li>
                             <li><strong>no_content_text</strong> - set the text to display if no matching posts are found</li>
                         </div>
@@ -148,7 +151,7 @@
                         </div>
                         <span class="coffee-heading"><?php _e( 'Buy me a coffee!', 'simple-posts-ticker' ); ?></span>
                         <p style="text-align: justify;"><?php printf( __( 'Thank you for using %s. If you found the plugin useful buy me a coffee! Your donation will motivate and make me happy for all the efforts. You can donate via PayPal.', 'simple-posts-ticker' ), '<strong>Simple Posts Ticker v' . SPT_PLUGIN_VERSION . '</strong>' ); ?></strong></p>
-                        <p style="text-align: justify; font-size: 12px; font-style: italic;">Developed with <span style="color:#e25555;">♥</span> by <a href="https://www.sayandatta.com" target="_blank" style="font-weight: 500;">Sayan Datta</a> | <a href="https://github.com/iamsayan/simple-posts-ticker" target="_blank" style="font-weight: 500;">GitHub</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank" style="font-weight: 500;">Support</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" style="font-weight: 500;">Rate it</a> (<span style="color:#ffa000;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>) on WordPress.org, if you like this plugin.</p>
+                        <p style="text-align: justify; font-size: 12px; font-style: italic;">Developed with <span style="color:#e25555;">♥</span> by <a href="https://sayandatta.com" target="_blank" style="font-weight: 500;">Sayan Datta</a> | <a href="https://github.com/iamsayan/simple-posts-ticker" target="_blank" style="font-weight: 500;">GitHub</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank" style="font-weight: 500;">Support</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" style="font-weight: 500;">Rate it</a> (<span style="color:#ffa000;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>) on WordPress.org, if you like this plugin.</p>
                     </div>
                     <div id="progressMessage" class="progressModal" style="display:none;">
                         <?php _e( 'Please wait...', 'simple-posts-ticker' ); ?>

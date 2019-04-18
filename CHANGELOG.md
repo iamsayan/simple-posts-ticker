@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.0.5
+
+* Added: Shortcode attributes: `post_info_start` and `post_info_end`.
+* Fixed: Unclosed HTML Tags in Admin Notices.
+* Removed: Some unused CSS codes.
+
 ## 1.0.4
 
 * Added: Option to hide posts ticker if there are no posts available to show.

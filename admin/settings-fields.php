@@ -355,7 +355,7 @@ function spt_post_info_sep_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_post_info_sep']) ) {
         $spt_settings['spt_post_info_sep'] = ' - ';
-    } ?>  <input id="spt-info-sep" name="spt_plugin_settings[spt_post_info_sep]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_post_info_sep'])) { echo $spt_settings['spt_post_info_sep']; } ?>" />
+    } ?>  <input id="spt-info-sep" name="spt_plugin_settings[spt_post_info_sep]" type="text" size="30" style="width:30%;" value="<?php if (isset($spt_settings['spt_post_info_sep'])) { echo $spt_settings['spt_post_info_sep']; } ?>" />
         &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the font size of Posts Ticker label from here. You can use px/em/%.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }

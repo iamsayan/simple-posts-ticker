@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
     $('select#spt-cat').selectize({
         plugins: ['remove_button'],
         delimiter: ',',
-        placeholder: 'Select categories (leave empty for all categories)',
+        placeholder: 'Select categories (leave empty to select all categories)',
         persist: false,
         create: false
     });

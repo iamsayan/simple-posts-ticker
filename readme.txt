@@ -3,7 +3,7 @@ Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
 Requires at least: 4.0
 Tested up to: 5.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 5.6
 Donate link: http://bit.ly/2I0Gj60
 License: GPLv3
@@ -39,6 +39,7 @@ Use the options/attributes below to override the original settings.
 * **order_by** - choose the orderby method to display, default to "date" or set "modified" or "random"
 * **order** - set the post display order, default to "DESC" or set "ASC"
 * **category** - choose the id of a category to limit the posts, use a comma to separate multiple categories, use "0" for all categories (default)
+* **category_name** - choose the name of a category to limit the posts, use a comma to separate multiple categories, defaults to none
 * **show_label** - choose yes ot no to show/hide a label for the posts ticker
 * **label_text** - if a label is shown, set what text to use
 * **label_text_size** - if a label is shown, choose the font size of the text
@@ -60,6 +61,8 @@ Use the options/attributes below to override the original settings.
 * **post_info** - choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt"
 * **post_info_colour** - if the post info is shown, choose the colour of the post info
 * **post_info_sep** - if the post info is shown, choose the seperator between link and info
+* **post_info_start** - if the post info is shown, choose the before content of post info
+* **post_info_end** - if the post info is shown, choose the after content of post info
 * **no_content** - set the text display status if no matching posts are found
 * **no_content_text** - set the text to display if no matching posts are found
 
@@ -103,6 +106,12 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 5. Others
 
 == Changelog ==
+
+= 1.0.5 =
+
+* Added: Shortcode attributes: `post_info_start` and `post_info_end`.
+* Fixed: Unclosed HTML Tags in Admin Notices.
+* Removed: Some unused CSS codes.
 
 = 1.0.4 =
 

@@ -3,9 +3,9 @@
  * Plugin Name: Simple Posts Ticker
  * Plugin URI: https://wordpress.org/plugins/simple-posts-ticker/
  * Description: The Simple Posts Ticker plugin is a small tool that shows your most recent posts in a marquee style.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: Sayan Datta
- * Author URI: https://profiles.wordpress.org/infosatech/
+ * Author URI: https://sayandatta.com
  * License: GPLv3
  * Text Domain: simple-posts-ticker
  * Domain Path: /languages
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define ( 'SPT_PLUGIN_VERSION', '1.0.4' );
+define ( 'SPT_PLUGIN_VERSION', '1.0.5' );
 
 // debug scripts
 //define ( 'SPT_PLUGIN_ENABLE_DEBUG', 'true' );
@@ -57,15 +57,13 @@ register_activation_hook( __FILE__, 'spt_plugin_activation' );
 register_deactivation_hook( __FILE__, 'spt_plugin_deactivation' );
 
 function spt_plugin_activation() {
-    
     if ( ! current_user_can( 'activate_plugins' ) ) {
         return;
     }
-    set_transient( 'spt-admin-notice-on-activation', true, 5 );
+    set_transient( 'spt-admin-notice-on-activation', true, 15 );
 }
 
 function spt_plugin_deactivation() {
-
     if ( ! current_user_can( 'activate_plugins' ) ) {
         return;
     }
@@ -75,7 +73,6 @@ function spt_plugin_deactivation() {
 }
 
 function spt_plugin_install_notice() { 
-
     if( get_transient( 'spt-admin-notice-on-activation' ) ) { ?>
         <div class="notice notice-success">
             <p><strong><?php printf( __( 'Thanks for installing %1$s v%2$s plugin. Click <a href="%3$s">here</a> to configure plugin settings.', 'simple-posts-ticker' ), 'Simple Posts Ticker', SPT_PLUGIN_VERSION, admin_url( 'options-general.php?page=simple-posts-ticker' ) ); ?></strong></p>
@@ -87,7 +84,6 @@ function spt_plugin_install_notice() {
 add_action( 'admin_notices', 'spt_plugin_install_notice' ); 
 
 function spt_load_admin_assets() {
-
     $ver = SPT_PLUGIN_VERSION;
     if( defined( 'SPT_PLUGIN_ENABLE_DEBUG' ) ) {
         $ver = time();

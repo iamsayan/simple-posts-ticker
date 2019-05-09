@@ -4,7 +4,7 @@
 
 The Simple Posts Ticker plugin is a small tool that shows your most recent posts in a marquee style.
 
-[![WP compatibility](https://plugintests.com/plugins/simple-posts-ticker/wp-badge.svg)](https://plugintests.com/plugins/simple-posts-ticker/latest)[![PHP compatibility](https://plugintests.com/plugins/simple-posts-ticker/php-badge.svg)](https://plugintests.com/plugins/simple-posts-ticker/latest)
+[![WP compatibility](https://plugintests.com/plugins/simple-posts-ticker/wp-badge.svg)](https://plugintests.com/plugins/simple-posts-ticker/latest) [![PHP compatibility](https://plugintests.com/plugins/simple-posts-ticker/php-badge.svg)](https://plugintests.com/plugins/simple-posts-ticker/latest)
 
 ## Description
 

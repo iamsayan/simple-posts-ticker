@@ -79,7 +79,7 @@ function spt_render_posts_ticker( $atts ) {
             'no_content_text'           => $no_content_text,
             'category_name'             => '',
             'post_info_start'           => '',
-            'post_info_end'             => '',
+            'post_info_end'             => ''
 		), $atts, 'spt-posts-ticker' );
 
     $args = array(
@@ -130,7 +130,7 @@ function spt_render_posts_ticker( $atts ) {
             $post = $current_post; // Set $post global variable to the current post object 
             setup_postdata( $post ); // Set up "environment"
             $content .= '<span class="spt-item" style="padding: '.$atts['padding'].';">';
-            $content .= '<a class="spt-link"'.$no_follow.' style="color: '.$atts['colour'].';" target="'.$atts['target'].'" href="'.get_permalink().'">'.apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '150' ) );
+            $content .= '<a class="spt-link"'.$no_follow.' style="color: '.$atts['colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', get_permalink() ).'">'.apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '150' ) );
             if ( $atts['post_info'] != 'none' ) {
                 $info = '';
                 if ( $atts['post_info'] == 'pub_date' ) {

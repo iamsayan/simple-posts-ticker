@@ -25,11 +25,12 @@ function spt_donate_admin_notice() {
     $no_thanks = wp_nonce_url( add_query_arg( 'spt_donate_notice_action', 'no_thanks_donate_true' ), 'no_thanks_donate_true' ); ?>
     
     <div class="notice notice-success">
-        <p><?php _e( 'Hey, I noticed you\'ve been using Simple Posts Ticker for more than 2 week – that’s awesome! If you like Simple Posts Ticker and you are satisfied with the plugin, isn’t that worth a coffee or two? Please consider donating. Donations help me to continue support and development of this free plugin! Thank you very much!', 'simple-posts-ticker' ); ?><p>
-        <a href="https://www.paypal.me/iamsayan" target="_blank" class="button button-secondary"><?php _e( 'Donate Now', 'simple-posts-ticker' ); ?></a>&nbsp;
+        <p><?php _e( 'Hey, I noticed you\'ve been using Simple Posts Ticker for more than 2 week – that’s awesome! If you like Simple Posts Ticker and you are satisfied with the plugin, isn’t that worth a coffee or two? Please consider donating. Donations help me to continue support and development of this free plugin! Thank you very much!', 'simple-posts-ticker' ); ?></p>
+        <p><a href="https://www.paypal.me/iamsayan" target="_blank" class="button button-secondary"><?php _e( 'Donate Now', 'simple-posts-ticker' ); ?></a>&nbsp;
         <a href="<?php echo $dismiss; ?>" class="already-did"><strong><?php _e( 'I already donated', 'simple-posts-ticker' ); ?></strong></a>&nbsp;<strong>|</strong>
-        <a href="<?php echo $no_thanks; ?>" class="later"><strong><?php _e( 'Nope&#44; maybe later', 'simple-posts-ticker' ); ?></strong></a>
-    </div>
+        <a href="<?php echo $no_thanks; ?>" class="later"><strong><?php _e( 'Nope&#44; maybe later', 'simple-posts-ticker' ); ?></strong></a>&nbsp;<strong>|</strong>
+        <a href="<?php echo $dismiss; ?>" class="never"><strong><?php _e( 'Never show again', 'simple-posts-ticker' ); ?></strong></a></p>
+        </div>
 <?php
 }
 

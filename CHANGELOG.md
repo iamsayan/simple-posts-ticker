@@ -1,10 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.0.6
+
+* Added: A filter to customize post links: `spt_post_custom_redir_link`.
+* Added: Permanent dismiss link in admin notice.
+* Fixed: Unclosed HTML Tags in Admin Notices.
+* Removed: `esc_html` from css code output.
+* Tested upto WordPress 5.2.
+
 ## 1.0.5
 
 * Added: Shortcode attributes: `post_info_start` and `post_info_end`.
-* Fixed: Unclosed HTML Tags in Admin Notices.
 * Removed: Some unused CSS codes.
 
 ## 1.0.4

@@ -1,9 +1,9 @@
-=== Simple Posts Ticker ===
+=== Simple Posts Ticker - Easy, Lightweight & Flexible ===
 Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
-Requires at least: 4.0
-Tested up to: 5.1
-Stable tag: 1.0.5
+Requires at least: 4.6
+Tested up to: 5.2
+Stable tag: 1.0.6
 Requires PHP: 5.6
 Donate link: http://bit.ly/2I0Gj60
 License: GPLv3
@@ -68,7 +68,7 @@ Use the options/attributes below to override the original settings.
 
 #### Compatibility
 
-* This plugin is fully compatible with WordPress Version 4.0 and beyond and also compatible with any WordPress theme.
+* This plugin is fully compatible with WordPress Version 4.6 and beyond and also compatible with any WordPress theme.
 
 #### Support
 
@@ -107,10 +107,17 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 
 == Changelog ==
 
+= 1.0.6 =
+
+* Added: A filter to customize post links: `spt_post_custom_redir_link`.
+* Added: Permanent dismiss link in admin notice.
+* Fixed: Unclosed HTML Tags in Admin Notices.
+* Removed: `esc_html` from css code output.
+* Tested upto WordPress 5.2.
+
 = 1.0.5 =
 
 * Added: Shortcode attributes: `post_info_start` and `post_info_end`.
-* Fixed: Unclosed HTML Tags in Admin Notices.
 * Removed: Some unused CSS codes.
 
 = 1.0.4 =

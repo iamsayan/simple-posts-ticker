@@ -79,6 +79,13 @@ function spt_remove_plugin_settings() {
 		return;
     $plugin_settings = 'spt_plugin_settings';
 	delete_option( $plugin_settings );
+	// delete custom post types
+	$spt_cpt_args = array( 'post_type' => 'spt_ticker', 'posts_per_page' => -1 );
+	$spt_cpt_posts = get_posts( $spt_cpt_args );
+	foreach( $spt_cpt_posts as $post ) {
+		wp_delete_post( $post->ID, false );
+		delete_post_meta( $post->ID, '_spt_ticker_custom_link' );
+	}
 
     function spt_settings_reset_success_notice() {
         echo '<div class="notice notice-success is-dismissible">

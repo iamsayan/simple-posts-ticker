@@ -3,7 +3,7 @@
  * Plugin Name: Simple Posts Ticker
  * Plugin URI: https://wordpress.org/plugins/simple-posts-ticker/
  * Description: The Simple Posts Ticker plugin is a small tool that shows your most recent posts in a marquee style.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Sayan Datta
  * Author URI: https://about.me/iamsayan
  * License: GPLv3
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SPT_PLUGIN_VERSION', '1.1.0' );
+define( 'SPT_PLUGIN_VERSION', '1.1.1' );
 
 // debug scripts
 //define( 'SPT_PLUGIN_ENABLE_DEBUG', 'true' );
@@ -61,6 +61,7 @@ function spt_plugin_activation() {
         return;
     }
     set_transient( 'spt-admin-notice-on-activation', true, 5 );
+    flush_rewrite_rules();
 }
 
 function spt_plugin_deactivation() {
@@ -70,6 +71,7 @@ function spt_plugin_deactivation() {
     delete_option( 'spt_plugin_dismiss_rating_notice' );
     delete_option( 'spt_plugin_no_thanks_rating_notice' );
     delete_option( 'spt_plugin_installed_time' );
+    flush_rewrite_rules();
 }
 
 function spt_plugin_install_notice() { 
@@ -128,6 +130,8 @@ add_action( 'admin_init', 'spt_register_plugin_settings' );
 
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-loader.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-fields.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/meta-box.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/post-type.php';
 
 // register admin menu
 add_action( 'admin_menu', 'spt_admin_menu' );

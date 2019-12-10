@@ -57,6 +57,7 @@ function spt_render_posts_ticker( $atts ) {
     $ticker_delay = !empty($spt_settings['spt_delay_start']) ? $spt_settings['spt_delay_start'] : '100';
     
     // others
+    $hyperlink = isset($spt_settings['spt_enable_link']) ? $spt_settings['spt_enable_link'] : 'yes';
     $target = isset($spt_settings['spt_target']) ? $spt_settings['spt_target'] : '_self';
     $nofollow = isset($spt_settings['spt_no_follow']) ? $spt_settings['spt_no_follow'] : 'no';
     $post_info = isset($spt_settings['spt_show_info']) ? $spt_settings['spt_show_info'] : 'none';
@@ -97,6 +98,7 @@ function spt_render_posts_ticker( $atts ) {
             'ticker_speed'              => $ticker_speed,
             'ticker_visible'            => $ticker_visible,
             'ticker_delay'              => $ticker_delay,
+            'hyperlink'                 => $hyperlink,
             'target'                    => $target,
             'no_follow'                 => $nofollow,
             'post_info'                 => $post_info,
@@ -159,7 +161,18 @@ function spt_render_posts_ticker( $atts ) {
             $post = $current_post; // Set $post global variable to the current post object 
             setup_postdata( $post ); // Set up "environment"
             $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
-            $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', get_permalink() ).'">'.apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) );
+            $link = get_permalink();
+            if( get_post_type() == 'spt_ticker' ) {
+                if( metadata_exists( 'post', get_the_ID(), '_spt_ticker_custom_link' ) ) {
+                    $link = esc_attr( get_post_meta( get_the_ID(), '_spt_ticker_custom_link', true ) );
+                } else {
+                    $link = '';
+                }
+            }
+            if( $atts['hyperlink'] == 'yes' && !empty( $link ) ) {
+                $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', $link ).'">';
+            }
+            $content .= apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) ).apply_filters( 'spt_post_title_postfix', '' );
             if ( $atts['post_info'] != 'none' ) {
                 $info = '';
                 if ( $atts['post_info'] == 'pub_date' ) {
@@ -175,7 +188,9 @@ function spt_render_posts_ticker( $atts ) {
                 }
                 $content .= '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
             }
-            $content .= '</a>';
+            if( $atts['hyperlink'] == 'yes' && !empty( $link ) ) {
+                $content .= '</a>';
+            }
             $content .= '</span>';
         }
         wp_reset_postdata();

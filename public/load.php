@@ -30,7 +30,7 @@ function spt_init_script_to_wp_footer() { ?>
 <!-- This website uses the Simple Posts Ticker plugin v<?php echo SPT_PLUGIN_VERSION; ?> - https://wordpress.org/plugins/simple-posts-ticker/ -->
 <script>
     jQuery(document).ready(function($) {
-    
+        // variables
         var $mq = $('.spt-marquee');
         var cflow = $mq.data('duplicated');
         var text = $mq.html();
@@ -43,7 +43,6 @@ function spt_init_script_to_wp_footer() { ?>
     
         //init marquee
         $mq.marquee();
-    
     });
 </script>
 <?php 

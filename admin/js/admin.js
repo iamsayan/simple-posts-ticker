@@ -102,6 +102,16 @@ jQuery(document).ready(function($) {
     });
     $("#spt-info").trigger('change');
 
+    $("#spt-link").change(function() {
+        if ($('#spt-link').val() == 'yes') {
+            $('.s.spt-window, .spt-no-follow').show();
+        }
+        if ($('#spt-link').val() == 'no') {
+            $('.spt-window, .spt-no-follow').hide();
+        }
+    });
+    $("#spt-link").trigger('change');
+
     $("#spt-border").change(function() {
         if ($('#spt-border').val() == 'none') {
             $('.spt-border-width, .spt-border-colour, .spt-border-radius').hide();

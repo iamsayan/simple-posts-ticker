@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.1.1
+Release Date: December 10, 2019
+
+* NEW: `Ticker` Post Type.
+* Improvement: Added option to enable/disable links.
+* Improvement: Admin UI.
+* Improvement: Uninstallation Process.
+
 ## 1.1.0
 Release Date: December 10, 2019
 

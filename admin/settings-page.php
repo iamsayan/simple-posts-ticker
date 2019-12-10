@@ -149,6 +149,7 @@
                                     'ticker_speed'              => __( 'Speed will override duration. Speed allows you to set a relatively constant marquee speed regardless of the width of the containing element. Speed is measured in pixels per second.', 'simple-posts-ticker' ),
                                     'ticker_visible'            => __( 'The marquee will be visible from the start if set to true, defaults to false.$ticker_visible', 'simple-posts-ticker' ),
                                     'ticker_delay'              => __( 'Time in milliseconds before the marquee starts animating. Default: 100.', 'simple-posts-ticker' ),
+                                    'hyperlink'                 => __( 'Set the visibility of the hyperlinks.', 'simple-posts-ticker' ),
                                     'target'                    => __( 'Choose the target for the links, can be "_self" or "_blank".', 'simple-posts-ticker' ),
                                     'no_follow'                 => __( 'Choose the rel for the links, default to "no" but can be "yes".', 'simple-posts-ticker' ),
                                     'post_info'                 => __( 'Choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt".', 'simple-posts-ticker' ),

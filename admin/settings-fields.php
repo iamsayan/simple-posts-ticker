@@ -403,6 +403,27 @@ function spt_delay_start_display() {
     <?php
 }
 
+function spt_enable_link_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_enable_link']) ) {
+        $spt_settings['spt_enable_link'] = 'yes';
+    }
+    $items = array(
+        'yes'  => __( 'Yes', 'simple-posts-ticker' ),
+        'no'   => __( 'No', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-link" name="spt_plugin_settings[spt_enable_link]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_enable_link'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the target for the links, can be _self or _blank.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
 function spt_target_display() {
     $spt_settings = get_option('spt_plugin_settings');
     

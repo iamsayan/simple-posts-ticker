@@ -40,7 +40,6 @@ function spt_register_plugin_settings() {
         add_settings_field('spt_ticker_bg_colour', __( 'Content BG Colour:', 'simple-posts-ticker' ), 'spt_ticker_bg_colour_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-ticker-bg-colour' ));
         add_settings_field('spt_ticker_link_padding', __( 'Single Content Padding:', 'simple-posts-ticker' ), 'spt_ticker_link_padding_display', 'spt_plugin_settings_option', 'spt_plugin_settings_section', array( 'label_for' => 'spt-ticker-link-padding' ));
         
-        
     add_settings_section('spt_plugin_ticker_section', '', null, 'spt_plugin_ticker_option');
         add_settings_field('spt_ticker_direction', __( 'Ticker Animate Direction:', 'simple-posts-ticker' ), 'spt_ticker_direction_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-direction' ));
         add_settings_field('spt_ticker_continuous_flow', __( 'Ticker Continuous Flow:', 'simple-posts-ticker' ), 'spt_ticker_continuous_flow_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-continuous-flow' ));
@@ -51,8 +50,9 @@ function spt_register_plugin_settings() {
         add_settings_field('spt_delay_start', __( 'Ticker Delay Before Start:', 'simple-posts-ticker' ), 'spt_delay_start_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-delay' ));
       
     add_settings_section('spt_plugin_misc_section', '', null, 'spt_plugin_misc_option');
-        add_settings_field('spt_target', __( 'Ticker Link Target:', 'simple-posts-ticker' ), 'spt_target_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-window' ));
-        add_settings_field('spt_no_follow', __( 'Add "nofollow" to Link:', 'simple-posts-ticker' ), 'spt_no_follow_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-no-follow' ));
+        add_settings_field('spt_enable_link', __( 'Enable Ticker Hyperlink:', 'simple-posts-ticker' ), 'spt_enable_link_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-link' ));
+        add_settings_field('spt_target', __( 'Ticker Link Target:', 'simple-posts-ticker' ), 'spt_target_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-window', 'class' => 'spt-window' ));
+        add_settings_field('spt_no_follow', __( 'Add "nofollow" to Link:', 'simple-posts-ticker' ), 'spt_no_follow_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-no-follow', 'class' => 'spt-no-follow' ));
         add_settings_field('spt_show_info', __( 'Post Info After Ticker:', 'simple-posts-ticker' ), 'spt_show_info_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-info' ));
         add_settings_field('spt_post_info_sep', __( 'Post Info Separator:', 'simple-posts-ticker' ), 'spt_post_info_sep_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-info-sep', 'class' => 'spt-info-sep' ));
         add_settings_field('spt_post_info_colour', __( 'Ticker Post Info Colour:', 'simple-posts-ticker' ), 'spt_post_info_colour_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-info-colour', 'class' => 'spt-info-colour' ));

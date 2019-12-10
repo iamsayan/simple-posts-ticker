@@ -1,9 +1,9 @@
 === Simple Posts Ticker - Easy, Lightweight & Flexible ===
 Contributors: Infosatech
-Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
+Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker, event ticker, posts scroll
 Requires at least: 4.6
 Tested up to: 5.3
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.6
 Donate link: https://www.paypal.me/iamsayan/
 License: GPLv3
@@ -81,8 +81,16 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 
 If you like Simple Posts Ticker, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
-= 1.1.0 =
+= 1.1.1 =
 Release Date: December 10, 2019
+
+* NEW: `Ticker` Post Type.
+* Improvement: Added option to enable/disable links.
+* Improvement: Admin UI.
+* Improvement: Uninstallation Process.
+
+= 1.1.0 =
+Release Date: December 9, 2019
 
 IMPORTANT: Please reconfigure the plugin settings after successful plugin update.
 
@@ -103,5 +111,5 @@ IMPORTANT: Please reconfigure the plugin settings after successful plugin update
 
 == Upgrade Notice ==
 
-= 1.1.0 =
+= 1.1.1 =
 In this release, we introduce some major changes in this plugin and also make this plugin compatible with WordPress 5.3. IMPORTANT: Please reconfigure the plugin settings after successful plugin update.

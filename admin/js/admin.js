@@ -92,19 +92,17 @@ jQuery(document).ready(function($) {
 
     $("#spt-info").change(function() {
         if ($('#spt-info').val() == 'none') {
-            $('.spt-info-sep').hide();
-            $('.spt-info-colour').hide();
+            $('.spt-info-sep, .spt-info-colour, .spt-info-position').hide();
         }
         if ($('#spt-info').val() != 'none') {
-            $('.spt-info-sep').show();
-            $('.spt-info-colour').show();
+            $('.spt-info-sep, .spt-info-colour, .spt-info-position').show();
         }
     });
     $("#spt-info").trigger('change');
 
     $("#spt-link").change(function() {
         if ($('#spt-link').val() == 'yes') {
-            $('.s.spt-window, .spt-no-follow').show();
+            $('.spt-window, .spt-no-follow').show();
         }
         if ($('#spt-link').val() == 'no') {
             $('.spt-window, .spt-no-follow').hide();

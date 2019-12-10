@@ -65,7 +65,7 @@ function spt_save_meta_boxes_data( $post_id ) {
         if( empty( $_POST['spt_ticker_custom_link'] ) ) {
             delete_post_meta( $post_id, '_spt_ticker_custom_link' );
         } else {
-            update_post_meta( $post_id, '_spt_ticker_custom_link', $_POST['spt_ticker_custom_link'] );
+            update_post_meta( $post_id, '_spt_ticker_custom_link', esc_url( $_POST['spt_ticker_custom_link'] ) );
         }
     }
 }

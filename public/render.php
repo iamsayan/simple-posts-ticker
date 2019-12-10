@@ -61,6 +61,7 @@ function spt_render_posts_ticker( $atts ) {
     $target = isset($spt_settings['spt_target']) ? $spt_settings['spt_target'] : '_self';
     $nofollow = isset($spt_settings['spt_no_follow']) ? $spt_settings['spt_no_follow'] : 'no';
     $post_info = isset($spt_settings['spt_show_info']) ? $spt_settings['spt_show_info'] : 'none';
+    $post_info_position = isset($spt_settings['spt_show_info_position']) ? $spt_settings['spt_show_info_position'] : 'right';
     $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validateHtmlColour($spt_settings['spt_post_info_colour']) : $content_colour;
     $post_info_sep = !empty($spt_settings['spt_post_info_sep']) ? $spt_settings['spt_post_info_sep'] : '';
     $no_content = isset($spt_settings['spt_no_content_type']) ? $spt_settings['spt_no_content_type'] : 'none';
@@ -102,6 +103,7 @@ function spt_render_posts_ticker( $atts ) {
             'target'                    => $target,
             'no_follow'                 => $nofollow,
             'post_info'                 => $post_info,
+            'post_info_position'        => $post_info_position,
             'post_info_colour'          => $post_info_colour,
             'post_info_sep'             => $post_info_sep,
             'no_content'                => $no_content,
@@ -160,6 +162,7 @@ function spt_render_posts_ticker( $atts ) {
         foreach( $posts as $current_post ) {
             $post = $current_post; // Set $post global variable to the current post object 
             setup_postdata( $post ); // Set up "environment"
+            $viewable = is_post_type_viewable( get_post_type() );
             $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
             $link = get_permalink();
             if( get_post_type() == 'spt_ticker' ) {
@@ -169,11 +172,13 @@ function spt_render_posts_ticker( $atts ) {
                     $link = '';
                 }
             }
-            if( $atts['hyperlink'] == 'yes' && !empty( $link ) ) {
-                $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', $link ).'">';
+            if( $atts['hyperlink'] == 'yes' && ( $viewable || !empty( $link ) ) ) {
+                $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', esc_url( $link ) ).'">';
             }
-            $content .= apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) ).apply_filters( 'spt_post_title_postfix', '' );
-            if ( $atts['post_info'] != 'none' ) {
+            $title = apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) ).apply_filters( 'spt_post_title_postfix', '' );
+            $separator_start = '';
+            $separator_end = '';
+            if( $atts['post_info'] != 'none' ) {
                 $info = '';
                 if ( $atts['post_info'] == 'pub_date' ) {
                     $info .= get_the_date();
@@ -186,9 +191,15 @@ function spt_render_posts_ticker( $atts ) {
                 } elseif ( $atts['post_info'] == 'excerpt' ) {
                     $info .= substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '250' ) );
                 }
-                $content .= '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
+                $separator_start = '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
+                $separator_end = '<span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_end'].$info.$atts['post_info_start'].'</span><span class="spt-separator">'.$atts['post_info_sep'].'</span>';
             }
-            if( $atts['hyperlink'] == 'yes' && !empty( $link ) ) {
+            if( $atts['post_info_position'] == 'left' ) {
+                $content .= $separator_end . $title;
+            } else {
+                $content .= $title . $separator_start;
+            }
+            if( $atts['hyperlink'] == 'yes' && ( $viewable || !empty( $link ) ) ) {
                 $content .= '</a>';
             }
             $content .= '</span>';
@@ -198,7 +209,7 @@ function spt_render_posts_ticker( $atts ) {
     $content .= '</div>'; // end marquee box
     $content .= '</div>'; // end border container
 
-    if ( $atts['no_content'] == 'none' ) {
+    if( $atts['no_content'] == 'none' ) {
         if ( count( $posts ) == 0 ) {
             $content = '';
         }

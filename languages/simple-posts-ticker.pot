@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-12-10 11:55+0530\n"
+"POT-Creation-Date: 2019-12-10 23:46+0530\n"
 "PO-Revision-Date: 2019-03-21 09:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -80,7 +80,7 @@ msgctxt "Post Type Singular Name"
 msgid "Ticker"
 msgstr ""
 
-#: admin/post-type.php:20 admin/post-type.php:21
+#: admin/post-type.php:20 admin/post-type.php:21 admin/settings-fields.php:39
 msgid "Tickers"
 msgstr ""
 
@@ -188,188 +188,188 @@ msgstr ""
 msgid "Set the number of posts you want to show in ticker."
 msgstr ""
 
-#: admin/settings-fields.php:40
+#: admin/settings-fields.php:42
 msgid "Select the type of post you want to show in ticker."
 msgstr ""
 
-#: admin/settings-fields.php:51
+#: admin/settings-fields.php:53
 msgid "Published Date"
 msgstr ""
 
-#: admin/settings-fields.php:52
+#: admin/settings-fields.php:54
 msgid "Modified Date"
 msgstr ""
 
-#: admin/settings-fields.php:53
+#: admin/settings-fields.php:55
 msgid "Random"
 msgstr ""
 
-#: admin/settings-fields.php:62
+#: admin/settings-fields.php:64
 msgid "Select the query method of getting posts from database."
 msgstr ""
 
-#: admin/settings-fields.php:73
+#: admin/settings-fields.php:75
 msgid "Decending"
 msgstr ""
 
-#: admin/settings-fields.php:74
+#: admin/settings-fields.php:76
 msgid "Ascending"
 msgstr ""
 
-#: admin/settings-fields.php:83
+#: admin/settings-fields.php:85
 msgid "Select the post display order from here."
 msgstr ""
 
-#: admin/settings-fields.php:105
+#: admin/settings-fields.php:107
 msgid ""
 "Select the category you want to get posts from that to show on Posts Ticker. "
 "Leave blank if you want to include all category."
 msgstr ""
 
-#: admin/settings-fields.php:116 admin/settings-fields.php:344
-#: admin/settings-fields.php:383 admin/settings-fields.php:413
-#: admin/settings-fields.php:455
+#: admin/settings-fields.php:118 admin/settings-fields.php:346
+#: admin/settings-fields.php:385 admin/settings-fields.php:415
+#: admin/settings-fields.php:457
 msgid "Yes"
 msgstr ""
 
-#: admin/settings-fields.php:117 admin/settings-fields.php:345
-#: admin/settings-fields.php:384 admin/settings-fields.php:414
-#: admin/settings-fields.php:456
+#: admin/settings-fields.php:119 admin/settings-fields.php:347
+#: admin/settings-fields.php:386 admin/settings-fields.php:416
+#: admin/settings-fields.php:458
 msgid "No"
 msgstr ""
 
-#: admin/settings-fields.php:126
+#: admin/settings-fields.php:128
 msgid "Select the Posts Ticker label visibility from here."
 msgstr ""
 
-#: admin/settings-fields.php:137
+#: admin/settings-fields.php:139 admin/settings-fields.php:478
 msgid "Left Side"
 msgstr ""
 
-#: admin/settings-fields.php:138
+#: admin/settings-fields.php:140 admin/settings-fields.php:479
 msgid "Right Side"
 msgstr ""
 
-#: admin/settings-fields.php:147
+#: admin/settings-fields.php:149
 msgid "Select the Posts Ticker Label visibility from here."
 msgstr ""
 
-#: admin/settings-fields.php:156
+#: admin/settings-fields.php:158
 msgid "Set the Message/Label to show before the Posts Ticker"
 msgstr ""
 
-#: admin/settings-fields.php:165
+#: admin/settings-fields.php:167
 msgid "Set the font size of Posts Ticker Label from here. You can use px/em/%."
 msgstr ""
 
-#: admin/settings-fields.php:174
+#: admin/settings-fields.php:176
 msgid ""
 "Set the margin of the Ticker Label from here. Click on the icon for more."
 msgstr ""
 
-#: admin/settings-fields.php:183
+#: admin/settings-fields.php:185
 msgid ""
 "Set the padding of the Ticker label from here. Click on the icon for more."
 msgstr ""
 
-#: admin/settings-fields.php:206 admin/settings-fields.php:476
+#: admin/settings-fields.php:208 admin/settings-fields.php:499
 msgid "None"
 msgstr ""
 
-#: admin/settings-fields.php:207
+#: admin/settings-fields.php:209
 msgid "Solid"
 msgstr ""
 
-#: admin/settings-fields.php:208
+#: admin/settings-fields.php:210
 msgid "Dotted"
 msgstr ""
 
-#: admin/settings-fields.php:209
+#: admin/settings-fields.php:211
 msgid "Dashed"
 msgstr ""
 
-#: admin/settings-fields.php:210
+#: admin/settings-fields.php:212
 msgid "Double"
 msgstr ""
 
-#: admin/settings-fields.php:219
+#: admin/settings-fields.php:221
 msgid "Choose the border type of the marquee posts ticker from here."
 msgstr ""
 
-#: admin/settings-fields.php:228
+#: admin/settings-fields.php:230
 msgid "Set the label border width from here."
 msgstr ""
 
-#: admin/settings-fields.php:237
+#: admin/settings-fields.php:239
 msgid "Set the border radius from here."
 msgstr ""
 
-#: admin/settings-fields.php:252
+#: admin/settings-fields.php:254
 msgid ""
 "Set the font size of Posts Ticker text or link from here. You can use px/em/"
 "%."
 msgstr ""
 
-#: admin/settings-fields.php:261
+#: admin/settings-fields.php:263
 msgid ""
 "Set the posts ticker content area margin from here. Click on the icon for "
 "more."
 msgstr ""
 
-#: admin/settings-fields.php:270
+#: admin/settings-fields.php:272
 msgid ""
 "Set the posts ticker content area padding from here. Click on the icon for "
 "more."
 msgstr ""
 
-#: admin/settings-fields.php:291
+#: admin/settings-fields.php:293
 msgid ""
 "Set the left right padding of a post a link from here. Click on the icon for "
 "more."
 msgstr ""
 
-#: admin/settings-fields.php:302
+#: admin/settings-fields.php:304
 msgid "Left to Right"
 msgstr ""
 
-#: admin/settings-fields.php:303
+#: admin/settings-fields.php:305
 msgid "Right to Left"
 msgstr ""
 
-#: admin/settings-fields.php:312
+#: admin/settings-fields.php:314
 msgid ""
 "Select the direction of the posts ticker. It may be Left to Right or Right "
 "to Left."
 msgstr ""
 
-#: admin/settings-fields.php:323
+#: admin/settings-fields.php:325
 msgid "Enable"
 msgstr ""
 
-#: admin/settings-fields.php:324
+#: admin/settings-fields.php:326
 msgid "Disable"
 msgstr ""
 
-#: admin/settings-fields.php:333
+#: admin/settings-fields.php:335
 msgid ""
 "Should the marquee be duplicated to show an effect of continuous flow. "
 "Configure the continuous flow of Posts Ticker from here."
 msgstr ""
 
-#: admin/settings-fields.php:354
+#: admin/settings-fields.php:356
 msgid ""
 "Choose whether to pause marquee scroll on mouse hover, defaults to 'no', set "
 "to 'yes' to pause scroll on mouse hover."
 msgstr ""
 
-#: admin/settings-fields.php:363
+#: admin/settings-fields.php:365
 msgid ""
 "Duration in milliseconds in which you want your element to travel. Default: "
 "5000. Higher number indicates high speed and lower number indicates low "
 "speed."
 msgstr ""
 
-#: admin/settings-fields.php:372
+#: admin/settings-fields.php:374
 msgid ""
 "Speed will override duration. Speed allows you to set a relatively constant "
 "marquee speed regardless of the width of the containing element. Speed is "
@@ -377,91 +377,99 @@ msgid ""
 "number indicates low speed."
 msgstr ""
 
-#: admin/settings-fields.php:393
+#: admin/settings-fields.php:395
 msgid ""
 "The marquee will be visible from the start if set to true, defaults to false."
 msgstr ""
 
-#: admin/settings-fields.php:402
+#: admin/settings-fields.php:404
 msgid ""
 "Time in milliseconds before the marquee starts animating. Default: 100. "
 "Higher number indicates high speed and lower number indicates low speed."
 msgstr ""
 
-#: admin/settings-fields.php:423 admin/settings-fields.php:444
-msgid "Select the target for the links, can be _self or _blank."
+#: admin/settings-fields.php:425
+msgid "You can control ticker links from here."
 msgstr ""
 
-#: admin/settings-fields.php:434
+#: admin/settings-fields.php:436
 msgid "Same Window (_self)"
 msgstr ""
 
-#: admin/settings-fields.php:435
+#: admin/settings-fields.php:437
 msgid "New Window (_blank)"
 msgstr ""
 
-#: admin/settings-fields.php:465
+#: admin/settings-fields.php:446
+msgid "Select the target for the links, can be _self or _blank."
+msgstr ""
+
+#: admin/settings-fields.php:467
 msgid ""
 "Enabling this setting will add an attribute called 'nofollow' to the all "
 "post links. This tells search engines to not follow this link."
 msgstr ""
 
-#: admin/settings-fields.php:477
+#: admin/settings-fields.php:488
+msgid "Select the position of the post ticker info. It may be Left or Right."
+msgstr ""
+
+#: admin/settings-fields.php:500
 msgid "Post Published Date"
 msgstr ""
 
-#: admin/settings-fields.php:478
+#: admin/settings-fields.php:501
 msgid "Post Modified Date"
 msgstr ""
 
-#: admin/settings-fields.php:479
+#: admin/settings-fields.php:502
 msgid "Post Original Author"
 msgstr ""
 
-#: admin/settings-fields.php:480
+#: admin/settings-fields.php:503
 msgid "Post Modified Author"
 msgstr ""
 
-#: admin/settings-fields.php:481
+#: admin/settings-fields.php:504
 msgid "Post Excerpt"
 msgstr ""
 
-#: admin/settings-fields.php:490
+#: admin/settings-fields.php:513
 msgid ""
 "Set the visibility of post excerpt to show the excerpt for each post in "
 "Posts Ticker."
 msgstr ""
 
-#: admin/settings-fields.php:499
+#: admin/settings-fields.php:522
 msgid "Set the font size of Posts Ticker label from here. You can use px/em/%."
 msgstr ""
 
-#: admin/settings-fields.php:516
+#: admin/settings-fields.php:539
 msgid "Show Nothing"
 msgstr ""
 
-#: admin/settings-fields.php:517
+#: admin/settings-fields.php:540
 msgid "Show a Message"
 msgstr ""
 
-#: admin/settings-fields.php:526
+#: admin/settings-fields.php:549
 msgid "Set what you want to do when there are no posts available to show."
 msgstr ""
 
-#: admin/settings-fields.php:533 public/render.php:67
+#: admin/settings-fields.php:556 public/render.php:68
 msgid "There are no matching posts to show"
 msgstr ""
 
-#: admin/settings-fields.php:536 admin/settings-page.php:159
+#: admin/settings-fields.php:559 admin/settings-page.php:160
 msgid "Set the text to display if no matching posts are found."
 msgstr ""
 
-#: admin/settings-fields.php:543
+#: admin/settings-fields.php:566
 #, php-format
 msgid "Do not add %s tag. This tag is not required, as it is already added."
 msgstr ""
 
-#: admin/settings-fields.php:550
+#: admin/settings-fields.php:573
 msgid "Yes, I want to delete all plugin data at the time of uninstallation."
 msgstr ""
 
@@ -598,30 +606,34 @@ msgid "Add \"nofollow\" to Link:"
 msgstr ""
 
 #: admin/settings-loader.php:56
-msgid "Post Info After Ticker:"
+msgid "Show Post Info on Ticker:"
 msgstr ""
 
 #: admin/settings-loader.php:57
-msgid "Post Info Separator:"
+msgid "Post Info Position:"
 msgstr ""
 
 #: admin/settings-loader.php:58
-msgid "Ticker Post Info Colour:"
+msgid "Post Info Separator:"
 msgstr ""
 
 #: admin/settings-loader.php:59
-msgid "Ticker No Content Action:"
+msgid "Ticker Post Info Colour:"
 msgstr ""
 
 #: admin/settings-loader.php:60
-msgid "Ticker No Content Text:"
+msgid "Ticker No Content Action:"
 msgstr ""
 
 #: admin/settings-loader.php:61
-msgid "Custom CSS Code:"
+msgid "Ticker No Content Text:"
 msgstr ""
 
 #: admin/settings-loader.php:62
+msgid "Custom CSS Code:"
+msgstr ""
+
+#: admin/settings-loader.php:63
 msgid "Delete Plugin Data?"
 msgstr ""
 
@@ -673,7 +685,7 @@ msgstr ""
 
 #: admin/settings-page.php:55 admin/settings-page.php:67
 #: admin/settings-page.php:79 admin/settings-page.php:91
-#: admin/settings-page.php:103 admin/settings-page.php:258
+#: admin/settings-page.php:103 admin/settings-page.php:259
 msgid "Save Settings"
 msgstr ""
 
@@ -859,7 +871,9 @@ msgid "Time in milliseconds before the marquee starts animating. Default: 100."
 msgstr ""
 
 #: admin/settings-page.php:152
-msgid "Set the visibility of the hyperlinks."
+msgid ""
+"Set the visibility of the hyperlinks. It can be \"no\", but defaults to \"yes"
+"\"."
 msgstr ""
 
 #: admin/settings-page.php:153
@@ -878,76 +892,82 @@ msgid ""
 msgstr ""
 
 #: admin/settings-page.php:156
-msgid "If the post info is shown, choose the colour of the post info."
+msgid ""
+"Set the position of the post ticker info. It can be \"left\", but defaults "
+"to \"right\"."
 msgstr ""
 
 #: admin/settings-page.php:157
-msgid "If the post info is shown, choose the seperator between link and info."
+msgid "If the post info is shown, choose the colour of the post info."
 msgstr ""
 
 #: admin/settings-page.php:158
+msgid "If the post info is shown, choose the seperator between link and info."
+msgstr ""
+
+#: admin/settings-page.php:159
 msgid "Set the text display action if no matching posts are found."
 msgstr ""
 
-#: admin/settings-page.php:160
+#: admin/settings-page.php:161
 msgid "If the post info is shown, choose the before content of post info."
 msgstr ""
 
-#: admin/settings-page.php:161
+#: admin/settings-page.php:162
 msgid "If the post info is shown, choose the after content of post info."
 msgstr ""
 
-#: admin/settings-page.php:162
+#: admin/settings-page.php:163
 msgid "Set the custom CSS class name for each ticker."
 msgstr ""
 
-#: admin/settings-page.php:177
+#: admin/settings-page.php:178
 msgid "Plugin Tools"
 msgstr ""
 
-#: admin/settings-page.php:182 admin/settings-page.php:188
+#: admin/settings-page.php:183 admin/settings-page.php:189
 msgid "Export Settings"
 msgstr ""
 
-#: admin/settings-page.php:183
+#: admin/settings-page.php:184
 msgid ""
 "Export the plugin settings for this site as a .json file. This allows you to "
 "easily import the configuration into another site."
 msgstr ""
 
-#: admin/settings-page.php:193 admin/settings-page.php:200
+#: admin/settings-page.php:194 admin/settings-page.php:201
 msgid "Import Settings"
 msgstr ""
 
-#: admin/settings-page.php:194
+#: admin/settings-page.php:195
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
 msgstr ""
 
-#: admin/settings-page.php:205 admin/settings-page.php:211
+#: admin/settings-page.php:206 admin/settings-page.php:212
 msgid "Reset Settings"
 msgstr ""
 
-#: admin/settings-page.php:206
+#: admin/settings-page.php:207
 msgid "WARNING:"
 msgstr ""
 
-#: admin/settings-page.php:206
+#: admin/settings-page.php:207
 msgid ""
 "Resetting will delete all custom options to the default settings of the "
 "plugin in your database."
 msgstr ""
 
-#: admin/settings-page.php:231
+#: admin/settings-page.php:232
 msgid "Custom"
 msgstr ""
 
-#: admin/settings-page.php:233 admin/settings-page.php:235
+#: admin/settings-page.php:234 admin/settings-page.php:236
 msgid "Buy me a coffee!"
 msgstr ""
 
-#: admin/settings-page.php:236
+#: admin/settings-page.php:237
 #, php-format
 msgid ""
 "Thank you for using %s. If you found the plugin useful buy me a coffee! Your "
@@ -955,47 +975,47 @@ msgid ""
 "via PayPal."
 msgstr ""
 
-#: admin/settings-page.php:240
+#: admin/settings-page.php:241
 msgid "Please wait..."
 msgstr ""
 
-#: admin/settings-page.php:244
+#: admin/settings-page.php:245
 msgid "Settings Saved Successfully!"
 msgstr ""
 
-#: admin/settings-page.php:252
+#: admin/settings-page.php:253
 msgid "Saving..."
 msgstr ""
 
-#: admin/settings-page.php:268
+#: admin/settings-page.php:269
 msgid "My Other Plugins!"
 msgstr ""
 
-#: admin/settings-page.php:274
+#: admin/settings-page.php:275
 msgid ""
 "Display last update date and time on frontend with 'dateModified' Schema "
 "Markup."
 msgstr ""
 
-#: admin/settings-page.php:282
+#: admin/settings-page.php:283
 msgid ""
 "Ultimate Facebook Comment Solution with instant email notification for any "
 "WordPress Website."
 msgstr ""
 
-#: admin/settings-page.php:290
+#: admin/settings-page.php:291
 msgid ""
 "Add any page extension like .html, .php, .aspx, .htm, .asp, .shtml only to "
 "pages."
 msgstr ""
 
-#: admin/settings-page.php:298
+#: admin/settings-page.php:299
 msgid ""
 "Add custom code and remove the unwanted meta tags, links from the source "
 "code and many more."
 msgstr ""
 
-#: admin/settings-page.php:306
+#: admin/settings-page.php:307
 msgid "Automatically republish you old evergreen content to grab better SEO."
 msgstr ""
 

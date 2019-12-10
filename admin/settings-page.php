@@ -22,7 +22,7 @@
     <div id="nav-container" class="nav-tab-wrapper">
         <a href="#post" class="nav-tab active" id="btn1"><span class="dashicons dashicons-admin-post" style="padding-top: 2px;"></span> <?php _e( 'Post Type', 'simple-posts-ticker' ); ?></a>
         <a href="#label" class="nav-tab" id="btn2"><span class="dashicons dashicons-edit" style="padding-top: 2px;"></span> <?php _e( 'Label', 'simple-posts-ticker' ); ?></a>
-        <a href="#configure" class="nav-tab" id="btn3"><span class="dashicons dashicons-leftright" style="padding-top: 2px;"></span> <?php _e( 'Ticker', 'simple-posts-ticker' ); ?></a>
+        <a href="#configure" class="nav-tab" id="btn3"><span class="dashicons dashicons-megaphone" style="padding-top: 2px;"></span> <?php _e( 'Ticker', 'simple-posts-ticker' ); ?></a>
         <a href="#styles" class="nav-tab" id="btn4"><span class="dashicons dashicons-admin-appearance" style="padding-top: 2px;"></span> <?php _e( 'Styles', 'simple-posts-ticker' ); ?></a>
         <a href="#others" class="nav-tab" id="btn5"><span class="dashicons dashicons-screenoptions" style="padding-top: 2px;"></span> <?php _e( 'Others', 'simple-posts-ticker' ); ?></a>
         <a href="#shortcode" class="nav-tab" id="btn6"><span class="dashicons dashicons-editor-code" style="padding-top: 2px;"></span> <?php _e( 'Shortcode', 'simple-posts-ticker' ); ?></a>
@@ -149,10 +149,11 @@
                                     'ticker_speed'              => __( 'Speed will override duration. Speed allows you to set a relatively constant marquee speed regardless of the width of the containing element. Speed is measured in pixels per second.', 'simple-posts-ticker' ),
                                     'ticker_visible'            => __( 'The marquee will be visible from the start if set to true, defaults to false.$ticker_visible', 'simple-posts-ticker' ),
                                     'ticker_delay'              => __( 'Time in milliseconds before the marquee starts animating. Default: 100.', 'simple-posts-ticker' ),
-                                    'hyperlink'                 => __( 'Set the visibility of the hyperlinks.', 'simple-posts-ticker' ),
+                                    'hyperlink'                 => __( 'Set the visibility of the hyperlinks. It can be "no", but defaults to "yes".', 'simple-posts-ticker' ),
                                     'target'                    => __( 'Choose the target for the links, can be "_self" or "_blank".', 'simple-posts-ticker' ),
                                     'no_follow'                 => __( 'Choose the rel for the links, default to "no" but can be "yes".', 'simple-posts-ticker' ),
                                     'post_info'                 => __( 'Choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt".', 'simple-posts-ticker' ),
+                                    'post_info_position'        => __( 'Set the position of the post ticker info. It can be "left", but defaults to "right".', 'simple-posts-ticker' ),
                                     'post_info_colour'          => __( 'If the post info is shown, choose the colour of the post info.', 'simple-posts-ticker' ),
                                     'post_info_sep'             => __( 'If the post info is shown, choose the seperator between link and info.', 'simple-posts-ticker' ),
                                     'no_content'                => __( 'Set the text display action if no matching posts are found.', 'simple-posts-ticker' ),
@@ -234,7 +235,7 @@
                     </div>
                     <span class="coffee-heading"><?php _e( 'Buy me a coffee!', 'simple-posts-ticker' ); ?></span>
                     <p style="text-align: justify;"><?php printf( __( 'Thank you for using %s. If you found the plugin useful buy me a coffee! Your donation will motivate and make me happy for all the efforts. You can donate via PayPal.', 'simple-posts-ticker' ), '<strong>Simple Posts Ticker v' . SPT_PLUGIN_VERSION . '</strong>' ); ?></strong></p>
-                    <p style="text-align: justify; font-size: 12px; font-style: italic;">Developed with <span style="color:#e25555;">♥</span> by <a href="https://about.me/iamsayan" target="_blank" style="font-weight: 500;">Sayan Datta</a> | <a href="https://github.com/iamsayan/simple-posts-ticker" target="_blank" style="font-weight: 500;">GitHub</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank" style="font-weight: 500;">Support</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" style="font-weight: 500;">Rate it</a> (<span style="color:#ffa000;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>) on WordPress.org, if you like this plugin.</p>
+                    <p style="text-align: justify; font-size: 12px; font-style: italic;">Developed with <span style="color:#e25555;">♥</span> by <a href="https://about.me/iamsayan" target="_blank" style="font-weight: 500;">Sayan Datta</a> | <a href="https://www.fiverr.com/iamsayan" target="_blank" style="font-weight: 500;">Hire Me</a> | <a href="https://github.com/iamsayan/simple-posts-ticker" target="_blank" style="font-weight: 500;">GitHub</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank" style="font-weight: 500;">Support</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" style="font-weight: 500;">Rate it</a> (<span style="color:#ffa000;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>) on WordPress.org, if you like this plugin.</p>
                 </div>
                 <div id="progressMessage" class="progressModal" style="display:none;">
                     <?php _e( 'Please wait...', 'simple-posts-ticker' ); ?>

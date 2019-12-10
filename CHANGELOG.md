@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.1.2
+Release Date: December 10, 2019
+
+* Added: Option to set Post Info position.
+* Improved: Marquee loading time.
+* Improved: Post Query Mechanism.
+* Improved: Admin UI.
+* Improved: Custom CSS Output.
+* Fixed: Wrong Tooltip text.
+* Fixed: Minor Plugin settings JS problem.
+
 ## 1.1.1
 Release Date: December 10, 2019
 

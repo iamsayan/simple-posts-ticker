@@ -35,6 +35,8 @@ function spt_post_type_display() {
             echo '<option value="' . $post_type->name . '"' . $selected . '>' . $post_type->labels->name . '</option>';
         }
     }
+    $selected_cpt = ( $spt_settings['spt_post_type'] == 'spt_ticker' ) ? ' selected="selected"' : '';
+    echo '<option value="spt_ticker"' . $selected_cpt . '>' . __( 'Tickers', 'simple-posts-ticker' ) . '</option>';
     echo '</select>';
     ?>
     &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the type of post you want to show in ticker.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
@@ -420,7 +422,7 @@ function spt_enable_link_display() {
     }
     echo '</select>';
     ?>
-    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the target for the links, can be _self or _blank.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'You can control ticker links from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
@@ -463,6 +465,27 @@ function spt_no_follow_display() {
     echo '</select>';
     ?>
     &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Enabling this setting will add an attribute called \'nofollow\' to the all post links. This tells search engines to not follow this link.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_show_info_position_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_show_info_position']) ) {
+        $spt_settings['spt_show_info_position'] = 'right';
+    }
+    $items = array(
+        'left'    => __( 'Left Side', 'simple-posts-ticker' ),
+        'right'   => __( 'Right Side', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-info-position" name="spt_plugin_settings[spt_show_info_position]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_show_info_position'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the position of the post ticker info. It may be Left or Right.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 

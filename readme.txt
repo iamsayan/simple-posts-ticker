@@ -3,7 +3,7 @@ Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker, event ticker, posts scroll
 Requires at least: 4.6
 Tested up to: 5.3
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 5.6
 Donate link: https://www.paypal.me/iamsayan/
 License: GPLv3
@@ -80,6 +80,17 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 == Changelog ==
 
 If you like Simple Posts Ticker, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+= 1.1.2 =
+Release Date: December 10, 2019
+
+* Added: Option to set Post Info position.
+* Improved: Marquee loading time.
+* Improved: Post Query Mechanism.
+* Improved: Admin UI.
+* Improved: Custom CSS Output.
+* Fixed: Wrong Tooltip text.
+* Fixed: Minor Plugin settings JS problem.
 
 = 1.1.1 =
 Release Date: December 10, 2019

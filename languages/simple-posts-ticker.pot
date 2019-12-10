@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-12-10 02:08+0530\n"
+"POT-Creation-Date: 2019-12-10 09:40+0530\n"
 "PO-Revision-Date: 2019-03-21 09:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -575,6 +575,17 @@ msgstr ""
 
 #: admin/settings-page.php:109
 msgid "Shortcode Info"
+msgstr ""
+
+#: admin/settings-page.php:113
+msgid ""
+"You can show posts ticker anywhere by simply using the shortcode <code>[spt-"
+"posts-ticker]</code>. To enter the shortcode directly into templates using "
+"PHP, enter <code>echo do_shortcode(&#39;[spt-posts-ticker]&#39;);</code>"
+msgstr ""
+
+#: admin/settings-page.php:114
+msgid "Use the options/attributes below to override the original settings."
 msgstr ""
 
 #: admin/settings-page.php:117

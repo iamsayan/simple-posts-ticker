@@ -47,4 +47,4 @@ function spt_init_script_to_wp_footer() { ?>
     });
 </script>
 <?php 
-};
+}

@@ -110,8 +110,8 @@
                             </span>
                         </h3>
                         <div class="inside spt-inside" style="padding-bottom: 15px;">
-                            <p>You can show posts ticker anywhere by simply using the shortcode <code>[spt-posts-ticker]</code>. To enter the shortcode directly into templates using PHP, enter <code>echo do_shortcode('[spt-posts-ticker]');</code></p>
-                            <p>Use the options/attributes below to override the original settings.</p>
+                            <p><?php _e( 'You can show posts ticker anywhere by simply using the shortcode <code>[spt-posts-ticker]</code>. To enter the shortcode directly into templates using PHP, enter <code>echo do_shortcode(&#39;[spt-posts-ticker]&#39;);</code>', 'simple-posts-ticker' ); ?></p>
+                            <p><?php _e( 'Use the options/attributes below to override the original settings.', 'simple-posts-ticker' ); ?></p>
                             <table>
                                 <tr>
                                     <th><?php _e( 'Attributes', 'simple-posts-ticker' ); ?></th>

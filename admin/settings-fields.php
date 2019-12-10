@@ -13,7 +13,7 @@ function spt_num_posts_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_num_posts']) ) {
         $spt_settings['spt_num_posts'] = '5';
-    } ?>  <input id="spt-post-num" name="spt_plugin_settings[spt_num_posts]" type="number" min="5" max="20" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_num_posts'])) { echo $spt_settings['spt_num_posts']; } ?>" />
+    } ?>  <input id="spt-post-num" name="spt_plugin_settings[spt_num_posts]" type="number" min="-1" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_num_posts'])) { echo $spt_settings['spt_num_posts']; } ?>" />
         &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the number of posts you want to show in ticker.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
@@ -29,7 +29,7 @@ function spt_post_type_display() {
 
     echo '<select id="spt-post-type" name="spt_plugin_settings[spt_post_type]" style="width:30%;">';
     foreach( $post_types as $post_type ) {
-        $exclude = array( 'attachment' );
+        $exclude = apply_filters( 'spt_post_type_exclude_list', array( 'attachment' ) );
         if( !in_array( $post_type->name, $exclude ) ) {
             $selected = ( $spt_settings['spt_post_type'] == $post_type->name ) ? ' selected="selected"' : '';
             echo '<option value="' . $post_type->name . '"' . $selected . '>' . $post_type->labels->name . '</option>';
@@ -92,8 +92,7 @@ function spt_post_cat_display() {
 
     $categories = get_terms( array(
         'taxonomy'     => 'category',
-        'orderby'      => 'name',
-        //'hide_empty'   => false,
+        'orderby'      => 'name'
     ) );
 
     echo '<select id="spt-cat" name="spt_plugin_settings[spt_post_cat][]" multiple="multiple" style="width:90%;">';
@@ -128,12 +127,33 @@ function spt_show_label_display() {
     <?php
 }
 
+function spt_label_position_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_label_position']) ) {
+        $spt_settings['spt_label_position'] = 'left';
+    }
+    $items = array(
+        'left'    => __( 'Left Side', 'simple-posts-ticker' ),
+        'right'   => __( 'Right Side', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-label-position" name="spt_plugin_settings[spt_label_position]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_label_position'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the Posts Ticker Label visibility from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
 function spt_label_text_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_label_text']) ) {
         $spt_settings['spt_label_text'] = 'Latest Posts';
     } ?>  <input id="spt-label-text" name="spt_plugin_settings[spt_label_text]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_label_text'])) { echo $spt_settings['spt_label_text']; } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the message/label to show before the Posts Ticker', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the Message/Label to show before the Posts Ticker', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
@@ -142,22 +162,31 @@ function spt_label_font_size_display() {
     if( empty($spt_settings['spt_label_font_size']) ) {
         $spt_settings['spt_label_font_size'] = '100%';
     } ?>  <input id="spt-label-text-font-size" name="spt_plugin_settings[spt_label_font_size]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_label_font_size'])) { echo $spt_settings['spt_label_font_size']; } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the font size of Posts Ticker label from here. You can use px/em/%.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the font size of Posts Ticker Label from here. You can use px/em/%.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
 function spt_margin_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_margin']) ) {
-        $spt_settings['spt_margin'] = '2px 10px';
+        $spt_settings['spt_margin'] = '0';
     } ?>  <input id="spt-margin" name="spt_plugin_settings[spt_margin]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_margin'])) { echo $spt_settings['spt_margin']; } ?>" />
-        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_margin.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the margin of the ticker label from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
+        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_margin.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the margin of the Ticker Label from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
+    <?php
+}
+
+function spt_padding_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_padding']) ) {
+        $spt_settings['spt_padding'] = '0 10px';
+    } ?>  <input id="spt-padding" name="spt_plugin_settings[spt_padding]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_padding'])) { echo $spt_settings['spt_padding']; } ?>" />
+        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_padding.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the padding of the Ticker label from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
     <?php
 }
 
 function spt_label_text_colour_display() {
     $spt_settings = get_option('spt_plugin_settings');
-    ?>  <input id="spt-label-colour" name="spt_plugin_settings[spt_label_text_colour]" type="text" class="spt-color-picker" placeholder="#fff" value="<?php if (isset($spt_settings['spt_label_text_colour'])) { echo $spt_settings['spt_label_text_colour']; } ?>" />
+    ?>  <input id="spt-label-text-colour" name="spt_plugin_settings[spt_label_text_colour]" type="text" class="spt-color-picker" placeholder="#fff" value="<?php if (isset($spt_settings['spt_label_text_colour'])) { echo $spt_settings['spt_label_text_colour']; } ?>" />
     <?php
 }
 
@@ -187,7 +216,7 @@ function spt_border_display() {
     }
     echo '</select>';
     ?>
-    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Choose the border type of the marquee type posts ticker from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Choose the border type of the marquee posts ticker from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
@@ -205,7 +234,7 @@ function spt_border_radius_display() {
     if( empty($spt_settings['spt_border_radius']) ) {
         $spt_settings['spt_border_radius'] = '0px';
     } ?>  <input id="spt-border-radius" name="spt_plugin_settings[spt_border_radius]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_border_radius'])) { echo $spt_settings['spt_border_radius']; } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the border radious from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the border radius from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
@@ -220,16 +249,157 @@ function spt_size_display() {
     if( empty($spt_settings['spt_size']) ) {
         $spt_settings['spt_size'] = '100%';
     } ?>  <input id="spt-font-size" name="spt_plugin_settings[spt_size]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_size'])) { echo $spt_settings['spt_size']; } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the font size of Posts Ticker from here. You can use px/em/%.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the font size of Posts Ticker text or link from here. You can use px/em/%.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_ticker_margin_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_ticker_margin']) ) {
+        $spt_settings['spt_ticker_margin'] = '0';
+    } ?>  <input id="spt-ticker-margin" name="spt_plugin_settings[spt_ticker_margin]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_margin'])) { echo $spt_settings['spt_ticker_margin']; } ?>" />
+        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_margin.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the posts ticker content area margin from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
+    <?php
+}
+
+function spt_ticker_padding_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_ticker_padding']) ) {
+        $spt_settings['spt_ticker_padding'] = '0';
+    } ?>  <input id="spt-ticker-padding" name="spt_plugin_settings[spt_ticker_padding]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_padding'])) { echo $spt_settings['spt_ticker_padding']; } ?>" />
+        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_padding.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the posts ticker content area padding from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
+    <?php
+}
+
+function spt_ticker_colour_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    ?>  <input id="spt-ticker-colour" name="spt_plugin_settings[spt_ticker_colour]" type="text" class="spt-color-picker" placeholder="#fff" value="<?php if (isset($spt_settings['spt_ticker_colour'])) { echo $spt_settings['spt_ticker_colour']; } ?>" />
+    <?php
+}
+
+function spt_ticker_bg_colour_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    ?>  <input id="spt-ticker-bg-colour" name="spt_plugin_settings[spt_ticker_bg_colour]" type="text" class="spt-color-picker" placeholder="#fff" value="<?php if (isset($spt_settings['spt_ticker_bg_colour'])) { echo $spt_settings['spt_ticker_bg_colour']; } ?>" />
+    <?php
+}
+
+function spt_ticker_link_padding_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_ticker_link_padding']) ) {
+        $spt_settings['spt_ticker_link_padding'] = '0 10px';
+    } ?>  <input id="spt-ticker-margin" name="spt_plugin_settings[spt_ticker_link_padding]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_link_padding'])) { echo $spt_settings['spt_ticker_link_padding']; } ?>" />
+        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_padding.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the left right padding of a post a link from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
+    <?php
+}
+
+function spt_ticker_direction_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_ticker_direction']) ) {
+        $spt_settings['spt_ticker_direction'] = 'right';
+    }
+    $items = array(
+        'right'  => __( 'Left to Right', 'simple-posts-ticker' ),
+        'left'   => __( 'Right to Left', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-direction" name="spt_plugin_settings[spt_ticker_direction]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_ticker_direction'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the direction of the posts ticker. It may be Left to Right or Right to Left.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_ticker_continuous_flow_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_ticker_continuous_flow']) ) {
+        $spt_settings['spt_ticker_continuous_flow'] = 'false';
+    }
+    $items = array(
+        'true'   => __( 'Enable', 'simple-posts-ticker' ),
+        'false'  => __( 'Disable', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-continuous-flow" name="spt_plugin_settings[spt_ticker_continuous_flow]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_ticker_continuous_flow'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Should the marquee be duplicated to show an effect of continuous flow. Configure the continuous flow of Posts Ticker from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_stop_on_hover_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_stop_on_hover']) ) {
+        $spt_settings['spt_stop_on_hover'] = 'false';
+    }
+    $items = array(
+        'true'  => __( 'Yes', 'simple-posts-ticker' ),
+        'false' => __( 'No', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-hover" name="spt_plugin_settings[spt_stop_on_hover]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_stop_on_hover'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Choose whether to pause marquee scroll on mouse hover, defaults to \'no\', set to \'yes\' to pause scroll on mouse hover.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_duration_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_duration']) ) {
+        $spt_settings['spt_duration'] = '5000';
+    } ?>  <input id="spt-duration" name="spt_plugin_settings[spt_duration]" type="number" size="30" min="0" style="width:30%;" required value="<?php if (isset($spt_settings['spt_duration'])) { echo $spt_settings['spt_duration']; } ?>" />
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Duration in milliseconds in which you want your element to travel. Default: 5000. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
 function spt_speed_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_speed']) ) {
-        $spt_settings['spt_speed'] = '50';
-    } ?>  <input id="spt-speed" name="spt_plugin_settings[spt_speed]" type="number" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_speed'])) { echo $spt_settings['spt_speed']; } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Select the the speed to scroll by, in pixels per second. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        $spt_settings['spt_speed'] = '0';
+    } ?>  <input id="spt-speed" name="spt_plugin_settings[spt_speed]" type="number" size="30" min="0" style="width:30%;" required value="<?php if (isset($spt_settings['spt_speed'])) { echo $spt_settings['spt_speed']; } ?>" />
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Speed will override duration. Speed allows you to set a relatively constant marquee speed regardless of the width of the containing element. Speed is measured in pixels per second. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_visible_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    
+    if( !isset($spt_settings['spt_visible']) ) {
+        $spt_settings['spt_visible'] = 'false';
+    }
+    $items = array(
+        'true'  => __( 'Yes', 'simple-posts-ticker' ),
+        'false' => __( 'No', 'simple-posts-ticker' ),
+    );
+    echo '<select id="spt-hover" name="spt_plugin_settings[spt_visible]" style="width:30%;">';
+    foreach( $items as $item => $label ) {
+        $selected = ( $spt_settings['spt_visible'] == $item ) ? ' selected="selected"' : '';
+        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
+    }
+    echo '</select>';
+    ?>
+    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'The marquee will be visible from the start if set to true, defaults to false.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_delay_start_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_delay_start']) ) {
+        $spt_settings['spt_delay_start'] = '100';
+    } ?>  <input id="spt-delay" name="spt_plugin_settings[spt_delay_start]" type="number" size="30" min="0" style="width:30%;" required value="<?php if (isset($spt_settings['spt_delay_start'])) { echo $spt_settings['spt_delay_start']; } ?>" />
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Time in milliseconds before the marquee starts animating. Default: 100. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
@@ -272,57 +442,6 @@ function spt_no_follow_display() {
     echo '</select>';
     ?>
     &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Enabling this setting will add an attribute called \'nofollow\' to the all post links. This tells search engines to not follow this link.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
-    <?php
-}
-
-function spt_ticker_colour_display() {
-    $spt_settings = get_option('spt_plugin_settings');
-    ?>  <input id="spt-ticker-colour" name="spt_plugin_settings[spt_ticker_colour]" type="text" class="spt-color-picker" placeholder="#fff" value="<?php if (isset($spt_settings['spt_ticker_colour'])) { echo $spt_settings['spt_ticker_colour']; } ?>" />
-    <?php
-}
-
-function spt_ticker_bg_colour_display() {
-    $spt_settings = get_option('spt_plugin_settings');
-    ?>  <input id="spt-ticker-bg-colour" name="spt_plugin_settings[spt_ticker_bg_colour]" type="text" class="spt-color-picker" placeholder="#fff" value="<?php if (isset($spt_settings['spt_ticker_bg_colour'])) { echo $spt_settings['spt_ticker_bg_colour']; } ?>" />
-    <?php
-}
-
-function spt_ticker_margin_display() {
-    $spt_settings = get_option('spt_plugin_settings');
-    if( empty($spt_settings['spt_ticker_margin']) ) {
-        $spt_settings['spt_ticker_margin'] = '2px 0';
-    } ?>  <input id="spt-ticker-margin" name="spt_plugin_settings[spt_ticker_margin]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_margin'])) { echo $spt_settings['spt_ticker_margin']; } ?>" />
-        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_margin.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the posts ticker margin from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
-    <?php
-}
-
-function spt_ticker_padding_display() {
-    $spt_settings = get_option('spt_plugin_settings');
-    if( empty($spt_settings['spt_ticker_padding']) ) {
-        $spt_settings['spt_ticker_padding'] = '0 10px';
-    } ?>  <input id="spt-ticker-padding" name="spt_plugin_settings[spt_ticker_padding]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_padding'])) { echo $spt_settings['spt_ticker_padding']; } ?>" />
-        &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_padding.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the posts ticker padding from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
-    <?php
-}
-
-function spt_gap_display() {
-    $spt_settings = get_option('spt_plugin_settings');
-    
-    if( !isset($spt_settings['spt_gap']) ) {
-        $spt_settings['spt_gap'] = 'false';
-    }
-    $items = array(
-        'true'  => __( 'Yes', 'simple-posts-ticker' ),
-        'false' => __( 'No', 'simple-posts-ticker' ),
-    );
-    echo '<select id="spt-gap" name="spt_plugin_settings[spt_gap]" style="width:30%;">';
-    foreach( $items as $item => $label ) {
-        $selected = ( $spt_settings['spt_gap'] == $item ) ? ' selected="selected"' : '';
-        echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';
-    }
-    echo '</select>';
-    ?>
-    &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Choose whether to show a gap between cycles of the marquee content, defaults to \'yes\' for classic marquee style, set to \'no\' for new infinite scrolling style marquee.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 

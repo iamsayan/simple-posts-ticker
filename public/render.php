@@ -10,41 +10,60 @@
  */
 
 add_shortcode( 'spt-posts-ticker', 'spt_render_posts_ticker' );
-add_action( 'wp_head', 'spt_custom_style_to_wp_head', 10 );
 
 function spt_render_posts_ticker( $atts ) {
     $spt_settings = get_option('spt_plugin_settings');
+    
     global $post;
 
+    // post types
     $num_posts = !empty($spt_settings['spt_num_posts']) ? $spt_settings['spt_num_posts'] : '5';
     $post_type = isset($spt_settings['spt_post_type']) ? $spt_settings['spt_post_type'] : 'post';
     $orderby = isset($spt_settings['spt_show_orderby']) ? $spt_settings['spt_show_orderby'] : 'date';
     $order = isset($spt_settings['spt_show_order']) ? $spt_settings['spt_show_order'] : 'DESC';
-    $post_info = isset($spt_settings['spt_show_info']) ? $spt_settings['spt_show_info'] : 'none';
     $category = isset($spt_settings['spt_post_cat']) && $post_type == 'post' ? implode(',', $spt_settings['spt_post_cat']) : '0';
+    
+    // label options
     $label = isset($spt_settings['spt_show_label']) ? $spt_settings['spt_show_label'] : 'yes';
+    $label_position = !empty($spt_settings['spt_label_position']) ? $spt_settings['spt_label_position'] : 'left';
     $label_text = !empty($spt_settings['spt_label_text']) ? $spt_settings['spt_label_text'] : 'Latest Posts';
-    $label_size = !empty($spt_settings['spt_label_font_size']) ? $spt_settings['spt_label_font_size'] : '100%';
+    $label_text_size = !empty($spt_settings['spt_label_font_size']) ? $spt_settings['spt_label_font_size'] : '100%';
+    $label_margin = !empty($spt_settings['spt_margin']) ? $spt_settings['spt_margin'] : '0';
+    $label_padding = !empty($spt_settings['spt_padding']) ? $spt_settings['spt_padding'] : '0 10px';
     $label_colour = !empty($spt_settings['spt_label_text_colour']) ? spt_validateHtmlColour($spt_settings['spt_label_text_colour']) : 'inherit';
     $label_bg_colour = !empty($spt_settings['spt_label_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_label_bg_colour']) : 'inherit';
-    $label_margin = !empty($spt_settings['spt_margin']) ? $spt_settings['spt_margin'] : '2px 10px';
-    $label_border = isset($spt_settings['spt_border']) ? $spt_settings['spt_border'] : 'solid';
-    $label_border_width = !empty($spt_settings['spt_border_width']) ? $spt_settings['spt_border_width'] : '3px';
-    $label_border_radius = !empty($spt_settings['spt_border_radius']) ? $spt_settings['spt_border_radius'] : '0px';
-    $label_border_colour = !empty($spt_settings['spt_border_colour']) ? spt_validateHtmlColour($spt_settings['spt_border_colour']) : $label_bg_colour;
-    $size = !empty($spt_settings['spt_size']) ? $spt_settings['spt_size'] : '100%';
-    $speed = !empty($spt_settings['spt_speed']) ? $spt_settings['spt_speed'] : '50';
+    
+    // border options
+    $ticker_border = isset($spt_settings['spt_border']) ? $spt_settings['spt_border'] : 'solid';
+    $ticker_border_width = !empty($spt_settings['spt_border_width']) ? $spt_settings['spt_border_width'] : '3px';
+    $ticker_border_radius = !empty($spt_settings['spt_border_radius']) ? $spt_settings['spt_border_radius'] : '0px';
+    $ticker_border_colour = !empty($spt_settings['spt_border_colour']) ? spt_validateHtmlColour($spt_settings['spt_border_colour']) : $label_bg_colour;
+    
+    // content options
+    $content_size = !empty($spt_settings['spt_size']) ? $spt_settings['spt_size'] : '100%';
+    $content_margin = !empty($spt_settings['spt_ticker_margin']) ? $spt_settings['spt_ticker_margin'] : '0';
+    $content_padding = !empty($spt_settings['spt_ticker_padding']) ? $spt_settings['spt_ticker_padding'] : '0';
+    $content_colour = !empty($spt_settings['spt_ticker_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_colour']) : '#333333';
+    $content_bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_bg_colour']) : 'inherit';
+    $content_link_padding = !empty($spt_settings['spt_ticker_link_padding']) ? $spt_settings['spt_ticker_link_padding'] : '0 10px';
+    
+    //ticker settings
+    $ticker_direction = isset($spt_settings['spt_ticker_direction']) ? $spt_settings['spt_ticker_direction'] : 'right';
+    $ticker_cflow = isset($spt_settings['spt_ticker_continuous_flow']) ? $spt_settings['spt_ticker_continuous_flow'] : 'false';
+    $ticker_pause = isset($spt_settings['spt_stop_on_hover']) ? $spt_settings['spt_stop_on_hover'] : 'false';
+    $ticker_duration = !empty($spt_settings['spt_duration']) ? $spt_settings['spt_duration'] : '5000';
+    $ticker_speed = !empty($spt_settings['spt_speed']) ? $spt_settings['spt_speed'] : '';
+    $ticker_visible = isset($spt_settings['spt_visible']) ? $spt_settings['spt_visible'] : 'false';
+    $ticker_delay = !empty($spt_settings['spt_delay_start']) ? $spt_settings['spt_delay_start'] : '100';
+    
+    // others
     $target = isset($spt_settings['spt_target']) ? $spt_settings['spt_target'] : '_self';
     $nofollow = isset($spt_settings['spt_no_follow']) ? $spt_settings['spt_no_follow'] : 'no';
-    $colour = !empty($spt_settings['spt_ticker_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_colour']) : '#333333';
-    $bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_bg_colour']) : 'inherit';
-    $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validateHtmlColour($spt_settings['spt_post_info_colour']) : $colour;
+    $post_info = isset($spt_settings['spt_show_info']) ? $spt_settings['spt_show_info'] : 'none';
+    $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validateHtmlColour($spt_settings['spt_post_info_colour']) : $content_colour;
     $post_info_sep = !empty($spt_settings['spt_post_info_sep']) ? $spt_settings['spt_post_info_sep'] : '';
-    $margin = !empty($spt_settings['spt_ticker_margin']) ? $spt_settings['spt_ticker_margin'] : '2px 0';
-    $padding = !empty($spt_settings['spt_ticker_padding']) ? $spt_settings['spt_ticker_padding'] : '0 10px';
-    $gap = isset($spt_settings['spt_gap']) ? $spt_settings['spt_gap'] : 'false';
     $no_content = isset($spt_settings['spt_no_content_type']) ? $spt_settings['spt_no_content_type'] : 'none';
-    $no_content_text = !empty($spt_settings['spt_no_content_text']) ? $spt_settings['spt_no_content_text'] : 'There are no matching posts to show';
+    $no_content_text = !empty($spt_settings['spt_no_content_text']) ? $spt_settings['spt_no_content_text'] : __( 'There are no matching posts to show', 'simple-posts-ticker' );
 
     $atts = shortcode_atts(
 		array(
@@ -54,24 +73,32 @@ function spt_render_posts_ticker( $atts ) {
             'order'                     => $order,
             'category'                  => $category,
             'show_label'                => $label,
+            'label_position'            => $label_position,
             'label_text'                => $label_text,
-            'label_text_size'           => $label_size,
+            'label_text_size'           => $label_text_size,
             'label_margin'              => $label_margin,
+            'label_padding'             => $label_padding,
             'label_colour'              => $label_colour,
             'label_bg_colour'           => $label_bg_colour,
-            'label_border'              => $label_border,
-            'label_border_width'        => $label_border_width,
-            'label_border_radius'       => $label_border_radius,
-            'label_border_colour'       => $label_border_colour,
-            'size'                      => $size,
-            'speed'                     => $speed,
+            'ticker_border'             => $ticker_border,
+            'ticker_border_width'       => $ticker_border_width,
+            'ticker_border_radius'      => $ticker_border_radius,
+            'ticker_border_colour'      => $ticker_border_colour,
+            'content_size'              => $content_size,
+            'content_margin'            => $content_margin,
+            'content_padding'           => $content_padding,
+            'content_colour'            => $content_colour,
+            'content_bg_colour'         => $content_bg_colour,
+            'content_link_padding'      => $content_link_padding,
+            'ticker_direction'          => $ticker_direction,
+            'ticker_cflow'              => $ticker_cflow,
+            'ticker_pause'              => $ticker_pause,
+            'ticker_duration'           => $ticker_duration,
+            'ticker_speed'              => $ticker_speed,
+            'ticker_visible'            => $ticker_visible,
+            'ticker_delay'              => $ticker_delay,
             'target'                    => $target,
             'no_follow'                 => $nofollow,
-            'colour'                    => $colour,
-            'bg_colour'                 => $bg_colour,
-            'margin'                    => $margin,
-            'padding'                   => $padding,
-            'infinite_scroll'           => $gap,
             'post_info'                 => $post_info,
             'post_info_colour'          => $post_info_colour,
             'post_info_sep'             => $post_info_sep,
@@ -79,7 +106,8 @@ function spt_render_posts_ticker( $atts ) {
             'no_content_text'           => $no_content_text,
             'category_name'             => '',
             'post_info_start'           => '',
-            'post_info_end'             => ''
+            'post_info_end'             => '',
+            'link_class'                => '',
 		), $atts, 'spt-posts-ticker' );
 
     $args = array(
@@ -92,7 +120,7 @@ function spt_render_posts_ticker( $atts ) {
         'no_found_rows' => true,
     );
 
-    if ( !empty( $atts['category_name'] ) ) {
+    if( !empty( $atts['category_name'] ) ) {
         $args['category'] = '0';
         $args['category_name'] = $atts['category_name'];
     }
@@ -104,33 +132,34 @@ function spt_render_posts_ticker( $atts ) {
     $posts = get_posts( $args );
 
     $no_follow = '';
-    if ( $atts['no_follow'] == 'yes' ) {
+    if( $atts['no_follow'] == 'yes' ) {
         $no_follow = ' rel="nofollow"';
     }
 
     $border = 'none';
-    if ( $atts['label_border'] != 'none' ) {
-        $border = $atts['label_border'].' '.$atts['label_border_width'].' '.$atts['label_border_colour'];
+    if( $atts['ticker_border'] != 'none' ) {
+        $border = $atts['ticker_border'].' '.$atts['ticker_border_width'].' '.$atts['ticker_border_colour'];
     }
+
+    $linkclass = !empty($atts['link_class']) ? 'spt-link '.$atts['link_class'] : 'spt-link';
 
     $content = '';
     $content .= "\n".'<!-- This website uses the Simple Posts Ticker plugin v' . SPT_PLUGIN_VERSION . ' - https://wordpress.org/plugins/simple-posts-ticker/ -->' . "\n";
-    if ( $atts['show_label'] == 'yes' ) {
-        $content .= '<div class="spt-border" style="background-color: '.$atts['label_bg_colour'].';border: '.$border.';border-radius: '.$atts['label_border_radius'].';width: 100%;">';
-        $content .= '<div class="spt-label" style="float: left; margin: '.$atts['label_margin'].';color: '.$atts['label_colour'].';font-size: '.$atts['label_text_size'].';">'.$atts['label_text'].'</div>';
+    $content .= '<div class="spt-container spt-border" style="border: '.$border.';border-radius: '.$atts['ticker_border_radius'].';width: 100%;">';
+    if( $atts['show_label'] == 'yes' ) {
+        $content .= '<div class="spt-label" style="float: '.$atts['label_position'].';margin: '.$atts['label_margin'].';padding: '.$atts['label_padding'].';color: '.$atts['label_colour'].';background-color: '.$atts['label_bg_colour'].';font-size: '.$atts['label_text_size'].';border-radius: '.$atts['ticker_border_radius'].';">'.$atts['label_text'].'</div>';
     }
-    $content .= '<div class="spt-box" style="background-color: '.$atts['bg_colour'].';overflow: hidden;border-top-right-radius: '.$atts['label_border_radius'].';border-bottom-right-radius: '.$atts['label_border_radius'].';">';
-    $content .= '<div class="spt-content" data-gap="'.$atts['infinite_scroll'].'" data-speed="'.$atts['speed'].'" style="margin: '.$atts['margin'].';font-size: '.$atts['size'].';">';
-    if ( count( $posts ) == 0 ) {
-        $content .= '<span class="spt-item" style="padding: '.$atts['padding'].';">';
+    $content .= '<div class="spt-marquee" data-direction="'.$atts['ticker_direction'].'" data-duplicated="'.$atts['ticker_cflow'].'" data-duration="'.$atts['ticker_duration'].'" data-gap="0" data-speed="'.$atts['ticker_speed'].'" data-pauseOnHover="'.$atts['ticker_pause'].'" data-delayBeforeStart="'.$atts['ticker_delay'].'" data-startVisible="'.$atts['ticker_visible'].'" style="width:auto;margin: '.$atts['content_margin'].';padding: '.$atts['content_padding'].';font-size: '.$atts['content_size'].';background-color: '.$atts['content_bg_colour'].';overflow: hidden;">';
+    if( count( $posts ) == 0 ) {
+        $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
         $content .= $atts['no_content_text'];
         $content .= '</span>';
     } else {
-        foreach ( $posts as $current_post ) {
+        foreach( $posts as $current_post ) {
             $post = $current_post; // Set $post global variable to the current post object 
             setup_postdata( $post ); // Set up "environment"
-            $content .= '<span class="spt-item" style="padding: '.$atts['padding'].';">';
-            $content .= '<a class="spt-link"'.$no_follow.' style="color: '.$atts['colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', get_permalink() ).'">'.apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '150' ) );
+            $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
+            $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', get_permalink() ).'">'.apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) );
             if ( $atts['post_info'] != 'none' ) {
                 $info = '';
                 if ( $atts['post_info'] == 'pub_date' ) {
@@ -142,7 +171,7 @@ function spt_render_posts_ticker( $atts ) {
                 } elseif ( $atts['post_info'] == 'mod_author' ) {
                     $info .= get_the_modified_author();
                 } elseif ( $atts['post_info'] == 'excerpt' ) {
-                    $info .= substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '200' ) );
+                    $info .= substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '250' ) );
                 }
                 $content .= '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
             }
@@ -151,11 +180,8 @@ function spt_render_posts_ticker( $atts ) {
         }
         wp_reset_postdata();
     }
-    $content .= '</div>'; // end content
     $content .= '</div>'; // end marquee box
-    if ( $atts['show_label'] == 'yes' ) {
-        $content .= '</div>'; // end border container
-    }
+    $content .= '</div>'; // end border container
 
     if ( $atts['no_content'] == 'none' ) {
         if ( count( $posts ) == 0 ) {
@@ -167,24 +193,9 @@ function spt_render_posts_ticker( $atts ) {
 }
 
 function spt_validateHtmlColour( $input ) {
-	if ( preg_match( '/^#[a-f0-9]{6}$/i', $input ) ) {
+	if( preg_match( '/^#[a-f0-9]{6}$/i', $input ) ) {
 		return $input;
 	} else {
 		return '#000000';
 	}
-}
-
-function spt_custom_style_to_wp_head() { 
-    $spt_settings = get_option('spt_plugin_settings');
-
-    $style = '';
-    $style .= "\n".'<!-- This website uses the Simple Posts Ticker plugin v' . SPT_PLUGIN_VERSION . ' - https://wordpress.org/plugins/simple-posts-ticker/ -->' . "\n";
-    $style .= '<style type="text/css">'."\n";
-    $style .= '.spt-content { white-space: nowrap; display: inline-block; position: relative; left: 0px; }'."\n";
-    if( !empty( $spt_settings['spt_custom_css'] ) ) {
-        $style .= $spt_settings['spt_custom_css']."\n";
-    }
-    $style .= '</style>'."\n";
-
-    echo $style;
 }

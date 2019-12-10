@@ -2,10 +2,10 @@
 Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker
 Requires at least: 4.6
-Tested up to: 5.2
-Stable tag: 1.0.6
+Tested up to: 5.3
+Stable tag: 1.1.0
 Requires PHP: 5.6
-Donate link: http://bit.ly/2I0Gj60
+Donate link: https://www.paypal.me/iamsayan/
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -19,6 +19,7 @@ The Simple Posts Ticker plugin brings a lightweight, flexible and easy way to co
 
 * Lightweight jQuery.
 * Easy to configuration.
+* Full RTL Support.
 * Custom Post Types support.
 * Select post by date/modified date or randomly.
 * Select posts by their category.
@@ -32,39 +33,7 @@ Like Simple Posts Ticker plugin? Consider leaving a [5 star review](https://word
 
 Using default settings: **[spt-posts-ticker]**
 
-Use the options/attributes below to override the original settings.
-
-* **num_posts** - number of posts to display, defaults to showing 5 most recent posts, use "-1" for all matching posts
-* **post_type** - choose the type of post to display, default to "post" for normal posts or select a custom post type by its slug
-* **order_by** - choose the orderby method to display, default to "date" or set "modified" or "random"
-* **order** - set the post display order, default to "DESC" or set "ASC"
-* **category** - choose the id of a category to limit the posts, use a comma to separate multiple categories, use "0" for all categories (default)
-* **category_name** - choose the name of a category to limit the posts, use a comma to separate multiple categories, defaults to none
-* **show_label** - choose yes ot no to show/hide a label for the posts ticker
-* **label_text** - if a label is shown, set what text to use
-* **label_text_size** - if a label is shown, choose the font size of the text
-* **label_text_colour** - if a label is shown, choose what colour is the text
-* **label_bg_colour** - if a label is shown, choose what colour is the background
-* **label_border** - choose the border type if you want to show a border. It can be "none" or "solid" or "dotted" or "dashed" or "double"
-* **label_border_width** - if a label border is shown, choose the border width
-* **label_border_radius** - if a label border is shown, choose the border radius
-* **label_border_colour** - if a label border is shown, choose the border colour
-* **size** - set the size of the text, can be in px or em or %
-* **speed** - set the speed to scroll by, in pixels per second
-* **target** - choose the target for the links, can be "_self" or "_blank"
-* **no_follow** - choose the rel for the links, default to "no" but can be "yes"
-* **colour** - choose what the colour is for the ticker
-* **bg_colour** - choose what colour is the background for the ticker
-* **margin** - set the margin for the posts ticker
-* **padding** - set the padding for the posts ticker
-* **infinite_scroll** - choose whether to infinite scroll the marquee content, defaults to "false", set to "true" for infinite scrolling
-* **post_info** - choose which post info you want to show after post link. It can be "none" or "pub_date" or "mod_date" or "pub_author" or "mod_author" or "excerpt"
-* **post_info_colour** - if the post info is shown, choose the colour of the post info
-* **post_info_sep** - if the post info is shown, choose the seperator between link and info
-* **post_info_start** - if the post info is shown, choose the before content of post info
-* **post_info_end** - if the post info is shown, choose the after content of post info
-* **no_content** - set the text display status if no matching posts are found
-* **no_content_text** - set the text to display if no matching posts are found
+You can use some attributes to override the original settings. Please see plugin settings for detailed shortcode attributes.
 
 #### Compatibility
 
@@ -100,53 +69,39 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 == Screenshots ==
 
 1. Ticker Demo
-2. Post options
-3. Label options
-4. Display options
-5. Others
+2. Post Type Options
+3. Label Options
+4. Configure Ticker
+5. Customize Styles
+6. Others Settings
+7. Shortcode Info
+8. Tools
 
 == Changelog ==
 
-= 1.0.6 =
+If you like Simple Posts Ticker, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
-* Added: A filter to customize post links: `spt_post_custom_redir_link`.
-* Added: Permanent dismiss link in admin notice.
-* Fixed: Unclosed HTML Tags in Admin Notices.
-* Removed: `esc_html` from css code output.
-* Tested upto WordPress 5.2.
+= 1.1.0 =
+Release Date: December 10, 2019
 
-= 1.0.5 =
+IMPORTANT: Please reconfigure the plugin settings after successful plugin update.
 
-* Added: Shortcode attributes: `post_info_start` and `post_info_end`.
-* Removed: Some unused CSS codes.
-
-= 1.0.4 =
-
-* Added: Option to hide posts ticker if there are no posts available to show.
-* Fixed: A error notice.
+* NEW: RTL Support.
+* Improvement: This plugin will now use jQuery Marquee Plugin.
+* Improvement: Admin Settings become more user friendly now.
+* Improvement: It is now possible to Import or Export plugin settings.
+* Fixed: Some minor CSS issues.
+* Fixed: Some broken links.
 * Fixed: Some untranslated strings.
+* Removed: Some unnessary files.
+* Compatibility with WordPress 5.3.
+* Other minor improvements and fixes.
 
-= 1.0.3 =
+= Other Versions =
 
-* Added: A filter to run custom query.
-* Fixed: Duplicate HTML Element warning in browser console on Admin Settings Page.
-* Removed: Some unwanted code from plugin codebase.
+* View the <a href="https://plugins.svn.wordpress.org/simple-posts-ticker/trunk/changelog.txt" target="_blank">Changelog</a> file.
 
-= 1.0.2 =
+== Upgrade Notice ==
 
-* Fixed: Untranslated Strings.
-
-= 1.0.1 =
-
-* Added: Label Margin.
-* Added: Label Border.
-* Added: Post display order.
-* Added: Link nofollow.
-* Added: Ticker margin.
-* Added: Ticker Padding.
-* Added: Post Info after ticker.
-* Improved: Admin UI.
-
-= 1.0.0 =
-
-* Initial release.
+= 1.1.0 =
+In this release, we introduce some major changes in this plugin and also make this plugin compatible with WordPress 5.3. IMPORTANT: Please reconfigure the plugin settings after successful plugin update.

@@ -186,11 +186,27 @@ h1.title .title-count {
     }
 }
 
+.selectize-control {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 input, select, textarea {
     border-radius: 3px;
 }
 
-.selectize-control {
-    display: inline-block;
+code {
+    font-size: 11px;
+}
+
+input, select, .tooltip span.dashicons {
     vertical-align: middle;
+}
+
+.spt-params {
+    width: 20%;
+}
+
+.spt-desc {
+    width: 80%;
 }

@@ -29,7 +29,7 @@ function spt_rating_admin_notice() {
         <p><a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" class="button button-secondary"><?php _e( 'Ok, you deserve it', 'simple-posts-ticker' ); ?></a>&nbsp;
         <a href="<?php echo $dismiss; ?>" class="already-did"><strong><?php _e( 'I already did', 'simple-posts-ticker' ); ?></strong></a>&nbsp;<strong>|</strong>
         <a href="<?php echo $no_thanks; ?>" class="later"><strong><?php _e( 'Nope&#44; maybe later', 'simple-posts-ticker' ); ?></strong></a>&nbsp;<strong>|</strong>
-        <a href="<?php echo $dismiss; ?>" class="never"><strong><?php _e( 'Never show again', 'simple-posts-ticker' ); ?></strong></a></p>
+        <a href="<?php echo $dismiss; ?>" class="never"><strong><?php _e( 'I don\'t want to rate', 'simple-posts-ticker' ); ?></strong></a></p>
     </div>
 <?php
 }

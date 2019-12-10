@@ -3,41 +3,71 @@ jQuery(document).ready(function($) {
     $("#btn1").click(function () {
         $("#spt-post").fadeIn("slow");
         $("#spt-label").hide();
+        $("#spt-configure").hide();
         $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
     });
 
     $("#btn2").click(function () {
         $("#spt-post").hide();
         $("#spt-label").fadeIn("slow");
+        $("#spt-configure").hide();
         $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
     });
 
     $("#btn3").click(function () {
         $("#spt-post").hide();
         $("#spt-label").hide();
-        $("#spt-display").fadeIn("slow");
+        $("#spt-configure").fadeIn("slow");
+        $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
     });
 
     $("#btn4").click(function () {
         $("#spt-post").hide();
         $("#spt-label").hide();
-        $("#spt-display").hide();
-        $("#spt-misc").fadeIn("slow");
+        $("#spt-configure").hide();
+        $("#spt-display").fadeIn("slow");
+        $("#spt-misc").hide();
         $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
     });
 
     $("#btn5").click(function () {
         $("#spt-post").hide();
         $("#spt-label").hide();
+        $("#spt-configure").hide();
+        $("#spt-display").hide();
+        $("#spt-misc").fadeIn("slow");
+        $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
+    });
+
+    $("#btn6").click(function () {
+        $("#spt-post").hide();
+        $("#spt-label").hide();
+        $("#spt-configure").hide();
         $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").fadeIn("slow");
+        $("#spt-tools").hide();
+    });
+
+    $("#btn7").click(function () {
+        $("#spt-post").hide();
+        $("#spt-label").hide();
+        $("#spt-configure").hide();
+        $("#spt-display").hide();
+        $("#spt-misc").hide();
+        $("#spt-shortcode").hide();
+        $("#spt-tools").fadeIn("slow");
     });
 
     $('select#spt-cat').selectize({
@@ -74,12 +104,10 @@ jQuery(document).ready(function($) {
 
     $("#spt-border").change(function() {
         if ($('#spt-border').val() == 'none') {
-            $('.spt-border-width').hide();
-            $('.spt-border-colour').hide();
+            $('.spt-border-width, .spt-border-colour, .spt-border-radius').hide();
         }
         if ($('#spt-border').val() != 'none') {
-            $('.spt-border-width').show();
-            $('.spt-border-colour').show();
+            $('.spt-border-width, .spt-border-colour, .spt-border-radius').show();
         }
     });
     $("#spt-border").trigger('change');
@@ -105,40 +133,70 @@ jQuery(document).ready(function($) {
     if ( location.href.match(/page\=simple-posts-ticker#post/ig) ) {
         $("#spt-post").show();
         $("#spt-label").hide();
+        $("#spt-configure").hide();
         $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
     } else if ( location.href.match(/page\=simple-posts-ticker#label/ig) ) {
         $("#btn1").removeClass("active");
         $("#btn2").addClass("active");
         $("#spt-post").hide();
         $("#spt-label").show();
+        $("#spt-configure").hide();
         $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").hide();
-    } else if( location.href.match(/page\=simple-posts-ticker#display/ig) ) {
+        $("#spt-tools").hide();
+    } else if( location.href.match(/page\=simple-posts-ticker#configure/ig) ) {
         $("#btn1").removeClass("active");
         $("#btn3").addClass("active");
         $("#spt-post").hide();
         $("#spt-label").hide();
-        $("#spt-display").show();
+        $("#spt-configure").show();
+        $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").hide();
-    } else if( location.href.match(/page\=simple-posts-ticker#others/ig) ) {
+        $("#spt-tools").hide();
+    } else if( location.href.match(/page\=simple-posts-ticker#styles/ig) ) {
         $("#btn1").removeClass("active");
         $("#btn4").addClass("active");
         $("#spt-post").hide();
         $("#spt-label").hide();
-        $("#spt-display").hide();
-        $("#spt-misc").show();
+        $("#spt-configure").hide();
+        $("#spt-display").show();
+        $("#spt-misc").hide();
         $("#spt-shortcode").hide();
-    } else if( location.href.match(/page\=simple-posts-ticker#shortcode/ig) ) {
+        $("#spt-tools").hide();
+    } else if( location.href.match(/page\=simple-posts-ticker#others/ig) ) {
         $("#btn1").removeClass("active");
         $("#btn5").addClass("active");
         $("#spt-post").hide();
         $("#spt-label").hide();
+        $("#spt-configure").hide();
+        $("#spt-display").hide();
+        $("#spt-misc").show();
+        $("#spt-shortcode").hide();
+        $("#spt-tools").hide();
+    } else if( location.href.match(/page\=simple-posts-ticker#shortcode/ig) ) {
+        $("#btn1").removeClass("active");
+        $("#btn6").addClass("active");
+        $("#spt-post").hide();
+        $("#spt-label").hide();
+        $("#spt-configure").hide();
         $("#spt-display").hide();
         $("#spt-misc").hide();
         $("#spt-shortcode").show();
+        $("#spt-tools").hide();
+    } else if( location.href.match(/page\=simple-posts-ticker#tools/ig) ) {
+        $("#btn1").removeClass("active");
+        $("#btn7").addClass("active");
+        $("#spt-post").hide();
+        $("#spt-label").hide();
+        $("#spt-configure").hide();
+        $("#spt-display").hide();
+        $("#spt-misc").hide();
+        $("#spt-shortcode").hide();
+        $("#spt-tools").show();
     } 
 });

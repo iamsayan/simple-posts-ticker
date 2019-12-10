@@ -3,9 +3,9 @@
  * Plugin Name: Simple Posts Ticker
  * Plugin URI: https://wordpress.org/plugins/simple-posts-ticker/
  * Description: The Simple Posts Ticker plugin is a small tool that shows your most recent posts in a marquee style.
- * Version: 1.0.6
+ * Version: 1.1.0
  * Author: Sayan Datta
- * Author URI: https://sayandatta.com
+ * Author URI: https://about.me/iamsayan
  * License: GPLv3
  * Text Domain: simple-posts-ticker
  * Domain Path: /languages
@@ -25,7 +25,7 @@
  * 
  * @category Public
  * @package  Simple Posts Ticker
- * @author   Sayan Datta
+ * @author   Sayan Datta <iamsayan@pm.me>
  * @license  http://www.gnu.org/licenses/ GNU General Public License
  * @link     https://wordpress.org/plugins/simple-posts-ticker/
  */
@@ -35,10 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define ( 'SPT_PLUGIN_VERSION', '1.0.6' );
+define( 'SPT_PLUGIN_VERSION', '1.1.0' );
 
 // debug scripts
-//define ( 'SPT_PLUGIN_ENABLE_DEBUG', 'true' );
+//define( 'SPT_PLUGIN_ENABLE_DEBUG', 'true' );
 
 // Internationalization
 add_action( 'plugins_loaded', 'spt_plugin_load_textdomain' );
@@ -106,11 +106,7 @@ function spt_load_admin_assets() {
 add_action( 'admin_enqueue_scripts', 'spt_load_admin_assets' );
 
 function spt_enqueue_frontend_files() {
-    $ver = SPT_PLUGIN_VERSION;
-    if( defined( 'SPT_PLUGIN_ENABLE_DEBUG' ) ) {
-        $ver = time();
-    }
-    wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/posts-ticker.min.js', __FILE__ ), array( 'jquery' ), $ver );
+    wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/jquery.marquee.min.js', __FILE__ ), array( 'jquery' ), '1.5.0' );
 }
 
 add_action( 'wp_enqueue_scripts', 'spt_enqueue_frontend_files' );
@@ -147,8 +143,10 @@ function spt_plugin_settings_page() {
 
 require_once plugin_dir_path( __FILE__ ) . 'admin/notice.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/donate.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/tools.php';
 
 require_once plugin_dir_path( __FILE__ ) . 'public/render.php';
+require_once plugin_dir_path( __FILE__ ) . 'public/load.php';
 
 // add action links
 function spt_add_action_links ( $links ) {
@@ -163,7 +161,7 @@ function spt_plugin_meta_links( $links, $file ) {
     if ( $file == $plugin ) // only for this plugin
         return array_merge( $links, 
             array( '<a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank">' . __( 'Support', 'simple-posts-ticker' ) . '</a>' ),
-            array( '<a href="http://bit.ly/2I0Gj60" target="_blank">' . __( 'Donate', 'simple-posts-ticker' ) . '</a>' )
+            array( '<a href="https://www.paypal.me/iamsayan/" target="_blank">' . __( 'Donate', 'simple-posts-ticker' ) . '</a>' )
         );
     return $links;
 }

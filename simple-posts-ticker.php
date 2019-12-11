@@ -108,7 +108,13 @@ function spt_load_admin_assets() {
 add_action( 'admin_enqueue_scripts', 'spt_load_admin_assets' );
 
 function spt_enqueue_frontend_files() {
+    $ver = SPT_PLUGIN_VERSION;
+    if( defined( 'SPT_PLUGIN_ENABLE_DEBUG' ) ) {
+        $ver = time();
+    }
+
     wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/jquery.marquee.min.js', __FILE__ ), array( 'jquery' ), '1.5.0' );
+    wp_enqueue_script( 'spt-init-js', plugins_url( 'public/js/ticker.min.js', __FILE__ ), array( 'jquery' ), $ver, true );
 }
 
 add_action( 'wp_enqueue_scripts', 'spt_enqueue_frontend_files' );
@@ -148,6 +154,7 @@ function spt_plugin_settings_page() {
 require_once plugin_dir_path( __FILE__ ) . 'admin/notice.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/donate.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/tools.php';
+//require_once plugin_dir_path( __FILE__ ) . 'admin/elementor/module.php'; //todo
 
 require_once plugin_dir_path( __FILE__ ) . 'public/render.php';
 require_once plugin_dir_path( __FILE__ ) . 'public/load.php';

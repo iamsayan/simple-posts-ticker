@@ -50,6 +50,7 @@ function spt_render_posts_ticker( $atts ) {
     //ticker settings
     $ticker_direction = isset($spt_settings['spt_ticker_direction']) ? $spt_settings['spt_ticker_direction'] : 'right';
     $ticker_cflow = isset($spt_settings['spt_ticker_continuous_flow']) ? $spt_settings['spt_ticker_continuous_flow'] : 'false';
+    $ticker_loop = !empty($spt_settings['spt_show_loop']) ? $spt_settings['spt_show_loop'] : '1';
     $ticker_pause = isset($spt_settings['spt_stop_on_hover']) ? $spt_settings['spt_stop_on_hover'] : 'false';
     $ticker_duration = !empty($spt_settings['spt_duration']) ? $spt_settings['spt_duration'] : '5000';
     $ticker_speed = !empty($spt_settings['spt_speed']) ? $spt_settings['spt_speed'] : '';
@@ -94,6 +95,7 @@ function spt_render_posts_ticker( $atts ) {
             'content_link_padding'      => $content_link_padding,
             'ticker_direction'          => $ticker_direction,
             'ticker_cflow'              => $ticker_cflow,
+            'ticker_loop'               => $ticker_loop,
             'ticker_pause'              => $ticker_pause,
             'ticker_duration'           => $ticker_duration,
             'ticker_speed'              => $ticker_speed,
@@ -112,6 +114,7 @@ function spt_render_posts_ticker( $atts ) {
             'post_info_start'           => '',
             'post_info_end'             => '',
             'link_class'                => '',
+            'css_class'                 => 'spt-marquee',
 		), $atts, 'spt-posts-ticker' );
 
     $args = array(
@@ -147,13 +150,18 @@ function spt_render_posts_ticker( $atts ) {
 
     $linkclass = !empty($atts['link_class']) ? 'spt-link '.$atts['link_class'] : 'spt-link';
 
+    $css= '';
+    if( is_rtl() ) {
+        $css = 'direction: ltr;';
+    }
+
     $content = '';
     $content .= "\n".'<!-- This website uses the Simple Posts Ticker plugin v' . SPT_PLUGIN_VERSION . ' - https://wordpress.org/plugins/simple-posts-ticker/ -->' . "\n";
     $content .= '<div class="spt-container spt-border" style="border: '.$border.';border-radius: '.$atts['ticker_border_radius'].';width: 100%;">';
     if( $atts['show_label'] == 'yes' ) {
         $content .= '<div class="spt-label" style="float: '.$atts['label_position'].';margin: '.$atts['label_margin'].';padding: '.$atts['label_padding'].';color: '.$atts['label_colour'].';background-color: '.$atts['label_bg_colour'].';font-size: '.$atts['label_text_size'].';border-radius: '.$atts['ticker_border_radius'].';">'.$atts['label_text'].'</div>';
     }
-    $content .= '<div class="spt-marquee" data-direction="'.$atts['ticker_direction'].'" data-duplicated="'.$atts['ticker_cflow'].'" data-duration="'.$atts['ticker_duration'].'" data-gap="0" data-speed="'.$atts['ticker_speed'].'" data-pauseOnHover="'.$atts['ticker_pause'].'" data-delayBeforeStart="'.$atts['ticker_delay'].'" data-startVisible="'.$atts['ticker_visible'].'" style="width:auto;margin: '.$atts['content_margin'].';padding: '.$atts['content_padding'].';font-size: '.$atts['content_size'].';background-color: '.$atts['content_bg_colour'].';overflow: hidden;">';
+    $content .= '<div class="'.$atts['css_class'].'" data-direction="'.$atts['ticker_direction'].'" data-duplicated="'.$atts['ticker_cflow'].'" data-duration="'.$atts['ticker_duration'].'" data-gap="0" data-speed="'.$atts['ticker_speed'].'" data-pauseOnHover="'.$atts['ticker_pause'].'" data-delayBeforeStart="'.$atts['ticker_delay'].'" data-startVisible="'.$atts['ticker_visible'].'" data-loop="'.$atts['ticker_loop'].'" style="width:auto;margin: '.$atts['content_margin'].';padding: '.$atts['content_padding'].';font-size: '.$atts['content_size'].';background-color: '.$atts['content_bg_colour'].';overflow: hidden;'.$css.'">';
     if( count( $posts ) == 0 ) {
         $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
         $content .= $atts['no_content_text'];

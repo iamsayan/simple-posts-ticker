@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-12-10 23:46+0530\n"
+"POT-Creation-Date: 2019-12-10 23:43+0530\n"
 "PO-Revision-Date: 2019-03-21 09:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,6 +44,44 @@ msgstr ""
 
 #: admin/donate.php:32
 msgid "I don't want to donate"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: admin/elementor/widgets/ticker.php:38 simple-posts-ticker.php:141
+msgid "Simple Posts Ticker"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:85
+msgid "Content"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:92
+msgid "Title"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:102
+msgid "Style"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:110
+msgid "Text Transform"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:114 admin/settings-fields.php:208
+#: admin/settings-fields.php:499
+msgid "None"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:115
+msgid "UPPERCASE"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:116
+msgid "lowercase"
+msgstr ""
+
+#: admin/elementor/widgets/ticker.php:117
+msgid "Capitalize"
 msgstr ""
 
 #: admin/meta-box.php:22
@@ -270,10 +308,6 @@ msgstr ""
 #: admin/settings-fields.php:185
 msgid ""
 "Set the padding of the Ticker label from here. Click on the icon for more."
-msgstr ""
-
-#: admin/settings-fields.php:208 admin/settings-fields.php:499
-msgid "None"
 msgstr ""
 
 #: admin/settings-fields.php:209
@@ -1045,20 +1079,15 @@ msgid ""
 "configure plugin settings."
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-#: simple-posts-ticker.php:141
-msgid "Simple Posts Ticker"
-msgstr ""
-
-#: simple-posts-ticker.php:158
+#: simple-posts-ticker.php:159
 msgid "Settings"
 msgstr ""
 
-#: simple-posts-ticker.php:167
+#: simple-posts-ticker.php:168
 msgid "Support"
 msgstr ""
 
-#: simple-posts-ticker.php:168
+#: simple-posts-ticker.php:169
 msgid "Donate"
 msgstr ""
 

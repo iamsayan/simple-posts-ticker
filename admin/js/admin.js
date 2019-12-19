@@ -120,6 +120,16 @@ jQuery(document).ready(function($) {
     });
     $("#spt-border").trigger('change');
 
+    $("#spt-continuous-flow").change(function() {
+        if ($('#spt-continuous-flow').val() == 'false') {
+            $('.spt-loop').hide();
+        }
+        if ($('#spt-continuous-flow').val() == 'true') {
+            $('.spt-loop').show();
+        }
+    });
+    $("#spt-continuous-flow").trigger('change');
+
     $("#spt-nocontent-type").change(function() {
         if ($('#spt-nocontent-type').val() == 'none') {
             $('.spt-nocontent').hide();

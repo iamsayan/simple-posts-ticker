@@ -113,7 +113,7 @@ function spt_enqueue_frontend_files() {
         $ver = time();
     }
 
-    wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/jquery.marquee.min.js', __FILE__ ), array( 'jquery' ), '1.5.0' );
+    wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/jquery.marquee.min.js', __FILE__ ), array( 'jquery' ), '1.5.0', true );
     wp_enqueue_script( 'spt-init-js', plugins_url( 'public/js/ticker.min.js', __FILE__ ), array( 'jquery' ), $ver, true );
 }
 

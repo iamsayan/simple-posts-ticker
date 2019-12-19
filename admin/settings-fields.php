@@ -289,7 +289,7 @@ function spt_ticker_link_padding_display() {
     $spt_settings = get_option('spt_plugin_settings');
     if( empty($spt_settings['spt_ticker_link_padding']) ) {
         $spt_settings['spt_ticker_link_padding'] = '0 10px';
-    } ?>  <input id="spt-ticker-margin" name="spt_plugin_settings[spt_ticker_link_padding]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_link_padding'])) { echo $spt_settings['spt_ticker_link_padding']; } ?>" />
+    } ?>  <input id="spt-ticker-link-padding" name="spt_plugin_settings[spt_ticker_link_padding]" type="text" size="30" style="width:30%;" required value="<?php if (isset($spt_settings['spt_ticker_link_padding'])) { echo $spt_settings['spt_ticker_link_padding']; } ?>" />
         &nbsp;&nbsp;<a href="https://www.w3schools.com/css/css_padding.asp" target="_blank" style="color: #444;"><span class="tooltip" title="<?php _e( 'Set the left right padding of a post a link from here. Click on the icon for more.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span></a>
     <?php
 }
@@ -333,6 +333,15 @@ function spt_ticker_continuous_flow_display() {
     echo '</select>';
     ?>
     &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Should the marquee be duplicated to show an effect of continuous flow. Configure the continuous flow of Posts Ticker from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+    <?php
+}
+
+function spt_show_loop_display() {
+    $spt_settings = get_option('spt_plugin_settings');
+    if( empty($spt_settings['spt_show_loop']) ) {
+        $spt_settings['spt_show_loop'] = '1';
+    } ?>  <input id="spt-loop" name="spt_plugin_settings[spt_show_loop]" type="number" size="30" min="1" style="width:30%;" required value="<?php if (isset($spt_settings['spt_show_loop'])) { echo $spt_settings['spt_show_loop']; } ?>" />
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Duration in milliseconds in which you want your element to travel. Default: 5000. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
@@ -385,7 +394,7 @@ function spt_visible_display() {
         'true'  => __( 'Yes', 'simple-posts-ticker' ),
         'false' => __( 'No', 'simple-posts-ticker' ),
     );
-    echo '<select id="spt-hover" name="spt_plugin_settings[spt_visible]" style="width:30%;">';
+    echo '<select id="spt-visible" name="spt_plugin_settings[spt_visible]" style="width:30%;">';
     foreach( $items as $item => $label ) {
         $selected = ( $spt_settings['spt_visible'] == $item ) ? ' selected="selected"' : '';
         echo '<option value="' . $item . '"' . $selected . '>' . $label . '</option>';

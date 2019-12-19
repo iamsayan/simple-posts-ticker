@@ -43,6 +43,7 @@
         <div id="post-body" class="metabox-holder columns-2">
             <div id="post-body-content">
                 <form id="main-form" method="post" action="options.php">
+                    <?php settings_fields('spt_plugin_settings_fields'); ?>
 			        <div id="spt-post" class="postbox">
 				        <h3 class="hndle spt-hndle">
                             <span class="spt-heading">
@@ -50,9 +51,8 @@
                             </span>
                         </h3>
 				        <div class="inside spt-inside">
-                            <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_main_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-main' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'spt-save-main' ); ?>
                         </div>
                     </div>
                     <div id="spt-label" class="postbox" style="display: none;">
@@ -62,9 +62,8 @@
                             </span>
                         </h3>
 				        <div class="inside spt-inside">
-                            <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_label_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-label' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'spt-save-label' ); ?>
                         </div>
                     </div>
                     <div id="spt-configure" class="postbox" style="display: none;">
@@ -74,9 +73,8 @@
                             </span>
                         </h3>
 				        <div class="inside spt-inside">
-                            <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_ticker_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-settings' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'spt-save-ticker' ); ?>
                         </div>
                     </div>
                     <div id="spt-display" class="postbox" style="display: none;">
@@ -86,9 +84,8 @@
                             </span>
                         </h3>
 				        <div class="inside spt-inside">
-                            <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_settings_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-settings' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'spt-save-option' ); ?>
                         </div>
                     </div>
                     <div id="spt-misc" class="postbox" style="display: none;">
@@ -98,9 +95,8 @@
                             </span>
                         </h3>
 				        <div class="inside spt-inside">
-                            <?php settings_fields('spt_plugin_settings_fields'); ?>
                             <?php do_settings_sections('spt_plugin_misc_option'); ?>
-                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'save-misc' ); ?>
+                            <?php submit_button( __( 'Save Settings', 'simple-posts-ticker' ), 'primary save-settings', 'spt-save-misc' ); ?>
                         </div>
                     </div>
                     <div id="spt-shortcode" class="postbox" style="display: none;">
@@ -144,6 +140,7 @@
                                     'content_link_padding'      => __( 'Set the padding for the ticker content links.', 'simple-posts-ticker' ),
                                     'ticker_direction'          => __( 'Set the ticker direction from here. It can be "left" or "right".', 'simple-posts-ticker' ),
                                     'ticker_cflow'              => __( 'Set the ticker continuous flow from here. It can be "true" or "false".', 'simple-posts-ticker' ),
+                                    'ticker_loop'               => __( 'Set the numver of ticker to adaptive continuous flow from here. It can be any number starts from "1".', 'simple-posts-ticker' ),
                                     'ticker_pause'              => __( 'control the ticker mouse hover pause from here. It can be "true" or "false".', 'simple-posts-ticker' ),
                                     'ticker_duration'           => __( 'Duration in milliseconds in which you want your element to travel. Default: 5000.', 'simple-posts-ticker' ),
                                     'ticker_speed'              => __( 'Speed will override duration. Speed allows you to set a relatively constant marquee speed regardless of the width of the containing element. Speed is measured in pixels per second.', 'simple-posts-ticker' ),
@@ -160,7 +157,8 @@
                                     'no_content_text'           => __( 'Set the text to display if no matching posts are found.', 'simple-posts-ticker' ),
                                     'post_info_start'           => __( 'If the post info is shown, choose the before content of post info.', 'simple-posts-ticker' ),
                                     'post_info_end'             => __( 'If the post info is shown, choose the after content of post info.', 'simple-posts-ticker' ),
-                                    'link_class'                => __( 'Set the custom CSS class name for each ticker.', 'simple-posts-ticker' ),
+                                    'link_class'                => __( 'Set the custom CSS class name for each ticker links.', 'simple-posts-ticker' ),
+                                    'css_class'                 => __( 'Set the custom CSS class name for each ticker.', 'simple-posts-ticker' ),
                                 );
                                 foreach( $items as $item => $desc ) {
                                     echo '<tr>';
@@ -186,7 +184,7 @@
 		    	        		<p><input type="hidden" name="spt_export_action" value="spt_export_settings" /></p>
 		    	        		<p>
 		    	        			<?php wp_nonce_field( 'spt_export_nonce', 'spt_export_nonce' ); ?>
-		    	        			<?php submit_button( __( 'Export Settings', 'simple-posts-ticker' ), 'secondary', 'submit', false ); ?>
+		    	        			<?php submit_button( __( 'Export Settings', 'simple-posts-ticker' ), 'secondary', 'spt-export', false ); ?>
 		    	        		</p>
 		    	        	</form>
                         </div><hr>
@@ -198,7 +196,7 @@
 		    	        		<p>
 		    	        			<input type="hidden" name="spt_import_action" value="spt_import_settings" />
 		    	        			<?php wp_nonce_field( 'spt_import_nonce', 'spt_import_nonce' ); ?>
-		    	        			<?php submit_button( __( 'Import Settings', 'simple-posts-ticker' ), 'secondary', 'submit', false ); ?>
+		    	        			<?php submit_button( __( 'Import Settings', 'simple-posts-ticker' ), 'secondary', 'spt-import', false ); ?>
 		    	        		</p>
 		    	        	</form>
                         </div><hr>
@@ -209,7 +207,7 @@
 		    	        		<p><input type="hidden" name="spt_reset_action" value="spt_reset_settings" /></p>
 	                            <p>
 		    	        			<?php wp_nonce_field( 'spt_reset_nonce', 'spt_reset_nonce' ); ?>
-		    	        			<?php submit_button( __( 'Reset Settings', 'simple-posts-ticker' ), 'secondary', 'submit', false ); ?>
+		    	        			<?php submit_button( __( 'Reset Settings', 'simple-posts-ticker' ), 'secondary', 'spt-reset', false ); ?>
 		    	        	    </p>
 		    	        	</form>
                         </div>

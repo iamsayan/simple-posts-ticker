@@ -43,12 +43,13 @@ function spt_register_plugin_settings() {
     add_settings_section('spt_plugin_ticker_section', '', null, 'spt_plugin_ticker_option');
         add_settings_field('spt_ticker_direction', __( 'Ticker Animate Direction:', 'simple-posts-ticker' ), 'spt_ticker_direction_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-direction' ));
         add_settings_field('spt_ticker_continuous_flow', __( 'Ticker Continuous Flow:', 'simple-posts-ticker' ), 'spt_ticker_continuous_flow_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-continuous-flow' ));
+        add_settings_field('spt_show_loop', __( 'Ticker Content Loop:', 'simple-posts-ticker' ), 'spt_show_loop_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-loop', 'class' => 'spt-loop' ));
         add_settings_field('spt_stop_on_hover', __( 'Pause Ticker on Hover:', 'simple-posts-ticker' ), 'spt_stop_on_hover_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-hover' ));
         add_settings_field('spt_duration', __( 'Ticker Animate Duration:', 'simple-posts-ticker' ), 'spt_duration_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-duration' ));
         add_settings_field('spt_speed', __( 'Ticker Animate Speed:', 'simple-posts-ticker' ), 'spt_speed_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-speed' ));
         add_settings_field('spt_visible', __( 'Ticker Start Visibility:', 'simple-posts-ticker' ), 'spt_visible_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-visible' ));
         add_settings_field('spt_delay_start', __( 'Ticker Delay Before Start:', 'simple-posts-ticker' ), 'spt_delay_start_display', 'spt_plugin_ticker_option', 'spt_plugin_ticker_section', array( 'label_for' => 'spt-delay' ));
-      
+        
     add_settings_section('spt_plugin_misc_section', '', null, 'spt_plugin_misc_option');
         add_settings_field('spt_enable_link', __( 'Enable Ticker Hyperlink:', 'simple-posts-ticker' ), 'spt_enable_link_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-link' ));
         add_settings_field('spt_target', __( 'Ticker Link Target:', 'simple-posts-ticker' ), 'spt_target_display', 'spt_plugin_misc_option', 'spt_plugin_misc_section', array( 'label_for' => 'spt-window', 'class' => 'spt-window' ));

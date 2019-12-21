@@ -1,6 +1,23 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.1.4
+Release Date: December 21, 2019
+
+* Added: It is now possible to use multiple posts type in a single ticker.
+* Added: `Include` & `Exclude` shortcode parameters to include and exclude posts respectively.
+* Improved: Query Input using sanitization.
+
+## 1.1.3
+Release Date: December 20, 2019
+
+* Added: New shortcode paarameters `css_class` & `ticker_loop`.
+* Improved: The Marquee script loading mechanism.
+* Improved: The Compatibility with RTL websites.
+* Improved: Compatibility with WordPress jQuery.
+* Fixed: Some duplicate CSS classes.
+* Fixed: Plugin settings JS Warning in Browser Console.
+
 ## 1.1.2
 Release Date: December 10, 2019
 

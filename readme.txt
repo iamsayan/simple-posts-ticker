@@ -3,7 +3,7 @@ Contributors: Infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker, event ticker, posts scroll
 Requires at least: 4.6
 Tested up to: 5.3
-Stable tag: 1.1.2
+Stable tag: 1.1.4
 Requires PHP: 5.6
 Donate link: https://www.paypal.me/iamsayan/
 License: GPLv3
@@ -18,7 +18,9 @@ The Simple Posts Ticker plugin brings a lightweight, flexible and easy way to co
 ### Advantage of this plugin
 
 * Lightweight jQuery.
+* CSS Ticker Animation.
 * Easy to configuration.
+* Multi Post Support.
 * Full RTL Support.
 * Custom Post Types support.
 * Select post by date/modified date or randomly.
@@ -81,6 +83,23 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 
 If you like Simple Posts Ticker, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+= 1.1.4 =
+Release Date: December 21, 2019
+
+* Added: It is now possible to use multiple posts type in a single ticker.
+* Added: `Include` & `Exclude` shortcode parameters to include and exclude posts respectively.
+* Improved: Query Input using sanitization.
+
+= 1.1.3 =
+Release Date: December 20, 2019
+
+* Added: New shortcode paarameters `css_class` & `ticker_loop`.
+* Improved: The Marquee script loading mechanism.
+* Improved: The Compatibility with RTL websites.
+* Improved: Compatibility with WordPress jQuery.
+* Fixed: Some duplicate CSS classes.
+* Fixed: Plugin settings JS Warning in Browser Console.
+
 = 1.1.2 =
 Release Date: December 10, 2019
 
@@ -93,7 +112,7 @@ Release Date: December 10, 2019
 * Fixed: Minor Plugin settings JS problem.
 
 = 1.1.1 =
-Release Date: December 10, 2019
+Release Date: December 9, 2019
 
 * NEW: `Ticker` Post Type.
 * Improvement: Added option to enable/disable links.
@@ -101,7 +120,7 @@ Release Date: December 10, 2019
 * Improvement: Uninstallation Process.
 
 = 1.1.0 =
-Release Date: December 9, 2019
+Release Date: December 8, 2019
 
 IMPORTANT: Please reconfigure the plugin settings after successful plugin update.
 

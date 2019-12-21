@@ -115,21 +115,56 @@ function spt_render_posts_ticker( $atts ) {
             'post_info_end'             => '',
             'link_class'                => '',
             'css_class'                 => 'spt-marquee',
-		), $atts, 'spt-posts-ticker' );
+            'exclude'                   => array(),
+            'include'                   => array(),
+        ), $atts, 'spt-posts-ticker' );
+        
+    $comma = ',';
+    $scvalue = $atts['post_type'];
+    if( strpos( $scvalue, $comma ) !== false ) {
+        $post_type = explode(',', sanitize_text_field( $atts['post_type'] ) );
+    } else {
+        $post_type = sanitize_text_field( $atts['post_type'] );
+    }
 
     $args = array(
-        'numberposts'	=> $atts['num_posts'],
-        'category'		=> $atts['category'],
-        'orderby'		=> $atts['order_by'],
-        'order'			=> $atts['order'],
-        'post_type'     => $atts['post_type'],
+        'numberposts'	=> sanitize_text_field( $atts['num_posts'] ),
+        'category'		=> sanitize_text_field( $atts['category'] ),
+        'orderby'		=> sanitize_text_field( $atts['order_by'] ),
+        'order'			=> sanitize_text_field( $atts['order'] ),
+        'post_type'     => $post_type,
         'post_status'   => 'publish',
-        'no_found_rows' => true,
+        'exclude'       => array(),
+        'include'       => array(),
     );
 
     if( !empty( $atts['category_name'] ) ) {
         $args['category'] = '0';
-        $args['category_name'] = $atts['category_name'];
+        $args['category_name'] = sanitize_text_field( $atts['category_name'] );
+    }
+
+    if( !empty( $atts['exclude'] ) ) {
+        $exvalue = $atts['exclude'];
+        if( strpos( $exvalue, $comma ) !== false ) {
+            $exclude_ids = explode(',', sanitize_text_field( $atts['exclude'] ) );
+            foreach( $exclude_ids as $exclude_id ) {
+                array_push( $args['exclude'], $exclude_id );
+            }
+        } else {
+            array_push( $args['exclude'], sanitize_text_field( $atts['exclude'] ) );
+        }
+    }
+
+    if( !empty( $atts['include'] ) ) {
+        $invalue = $atts['include'];
+        if( strpos( $invalue, $comma ) !== false ) {
+            $include_ids = explode(',', sanitize_text_field( $atts['include'] ) );
+            foreach( $include_ids as $include_id ) {
+                array_push( $args['include'], $include_id );
+            }
+        } else {
+            array_push( $args['include'], sanitize_text_field( $atts['include'] ) );
+        }
     }
 
     $args = apply_filters( 'spt_ticker_custom_query', $args );

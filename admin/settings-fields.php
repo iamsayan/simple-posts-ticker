@@ -341,7 +341,7 @@ function spt_show_loop_display() {
     if( empty($spt_settings['spt_show_loop']) ) {
         $spt_settings['spt_show_loop'] = '1';
     } ?>  <input id="spt-loop" name="spt_plugin_settings[spt_show_loop]" type="number" size="30" min="1" style="width:30%;" required value="<?php if (isset($spt_settings['spt_show_loop'])) { echo $spt_settings['spt_show_loop']; } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Duration in milliseconds in which you want your element to travel. Default: 5000. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        &nbsp;&nbsp;<span class="tooltip" title="<?php _e( 'Set the number of ticker to adaptive continuous flow from here.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 

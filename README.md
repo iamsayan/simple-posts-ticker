@@ -13,7 +13,9 @@ The Simple Posts Ticker plugin brings a lightweight, flexible and easy way to co
 ### Advantage of this plugin
 
 * Lightweight jQuery.
+* CSS Ticker Animation.
 * Easy to configuration.
+* Multi Post Support.
 * Full RTL Support.
 * Custom Post Types support.
 * Select post by date/modified date or randomly.

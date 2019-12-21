@@ -7,6 +7,7 @@ Release Date: December 21, 2019
 * Added: It is now possible to use multiple posts type in a single ticker.
 * Added: `Include` & `Exclude` shortcode parameters to include and exclude posts respectively.
 * Improved: Query Input using sanitization.
+* Improved: Handling of Post Loop.
 
 ## 1.1.3
 Release Date: December 20, 2019

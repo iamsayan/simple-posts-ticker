@@ -16,6 +16,9 @@ function spt_render_posts_ticker( $atts ) {
     
     global $post;
 
+    // Save the global post object so we can restore it later
+    $save_post = $post;
+
     // post types
     $num_posts = !empty($spt_settings['spt_num_posts']) ? $spt_settings['spt_num_posts'] : '5';
     $post_type = isset($spt_settings['spt_post_type']) ? $spt_settings['spt_post_type'] : 'post';
@@ -202,52 +205,57 @@ function spt_render_posts_ticker( $atts ) {
         $content .= $atts['no_content_text'];
         $content .= '</span>';
     } else {
-        foreach( $posts as $current_post ) {
-            $post = $current_post; // Set $post global variable to the current post object 
-            setup_postdata( $post ); // Set up "environment"
-            $viewable = is_post_type_viewable( get_post_type() );
-            $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
-            $link = get_permalink();
-            if( get_post_type() == 'spt_ticker' ) {
-                if( metadata_exists( 'post', get_the_ID(), '_spt_ticker_custom_link' ) ) {
-                    $link = esc_attr( get_post_meta( get_the_ID(), '_spt_ticker_custom_link', true ) );
+        try {
+            foreach( $posts as $post ) {
+                setup_postdata( $post ); // Set up "environment"
+                $viewable = is_post_type_viewable( get_post_type() );
+                $content .= '<span class="spt-item" style="padding: '.$atts['content_link_padding'].';">';
+                $link = get_permalink();
+                if( get_post_type() == 'spt_ticker' ) {
+                    if( metadata_exists( 'post', get_the_ID(), '_spt_ticker_custom_link' ) ) {
+                        $link = esc_attr( get_post_meta( get_the_ID(), '_spt_ticker_custom_link', true ) );
+                    } else {
+                        $link = '';
+                    }
+                }
+                if( $atts['hyperlink'] == 'yes' && ( $viewable || !empty( $link ) ) ) {
+                    $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', esc_url( $link ) ).'">';
+                }
+                $title = apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) ).apply_filters( 'spt_post_title_postfix', '' );
+                $separator_start = '';
+                $separator_end = '';
+                if( $atts['post_info'] != 'none' ) {
+                    $info = '';
+                    if ( $atts['post_info'] == 'pub_date' ) {
+                        $info .= get_the_date();
+                    } elseif ( $atts['post_info'] == 'mod_date' ) {
+                        $info .= get_the_modified_date();
+                    } elseif ( $atts['post_info'] == 'pub_author' ) {
+                        $info .= get_the_author();
+                    } elseif ( $atts['post_info'] == 'mod_author' ) {
+                        $info .= get_the_modified_author();
+                    } elseif ( $atts['post_info'] == 'excerpt' ) {
+                        $info .= substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '250' ) );
+                    }
+                    $separator_start = '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
+                    $separator_end = '<span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_end'].$info.$atts['post_info_start'].'</span><span class="spt-separator">'.$atts['post_info_sep'].'</span>';
+                }
+                if( $atts['post_info_position'] == 'left' ) {
+                    $content .= $separator_end . $title;
                 } else {
-                    $link = '';
+                    $content .= $title . $separator_start;
                 }
-            }
-            if( $atts['hyperlink'] == 'yes' && ( $viewable || !empty( $link ) ) ) {
-                $content .= '<a class="'.$linkclass.'"'.$no_follow.' style="color: '.$atts['content_colour'].';" target="'.$atts['target'].'" href="'.apply_filters( 'spt_post_custom_redir_link', esc_url( $link ) ).'">';
-            }
-            $title = apply_filters( 'spt_post_title_prefix', '' ).substr( get_the_title(), 0, apply_filters( 'spt_post_title_length', '120' ) ).apply_filters( 'spt_post_title_postfix', '' );
-            $separator_start = '';
-            $separator_end = '';
-            if( $atts['post_info'] != 'none' ) {
-                $info = '';
-                if ( $atts['post_info'] == 'pub_date' ) {
-                    $info .= get_the_date();
-                } elseif ( $atts['post_info'] == 'mod_date' ) {
-                    $info .= get_the_modified_date();
-                } elseif ( $atts['post_info'] == 'pub_author' ) {
-                    $info .= get_the_author();
-                } elseif ( $atts['post_info'] == 'mod_author' ) {
-                    $info .= get_the_modified_author();
-                } elseif ( $atts['post_info'] == 'excerpt' ) {
-                    $info .= substr( get_the_excerpt(), 0, apply_filters( 'spt_post_excerpt_length', '250' ) );
+                if( $atts['hyperlink'] == 'yes' && ( $viewable || !empty( $link ) ) ) {
+                    $content .= '</a>';
                 }
-                $separator_start = '<span class="spt-separator">'.$atts['post_info_sep'].'</span><span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_start'].$info.$atts['post_info_end'].'</span>';
-                $separator_end = '<span class="spt-postinfo" style="color: '.$atts['post_info_colour'].';">'.$atts['post_info_end'].$info.$atts['post_info_start'].'</span><span class="spt-separator">'.$atts['post_info_sep'].'</span>';
+                $content .= '</span>';
             }
-            if( $atts['post_info_position'] == 'left' ) {
-                $content .= $separator_end . $title;
-            } else {
-                $content .= $title . $separator_start;
-            }
-            if( $atts['hyperlink'] == 'yes' && ( $viewable || !empty( $link ) ) ) {
-                $content .= '</a>';
-            }
-            $content .= '</span>';
+        } finally {
+            wp_reset_postdata();
+      
+            // Restore the global post object
+            $post = $save_post;
         }
-        wp_reset_postdata();
     }
     $content .= '</div>'; // end marquee box
     $content .= '</div>'; // end border container

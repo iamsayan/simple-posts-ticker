@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: Simple Posts Ticker\n"
-"POT-Creation-Date: 2019-12-21 21:36+0530\n"
+"POT-Creation-Date: 2019-12-22 00:05+0530\n"
 "PO-Revision-Date: 2019-03-21 09:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -460,7 +460,7 @@ msgstr ""
 msgid "Set what you want to do when there are no posts available to show."
 msgstr ""
 
-#: admin/settings-fields.php:565 public/render.php:69
+#: admin/settings-fields.php:565 public/render.php:72
 msgid "There are no matching posts to show"
 msgstr ""
 

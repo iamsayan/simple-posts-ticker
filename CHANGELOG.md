@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.1.6
+Release Date: September 2, 2023
+
+* Added: Input Sanitization.
+* Updated: JS Libraries.
+* Tested upto WordPress v6.3.
+
+## 1.1.5
+Release Date: March 23, 2020
+
+* Added: WPML Compatibility.
+* Tested upto WordPress v5.4.
 ## 1.1.4
 Release Date: December 21, 2019
 

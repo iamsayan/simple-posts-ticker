@@ -1,9 +1,9 @@
 === Simple Posts Ticker - Easy, Lightweight & Flexible ===
-Contributors: Infosatech
+Contributors: infosatech
 Tags: marquee, posts ticker, jQuery posts ticker, news headlines, news ticker, event ticker, posts scroll
 Requires at least: 4.6
-Tested up to: 5.3
-Stable tag: 1.1.4
+Tested up to: 6.3
+Stable tag: 1.1.6
 Requires PHP: 5.6
 Donate link: https://www.paypal.me/iamsayan/
 License: GPLv3
@@ -15,7 +15,7 @@ The Simple Posts Ticker plugin is a small tool that shows your most recent posts
 
 The Simple Posts Ticker plugin brings a lightweight, flexible and easy way to configure news ticker plugin to WordPress website. This plugin adds scrolling horizontal posts tickers to your site. It can be use as shortcode or PHP codes. You can customize every setting of this plugin in the admin dashboard.
 
-### Advantage of this plugin
+### Advantages of this plugin
 
 * Lightweight jQuery.
 * CSS Ticker Animation.
@@ -83,13 +83,25 @@ Yes. this plugin automatically detects all custom post types and shows all of th
 
 If you like Simple Posts Ticker, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
+= 1.1.6 =
+Release Date: September 2, 2023
+
+* Added: Input Sanitization.
+* Updated: JS Libraries.
+* Tested upto WordPress v6.3.
+
+= 1.1.5 =
+Release Date: March 23, 2020
+
+* Added: WPML Compatibility.
+* Tested upto WordPress v5.4.
+
 = 1.1.4 =
 Release Date: December 21, 2019
 
 * Added: It is now possible to use multiple posts type in a single ticker.
 * Added: `Include` & `Exclude` shortcode parameters to include and exclude posts respectively.
 * Improved: Query Input using sanitization.
-* Improved: Handling of Post Loop.
 
 = 1.1.3 =
 Release Date: December 20, 2019

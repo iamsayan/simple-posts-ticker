@@ -17,7 +17,7 @@ function spt_donate_admin_notice() {
     if ( spt_plugin_installed_time_donate() > strtotime( '-360 hours' )
         || '1' === get_option( 'spt_plugin_dismiss_donate_notice' )
         || ! current_user_can( 'manage_options' )
-        || apply_filters( 'spt_plugin_show_sticky_donate_notice', false ) ) {
+        || apply_filters( 'spt_plugin_hide_sticky_donate_notice', false ) ) {
         return;
     }
 
@@ -31,7 +31,7 @@ function spt_donate_admin_notice() {
         <a href="<?php echo $no_thanks; ?>" class="later"><strong><?php _e( 'Nope&#44; maybe later', 'simple-posts-ticker' ); ?></strong></a>&nbsp;<strong>|</strong>
         <a href="<?php echo $dismiss; ?>" class="never"><strong><?php _e( 'I don\'t want to donate', 'simple-posts-ticker' ); ?></strong></a></p>
         </div>
-<?php
+    <?php
 }
 
 function spt_dismiss_donate_admin_notice() {

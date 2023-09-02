@@ -3,9 +3,9 @@
  * Plugin Name: Simple Posts Ticker
  * Plugin URI: https://wordpress.org/plugins/simple-posts-ticker/
  * Description: The Simple Posts Ticker plugin is a small tool that shows your most recent posts in a marquee style.
- * Version: 1.1.4
+ * Version: 1.1.6
  * Author: Sayan Datta
- * Author URI: https://about.me/iamsayan
+ * Author URI: https://sayandatta.co.in
  * License: GPLv3
  * Text Domain: simple-posts-ticker
  * Domain Path: /languages
@@ -35,10 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SPT_PLUGIN_VERSION', '1.1.4' );
-
-// debug scripts
-//define( 'SPT_PLUGIN_ENABLE_DEBUG', 'true' );
+define( 'SPT_PLUGIN_VERSION', '1.1.6' );
 
 // Internationalization
 add_action( 'plugins_loaded', 'spt_plugin_load_textdomain' );
@@ -74,65 +71,43 @@ function spt_plugin_deactivation() {
     flush_rewrite_rules();
 }
 
-function spt_plugin_install_notice() { 
+add_action( 'admin_notices', function () { 
     if( get_transient( 'spt-admin-notice-on-activation' ) ) { ?>
         <div class="notice notice-success">
             <p><strong><?php printf( __( 'Thanks for installing %1$s v%2$s plugin. Click <a href="%3$s">here</a> to configure plugin settings.', 'simple-posts-ticker' ), 'Simple Posts Ticker', SPT_PLUGIN_VERSION, admin_url( 'options-general.php?page=simple-posts-ticker' ) ); ?></strong></p>
         </div> <?php
         delete_transient( 'spt-admin-notice-on-activation' );
     }
-}
+} );
 
-add_action( 'admin_notices', 'spt_plugin_install_notice' ); 
-
-function spt_load_admin_assets() {
-    $ver = SPT_PLUGIN_VERSION;
-    if( defined( 'SPT_PLUGIN_ENABLE_DEBUG' ) ) {
-        $ver = time();
-    }
-
+add_action( 'admin_enqueue_scripts', function () {
     // get current screen
     $current_screen = get_current_screen();
-    if ( strpos( $current_screen->base, 'simple-posts-ticker') !== false ) {
-        wp_enqueue_style( 'spt-styles', plugins_url( 'admin/css/admin.min.css', __FILE__ ), array(), $ver );
-        wp_enqueue_style( 'spt-selectize-css', plugins_url( 'admin/css/selectize.min.css', __FILE__ ), array(), '0.12.6' );
-        
-        wp_enqueue_script( 'spt-admin-js', plugins_url( 'admin/js/admin.min.js', __FILE__ ), array(), $ver );
-        wp_enqueue_script( 'spt-selectize-js', plugins_url( 'admin/js/selectize.min.js', __FILE__ ), array(), '0.12.6' );
-        
-        wp_enqueue_style( 'wp-color-picker' );
-        wp_enqueue_script( 'wp-color-picker' );
-    }
-}
-
-add_action( 'admin_enqueue_scripts', 'spt_load_admin_assets' );
-
-function spt_enqueue_frontend_files() {
-    $ver = SPT_PLUGIN_VERSION;
-    if( defined( 'SPT_PLUGIN_ENABLE_DEBUG' ) ) {
-        $ver = time();
+    if ( strpos( $current_screen->base, 'simple-posts-ticker' ) === false ) {
+        return;
     }
 
-    wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/jquery.marquee.min.js', __FILE__ ), array( 'jquery' ), '1.5.0', true );
-    wp_enqueue_script( 'spt-init-js', plugins_url( 'public/js/ticker.min.js', __FILE__ ), array( 'jquery' ), $ver, true );
-}
+    wp_enqueue_style( 'spt-styles', plugins_url( 'admin/css/admin.min.css', __FILE__ ), array(), SPT_PLUGIN_VERSION );
+    wp_enqueue_style( 'spt-selectize-css', plugins_url( 'admin/css/selectize.min.css', __FILE__ ), array(), '0.15.2' );
+    
+    wp_enqueue_script( 'spt-admin-js', plugins_url( 'admin/js/admin.min.js', __FILE__ ), array(), SPT_PLUGIN_VERSION );
+    wp_enqueue_script( 'spt-selectize-js', plugins_url( 'admin/js/selectize.min.js', __FILE__ ), array(), '0.15.2' );
+    
+    wp_enqueue_style( 'wp-color-picker' );
+    wp_enqueue_script( 'wp-color-picker' );
+} );
 
-add_action( 'wp_enqueue_scripts', 'spt_enqueue_frontend_files' );
+add_action( 'wp_enqueue_scripts', function () {
+    wp_enqueue_script( 'spt-ticker-js', plugins_url( 'public/js/jquery.marquee.min.js', __FILE__ ), array( 'jquery' ), '1.5.2', true );
+    wp_enqueue_script( 'spt-init-js', plugins_url( 'public/js/ticker.min.js', __FILE__ ), array( 'jquery' ), SPT_PLUGIN_VERSION, true );
+} );
 
-function spt_ajax_save_admin_scripts() {
-    if ( is_admin() ) { 
-        // Embed the Script on our Plugin's Option Page Only
-        if ( isset($_GET['page']) && $_GET['page'] == 'simple-posts-ticker' ) {
-            wp_enqueue_script( 'jquery' );
-            wp_enqueue_script( 'jquery-form' );
-        }
+add_action( 'admin_init', function () {
+    if ( is_admin() && isset( $_GET['page'] ) && $_GET['page'] == 'simple-posts-ticker' ) {
+        wp_enqueue_script( 'jquery' );
+        wp_enqueue_script( 'jquery-form' );
     }
-}
-
-add_action( 'admin_init', 'spt_ajax_save_admin_scripts' );
-
-// register settings
-add_action( 'admin_init', 'spt_register_plugin_settings' );
+} );
 
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-loader.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-fields.php';
@@ -140,44 +115,34 @@ require_once plugin_dir_path( __FILE__ ) . 'admin/meta-box.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/post-type.php';
 
 // register admin menu
-add_action( 'admin_menu', 'spt_admin_menu' );
-
-function spt_admin_menu() {
-    //Add admin menu option
-    add_submenu_page( 'options-general.php', __( 'Simple Posts Ticker', 'simple-posts-ticker' ), __( 'Simple Posts Ticker', 'simple-posts-ticker' ), 'manage_options', 'simple-posts-ticker', 'spt_plugin_settings_page' );
-}
-
-function spt_plugin_settings_page() {
-    require_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
-}
+add_action( 'admin_menu', function () {
+    add_submenu_page( 'options-general.php', __( 'Simple Posts Ticker', 'simple-posts-ticker' ), __( 'Simple Posts Ticker', 'simple-posts-ticker' ), 'manage_options', 'simple-posts-ticker', function () {
+        require_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
+    } );
+} );
 
 require_once plugin_dir_path( __FILE__ ) . 'admin/notice.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/donate.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/tools.php';
-
 require_once plugin_dir_path( __FILE__ ) . 'public/render.php';
 require_once plugin_dir_path( __FILE__ ) . 'public/load.php';
 
-// add action links
-function spt_add_action_links ( $links ) {
+// plugin action links
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), function ( $links ) {
     $sptlinks = array(
         '<a href="' . admin_url( 'options-general.php?page=simple-posts-ticker' ) . '">' . __( 'Settings', 'simple-posts-ticker' ) . '</a>',
     );
     return array_merge( $sptlinks, $links );
-}
+} );
 
-function spt_plugin_meta_links( $links, $file ) {
-    $plugin = plugin_basename(__FILE__);
-    if ( $file == $plugin ) // only for this plugin
+// Add plugin riw item.
+add_filter( 'plugin_row_meta', function ( $links, $file ) {
+    $plugin = plugin_basename( __FILE__ );
+    if ( $file == $plugin ) { // only for this plugin
         return array_merge( $links, 
             array( '<a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank">' . __( 'Support', 'simple-posts-ticker' ) . '</a>' ),
             array( '<a href="https://www.paypal.me/iamsayan/" target="_blank">' . __( 'Donate', 'simple-posts-ticker' ) . '</a>' )
         );
+    }
     return $links;
-}
-
-// plugin action links
-add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'spt_add_action_links', 10, 2 );
-
-// plugin row elements
-add_filter( 'plugin_row_meta', 'spt_plugin_meta_links', 10, 2 );
+}, 10, 2 );

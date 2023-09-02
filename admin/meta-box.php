@@ -32,7 +32,7 @@ function spt_meta_box_callback( $post ) {
     wp_nonce_field( 'spt_meta_box_build_nonce', 'spt_meta_box_nonce' );
     // retrieve post id
     $urlboxMeta = get_post_meta( $post->ID, '_spt_ticker_custom_link', true );
-    $url = isset( $urlboxMeta ) ? esc_attr( $urlboxMeta ) : ''; ?>
+    $url = isset( $urlboxMeta ) ? esc_url( $urlboxMeta ) : ''; ?>
 
     <div style="margin-bottom: -12px;">
         <p class="meta-options">

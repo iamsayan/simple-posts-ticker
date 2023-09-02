@@ -33,21 +33,21 @@ function spt_render_posts_ticker( $atts ) {
     $label_text_size = !empty($spt_settings['spt_label_font_size']) ? $spt_settings['spt_label_font_size'] : '100%';
     $label_margin = !empty($spt_settings['spt_margin']) ? $spt_settings['spt_margin'] : '0';
     $label_padding = !empty($spt_settings['spt_padding']) ? $spt_settings['spt_padding'] : '0 10px';
-    $label_colour = !empty($spt_settings['spt_label_text_colour']) ? spt_validateHtmlColour($spt_settings['spt_label_text_colour']) : 'inherit';
-    $label_bg_colour = !empty($spt_settings['spt_label_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_label_bg_colour']) : 'inherit';
+    $label_colour = !empty($spt_settings['spt_label_text_colour']) ? spt_validate_html_color($spt_settings['spt_label_text_colour']) : 'inherit';
+    $label_bg_colour = !empty($spt_settings['spt_label_bg_colour']) ? spt_validate_html_color($spt_settings['spt_label_bg_colour']) : 'inherit';
     
     // border options
     $ticker_border = isset($spt_settings['spt_border']) ? $spt_settings['spt_border'] : 'solid';
     $ticker_border_width = !empty($spt_settings['spt_border_width']) ? $spt_settings['spt_border_width'] : '3px';
     $ticker_border_radius = !empty($spt_settings['spt_border_radius']) ? $spt_settings['spt_border_radius'] : '0px';
-    $ticker_border_colour = !empty($spt_settings['spt_border_colour']) ? spt_validateHtmlColour($spt_settings['spt_border_colour']) : $label_bg_colour;
+    $ticker_border_colour = !empty($spt_settings['spt_border_colour']) ? spt_validate_html_color($spt_settings['spt_border_colour']) : $label_bg_colour;
     
     // content options
     $content_size = !empty($spt_settings['spt_size']) ? $spt_settings['spt_size'] : '100%';
     $content_margin = !empty($spt_settings['spt_ticker_margin']) ? $spt_settings['spt_ticker_margin'] : '0';
     $content_padding = !empty($spt_settings['spt_ticker_padding']) ? $spt_settings['spt_ticker_padding'] : '0';
-    $content_colour = !empty($spt_settings['spt_ticker_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_colour']) : '#333333';
-    $content_bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? spt_validateHtmlColour($spt_settings['spt_ticker_bg_colour']) : 'inherit';
+    $content_colour = !empty($spt_settings['spt_ticker_colour']) ? spt_validate_html_color($spt_settings['spt_ticker_colour']) : '#333333';
+    $content_bg_colour = !empty($spt_settings['spt_ticker_bg_colour']) ? spt_validate_html_color($spt_settings['spt_ticker_bg_colour']) : 'inherit';
     $content_link_padding = !empty($spt_settings['spt_ticker_link_padding']) ? $spt_settings['spt_ticker_link_padding'] : '0 10px';
     
     //ticker settings
@@ -66,62 +66,64 @@ function spt_render_posts_ticker( $atts ) {
     $nofollow = isset($spt_settings['spt_no_follow']) ? $spt_settings['spt_no_follow'] : 'no';
     $post_info = isset($spt_settings['spt_show_info']) ? $spt_settings['spt_show_info'] : 'none';
     $post_info_position = isset($spt_settings['spt_show_info_position']) ? $spt_settings['spt_show_info_position'] : 'right';
-    $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validateHtmlColour($spt_settings['spt_post_info_colour']) : $content_colour;
+    $post_info_colour = !empty($spt_settings['spt_post_info_colour']) ? spt_validate_html_color($spt_settings['spt_post_info_colour']) : $content_colour;
     $post_info_sep = !empty($spt_settings['spt_post_info_sep']) ? $spt_settings['spt_post_info_sep'] : '';
     $no_content = isset($spt_settings['spt_no_content_type']) ? $spt_settings['spt_no_content_type'] : 'none';
     $no_content_text = !empty($spt_settings['spt_no_content_text']) ? $spt_settings['spt_no_content_text'] : __( 'There are no matching posts to show', 'simple-posts-ticker' );
 
-    $atts = shortcode_atts(
-		array(
-            'num_posts'                 => $num_posts,
-            'post_type'                 => $post_type,
-            'order_by'                  => $orderby,
-            'order'                     => $order,
-            'category'                  => $category,
-            'show_label'                => $label,
-            'label_position'            => $label_position,
-            'label_text'                => $label_text,
-            'label_text_size'           => $label_text_size,
-            'label_margin'              => $label_margin,
-            'label_padding'             => $label_padding,
-            'label_colour'              => $label_colour,
-            'label_bg_colour'           => $label_bg_colour,
-            'ticker_border'             => $ticker_border,
-            'ticker_border_width'       => $ticker_border_width,
-            'ticker_border_radius'      => $ticker_border_radius,
-            'ticker_border_colour'      => $ticker_border_colour,
-            'content_size'              => $content_size,
-            'content_margin'            => $content_margin,
-            'content_padding'           => $content_padding,
-            'content_colour'            => $content_colour,
-            'content_bg_colour'         => $content_bg_colour,
-            'content_link_padding'      => $content_link_padding,
-            'ticker_direction'          => $ticker_direction,
-            'ticker_cflow'              => $ticker_cflow,
-            'ticker_loop'               => $ticker_loop,
-            'ticker_pause'              => $ticker_pause,
-            'ticker_duration'           => $ticker_duration,
-            'ticker_speed'              => $ticker_speed,
-            'ticker_visible'            => $ticker_visible,
-            'ticker_delay'              => $ticker_delay,
-            'hyperlink'                 => $hyperlink,
-            'target'                    => $target,
-            'no_follow'                 => $nofollow,
-            'post_info'                 => $post_info,
-            'post_info_position'        => $post_info_position,
-            'post_info_colour'          => $post_info_colour,
-            'post_info_sep'             => $post_info_sep,
-            'no_content'                => $no_content,
-            'no_content_text'           => $no_content_text,
-            'category_name'             => '',
-            'post_info_start'           => '',
-            'post_info_end'             => '',
-            'link_class'                => '',
-            'css_class'                 => 'spt-marquee',
-            'exclude'                   => array(),
-            'include'                   => array(),
-        ), $atts, 'spt-posts-ticker' );
-        
+    $atts = shortcode_atts( array(
+        'num_posts'                 => $num_posts,
+        'post_type'                 => $post_type,
+        'order_by'                  => $orderby,
+        'order'                     => $order,
+        'category'                  => $category,
+        'show_label'                => $label,
+        'label_position'            => $label_position,
+        'label_text'                => $label_text,
+        'label_text_size'           => $label_text_size,
+        'label_margin'              => $label_margin,
+        'label_padding'             => $label_padding,
+        'label_colour'              => $label_colour,
+        'label_bg_colour'           => $label_bg_colour,
+        'ticker_border'             => $ticker_border,
+        'ticker_border_width'       => $ticker_border_width,
+        'ticker_border_radius'      => $ticker_border_radius,
+        'ticker_border_colour'      => $ticker_border_colour,
+        'content_size'              => $content_size,
+        'content_margin'            => $content_margin,
+        'content_padding'           => $content_padding,
+        'content_colour'            => $content_colour,
+        'content_bg_colour'         => $content_bg_colour,
+        'content_link_padding'      => $content_link_padding,
+        'ticker_direction'          => $ticker_direction,
+        'ticker_cflow'              => $ticker_cflow,
+        'ticker_loop'               => $ticker_loop,
+        'ticker_pause'              => $ticker_pause,
+        'ticker_duration'           => $ticker_duration,
+        'ticker_speed'              => $ticker_speed,
+        'ticker_visible'            => $ticker_visible,
+        'ticker_delay'              => $ticker_delay,
+        'hyperlink'                 => $hyperlink,
+        'target'                    => $target,
+        'no_follow'                 => $nofollow,
+        'post_info'                 => $post_info,
+        'post_info_position'        => $post_info_position,
+        'post_info_colour'          => $post_info_colour,
+        'post_info_sep'             => $post_info_sep,
+        'no_content'                => $no_content,
+        'no_content_text'           => $no_content_text,
+        'category_name'             => '',
+        'post_info_start'           => '',
+        'post_info_end'             => '',
+        'link_class'                => '',
+        'css_class'                 => 'spt-marquee',
+        'exclude'                   => array(),
+        'include'                   => array(),
+    ), $atts, 'spt-posts-ticker' );
+
+    $atts = map_deep( $atts, 'wp_unslash' );
+    $atts = map_deep( $atts, 'esc_attr' );
+
     $comma = ',';
     $scvalue = $atts['post_type'];
     if( strpos( $scvalue, $comma ) !== false ) {
@@ -269,7 +271,7 @@ function spt_render_posts_ticker( $atts ) {
     return $content;
 }
 
-function spt_validateHtmlColour( $input ) {
+function spt_validate_html_color( $input ) {
 	if( preg_match( '/^#[a-f0-9]{6}$/i', $input ) ) {
 		return $input;
 	} else {

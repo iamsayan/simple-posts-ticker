@@ -235,7 +235,7 @@
                     </div>
                     <span class="coffee-heading"><?php _e( 'Buy me a coffee!', 'simple-posts-ticker' ); ?></span>
                     <p style="text-align: justify;"><?php printf( __( 'Thank you for using %s. If you found the plugin useful buy me a coffee! Your donation will motivate and make me happy for all the efforts. You can donate via PayPal.', 'simple-posts-ticker' ), '<strong>Simple Posts Ticker v' . SPT_PLUGIN_VERSION . '</strong>' ); ?></strong></p>
-                    <p style="text-align: justify; font-size: 12px; font-style: italic;">Developed with <span style="color:#e25555;">♥</span> by <a href="https://about.me/iamsayan" target="_blank" style="font-weight: 500;">Sayan Datta</a> | <a href="https://www.fiverr.com/iamsayan" target="_blank" style="font-weight: 500;">Hire Me</a> | <a href="https://github.com/iamsayan/simple-posts-ticker" target="_blank" style="font-weight: 500;">GitHub</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank" style="font-weight: 500;">Support</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" style="font-weight: 500;">Rate it</a> (<span style="color:#ffa000;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>) on WordPress.org, if you like this plugin.</p>
+                    <p style="text-align: justify; font-size: 12px; font-style: italic;">Developed with <span style="color:#e25555;">♥</span> by <a href="https://sayandatta.in" target="_blank" style="font-weight: 500;">Sayan Datta</a> | <a href="mailto:iamsayan@pm.me" target="_blank" style="font-weight: 500;">Hire Me</a> | <a href="https://github.com/iamsayan/simple-posts-ticker" target="_blank" style="font-weight: 500;">GitHub</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker" target="_blank" style="font-weight: 500;">Support</a> | <a href="https://wordpress.org/support/plugin/simple-posts-ticker/reviews/?filter=5#new-post" target="_blank" style="font-weight: 500;">Rate it</a> (<span style="color:#ffa000;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>) on WordPress.org, if you like this plugin.</p>
                 </div>
                 <div id="progressMessage" class="progressModal" style="display:none;">
                     <?php _e( 'Please wait...', 'simple-posts-ticker' ); ?>
@@ -279,7 +279,7 @@
                         <div class="misc-pub-section">
                             <span class="dashicons dashicons-admin-comments"></span>
                             <label>
-                                <strong><a href="https://wordpress.org/plugins/ultimate-facebook-comments/" target="_blank">Ultimate Facebook Comments</a>: </strong>
+                                <strong><a href="https://wordpress.org/plugins/ultimate-facebook-comments/" target="_blank">Ultimate Social Comments</a>: </strong>
                                 <?php _e( 'Ultimate Facebook Comment Solution with instant email notification for any WordPress Website.', 'simple-posts-ticker' ); ?>
                             </label>
                         </div>

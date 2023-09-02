@@ -1,4 +1,4 @@
-![alt text](https://github.com/iamsayan/simple-posts-ticker/raw/master/banner.png "Plugin Banner")
+![Simple Posts Ticker](.github/banner.png "Plugin Banner")
 
 # Simple Posts Ticker
 
@@ -10,7 +10,7 @@ The Simple Posts Ticker plugin is a small tool that shows your most recent posts
 
 The Simple Posts Ticker plugin brings a lightweight, flexible and easy way to configure news ticker plugin to WordPress website. This plugin adds scrolling horizontal posts tickers to your site. It can be use as shortcode or PHP codes. You can customize every setting of this plugin in the admin dashboard.
 
-### Advantage of this plugin
+### Advantages of this plugin
 
 * Lightweight jQuery.
 * CSS Ticker Animation.

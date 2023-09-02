@@ -1,0 +1,9 @@
+<wpml-config>
+    <admin-texts>
+        <key name="spt_plugin_settings">
+            <key name="spt_label_text" />
+            <key name="spt_no_content_text" />
+            <key name="spt_post_info_sep" />
+        </key>
+    </admin-texts>   
+</wpml-config>

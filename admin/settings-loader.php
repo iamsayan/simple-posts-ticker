@@ -9,6 +9,9 @@
  * @license    http://www.gnu.org/licenses/ GNU General Public License
  */
 
+ // register settings
+add_action( 'admin_init', 'spt_register_plugin_settings' );
+
 function spt_register_plugin_settings() {
 
     add_settings_section('spt_plugin_main_section', '', null, 'spt_plugin_main_option');

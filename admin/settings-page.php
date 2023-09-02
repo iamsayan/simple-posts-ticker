@@ -277,6 +277,14 @@
                         </div>
                         <hr>
                         <div class="misc-pub-section">
+                            <span class="dashicons dashicons-update"></span>
+                            <label>
+                                <strong><a href="https://wordpress.org/plugins/wp-auto-republish/" target="_blank">RevivePress</a>: </strong>
+                                <?php _e( 'Automatically republish you old evergreen content to grab better SEO.', 'simple-posts-ticker' ); ?>
+                            </label>
+                        </div>
+                        <hr>
+                        <div class="misc-pub-section">
                             <span class="dashicons dashicons-admin-comments"></span>
                             <label>
                                 <strong><a href="https://wordpress.org/plugins/ultimate-facebook-comments/" target="_blank">Ultimate Social Comments</a>: </strong>
@@ -297,14 +305,6 @@
                             <label>
                                 <strong><a href="https://wordpress.org/plugins/remove-wp-meta-tags/" target="_blank">Easy Header Footer</a>: </strong>
                                 <?php _e( 'Add custom code and remove the unwanted meta tags, links from the source code and many more.', 'simple-posts-ticker' ); ?>
-                            </label>
-                        </div>
-                        <hr>
-                        <div class="misc-pub-section">
-                            <span class="dashicons dashicons-update"></span>
-                            <label>
-                                <strong><a href="https://wordpress.org/plugins/wp-auto-republish/" target="_blank">WP Auto Republish</a>: </strong>
-                                <?php _e( 'Automatically republish you old evergreen content to grab better SEO.', 'simple-posts-ticker' ); ?>
                             </label>
                         </div>
                     </div>

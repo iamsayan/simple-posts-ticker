@@ -91,7 +91,7 @@ div.postbox {
 .coffee-box {
     padding: 15px 5px 15px 15px;
     border: 1px solid #4CAF50;
-    padding-left: 18%;
+    padding-left: 150px;
     background: url(../images/coffee.svg) no-repeat;
     border-radius: 3px;
     background-position: 30px center;

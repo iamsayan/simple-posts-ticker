@@ -371,7 +371,7 @@ function spt_duration_display() {
     if( empty($spt_settings['spt_duration']) ) {
         $spt_settings['spt_duration'] = '5000';
     } ?>  <input id="spt-duration" name="spt_plugin_settings[spt_duration]" type="number" size="30" min="0" style="width:30%;" required value="<?php if (isset($spt_settings['spt_duration'])) { echo esc_attr( $spt_settings['spt_duration'] ); } ?>" />
-        &nbsp;&nbsp;<span class="tooltip" title="<?php esc_attr_e( 'Duration in milliseconds in which you want your element to travel. Default: 5000. Higher number indicates high speed and lower number indicates low speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
+        &nbsp;&nbsp;<span class="tooltip" title="<?php esc_attr_e( 'Duration in milliseconds in which you want your element to travel. Default: 5000. Higher number indicates low speed and lower number indicates high speed.', 'simple-posts-ticker' ); ?>"><span title="" class="dashicons dashicons-editor-help"></span></span>
     <?php
 }
 
